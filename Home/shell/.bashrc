@@ -33,6 +33,9 @@ alias topProc="ps aux | sort -nk +4 | tail"
 alias ldisk="sudo lsblk -o name,mountpoint,label,size,uuid,type"
 #export PATH=$PATH:/home/ash/.bin/gcc-arm-none-eabi-5_4-2016q2/bin
 
+alias rcp='rsync -av -P'
+alias rmv='rsync -av -P --remove-source-files'
+alias rcl='find . -type d -empty -delete'
 
 export _PS1='> '
 export PS1='\[\033[38;5;160m\]\u\
