@@ -1,2 +1,10 @@
 # Specify filepatterns you want git to ignore.
+**/*.pem
+*~
+**/systemd/user/*.target*
 
+Home/gtk/**
+!Home/gtk/.config/gtk-3.0/gtk.css
+!Home/gtk/.config/gtk-3.0/settings.ini
+
+Home/ssh/*
