@@ -1,0 +1,3 @@
+[submodule "tyrannical"]
+  path = awesome/.config/awesome/tyrannical
+  url = https://github.com/Elv13/tyrannical.git

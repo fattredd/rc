@@ -1,0 +1,10 @@
+# Set cheat paths
+export DEFAULT_CHEAT_DIR='/path/to/my/cheats'
+export CHEATPATH="$CHEATPATH:/path/to/more/cheats"
+
+# Enable syntax highlighting
+export CHEATCOLORS=true
+
+# Edit cheats
+# stored in ~/.cheats/ by default
+cheat -e foo

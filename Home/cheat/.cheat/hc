@@ -1,0 +1,4 @@
+                    ⎧ h (or ←) ⎫                          ⎧ left
+      ⎧         ⎫   ⎪ j (or ↓) ⎪  means  ⎧ focus frame  ⎫ ⎪ down
+Mod + ⎨ Shift   ⎬ + ⎨ k (or ↑) ⎬  ═════> ⎨ move window  ⎬ ⎨ up
+      ⎩ Control ⎭   ⎩ l (or →) ⎭         ⎩ resize frame ⎭ ⎩ right
