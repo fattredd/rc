@@ -1,0 +1,10 @@
+\.git*
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+.directory   # Dolphin bullshit
+
+^/README.*
+^/LICENSE.*
+^/COPYING

@@ -31,17 +31,46 @@ alias pingReport="ping -i 30 -a"
 alias clockAdd="while sleep 1; do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &"
 alias topProc="ps aux | sort -nk +4 | tail"
 alias ldisk="sudo lsblk -o name,mountpoint,label,size,uuid,type"
-#export PATH=$PATH:/home/ash/.bin/gcc-arm-none-eabi-5_4-2016q2/bin
+alias df='df -h' 
 
 alias rcp='rsync -av -P'
 alias rmv='rsync -av -P --remove-source-files'
 alias rcl='find . -type d -empty -delete'
+alias stow='stow -v -t ~'
+export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
+
+#
+# # ex - archive extractor
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
 
 export _PS1='> '
-export PS1='\[\033[38;5;160m\]\u\
-\[\033[38;5;124m\]@\
-\[\033[38;5;244m\]\h \
-\[\033[38;5;124m\]\w \n\
+
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+export PS1='\[\033[38;5;155m\]\u\
+\[\033[38;5;244m\]@\
+\[\033[38;5;159m\]\h \
+\[\033[38;5;49m\]\w \n\
 \[\033[38;5;16m\]#\
 \[\033[38;5;17m\]#\
 \[\033[38;5;18m\]#\

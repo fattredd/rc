@@ -1,0 +1,5 @@
+audio_quality = {high, medium, low}
+autostart_station = 7
+
+user = cd19741@hotmail.com
+password_command = cat ~/.config/pianobar/password.pem
