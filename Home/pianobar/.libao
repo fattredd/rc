@@ -1,0 +1,4 @@
+# default_driver=alsa
+default_driver=pulse
+# dev=default
+quiet
