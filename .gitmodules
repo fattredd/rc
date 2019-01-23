@@ -1,12 +1,11 @@
 [submodule "Home/awesome/.config/awesome/tyrannical"]
-  path = Home/awesome/.config/awesome/tyrannical
-  url = https://github.com/Elv13/tyrannical.git
+	path = Home/awesome/.config/awesome/tyrannical
+	url = https://github.com/Elv13/tyrannical.git
 
 [submodule "Home/awesome/.config/awesome/lain"]
-  path = Home/awesome/.config/awesome/lain
-  url = https://github.com/lcpz/lain.git
+	path = Home/awesome/.config/awesome/lain
+	url = https://github.com/lcpz/lain.git
 
 [submodule "Home/awesome/.config/awesome/vicious"]
-  path = Home/awesome/.config/awesome/vicious
-  url = https://github.com/vicious-widgets/vicious.git
-
+	path = Home/awesome/.config/awesome/vicious
+	url = https://github.com/vicious-widgets/vicious.git
