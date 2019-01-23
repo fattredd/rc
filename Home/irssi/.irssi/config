@@ -1,0 +1,87 @@
+utf8 = "on";
+
+servers = (
+  {
+    address = "unix.chat";
+    chatnet = "unixchat";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.us.ircnet.net";
+    chatnet = "ircnet";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  unixchat = { type = "IRC"; nick = "fattredd"; };
+  ircnet = { type = "IRC"; nick = "fattredd"; };
+  freenode = { type = "IRC"; nick = "fattredd"; };
+};
+
+channels = (
+  { name = "#linux"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#git"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#bash"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#ascii"; chatnet = "ircnet"; autojoin = "Yes"; },
+  { name = "#unix"; chatnet = "unixchat"; autojoin = "Yes"; },
+  { name = "#unixporn"; chatnet = "unixchat"; autojoin = "Yes"; },
+);
+
+aliases = {
+  graff = "exec -o graff";
+  emote = "exec -o emote";
+  ascii = "exec -o toilet -f future --irc";
+  rusto = "exec -o toilet -f rusto --irc";
+  rustofat = "exec -o toilet -f rustofat --irc";
+  gay = "exec -o toilet -f term --gay --irc";
+  toilet = "exec -o toilet";
+  ns = "msg nickserv";
+  cs = "msg chanserv";
+  os = "msg operserv";
+  w = "win";
+};
+
+settings = {
+  core = { real_name = "JButler"; user_name = "fattredd"; nick = "fattredd"; };
+};
+logs = { };
+statusbar = {
+  default = {
+    window = {
+      items = {
+        barstart = { priority = "100"; };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+
+ignores = (
+  { level = "JOINS PARTS QUITS"; channels = ( "#2f30" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#ascii" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#askee" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#security" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#unixporn" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "##linux" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#git" ); },
+  { mask = "DCC"; level = "ALL"; },
+  { mask = "CTCPS"; level = "ALL"; }
+);
