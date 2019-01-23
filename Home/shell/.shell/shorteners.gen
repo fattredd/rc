@@ -1,0 +1,8 @@
+#
+# Shorteners
+#
+
+alias sf='screenfetch'
+alias pdf='mupdf'
+alias untar='tar -xvf'
+

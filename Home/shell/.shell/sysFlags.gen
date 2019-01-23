@@ -1,0 +1,8 @@
+#
+# System flags
+#
+
+alias ls='ls --color=auto'
+alias df='df -h'
+alias pip='sudo pip'
+alias stow='stow -v -t ~'

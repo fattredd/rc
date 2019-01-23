@@ -1,0 +1,26 @@
+#
+# PS1 prompt
+#
+
+export _PS1='> '
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+function git_branch {
+  local git_status="$(git status 2> /dev/null)"
+  local on_branch="On branch ([^${IFS}]*)"
+  local on_commit="HEAD detached at ([^${IFS}]*)"
+
+  if [[ $git_status =~ $on_branch ]]; then
+    local branch=${BASH_REMATCH[1]}
+    echo "($branch)"
+  elif [[ $git_status =~ $on_commit ]]; then
+    local commit=${BASH_REMATCH[1]}
+    echo "($commit)"
+  fi
+}
+export PS1='\[\033[38;5;155m\]\u\
+\[\033[38;5;244m\]@\
+\[\033[38;5;159m\]\h \
+\[\033[38;5;49m\]\w `git_branch`\n\
+\[\033[38;5;226m\]\$ \
+\[\033[00m\]'
+
