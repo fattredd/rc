@@ -2,6 +2,7 @@
 local gears = require("gears")
 local awful = require("awful")
 local lain = require("lain")
+local tyrannical = require("tyrannical")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -61,16 +62,13 @@ editor = "emacs"
 editor_cmd = editor
 
 -- run_once("konqueror")
-run_once(terminal)
-run_once("firefox")
+-- run_once(terminal)
+-- run_once("firefox")
 run_once("nm-applet")
 run_once("synergy")
+run_once("yakuake")
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -199,31 +197,56 @@ awful.screen.connect_for_each_screen(function(s)
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
     awful.tag.add("", {
         layout = awful.layout.suit.tile,
-        gap = 0,
+        gap = 5,
         screen = s,
-        selected = true,
+	exec_once   = {"konversation"}, 
     })
     awful.tag.add("", {
         layout = awful.layout.suit.tile,
-        gap = 0,
+        gap = 3,
         screen = s,
+	selected = true,
+	exec_once   = {"firefox"},
+	class = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+            "firefox","Firefox","urxvt","URxvt"
+        },
     })
     awful.tag.add("", {
-        layout = lain.layout.centerwork,
+        layout = awful.layout.suit.fair, -- lain.layout.centerwork,
         gap = 5,
         screen = s,
+	exec_once = {terminal},
     })
     awful.tag.add("", {
-        layout = lain.layout.centerwork,
+        layout = awful.layout.suit.tile,
         gap = 5,
         screen = s,
+	exclusive = true,
+	class = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+            "urxvt","URxvt","emacs"
+        },
     })
     awful.tag.add("", {
         layout = lain.layout.termfair,
         gap = 5,
         screen = s,
+	fallback = true,
     })
 
+-- Ignore the tag "exclusive" property for the following clients (matched by classes)
+tyrannical.properties.intrusive = {
+    "ksnapshot"     , "pinentry"       , "gtksu"     , "kcalc"        , "xcalc"               ,
+    "feh"           , "Gradient editor", "About KDE" , "Paste Special", "Background color"    ,
+    "kcolorchooser" , "plasmoidviewer" , "Xephyr"    , "kruler"       , "plasmaengineexplorer",
+}
+
+-- Ignore the tiled layout for the matching clients
+tyrannical.properties.floating = {
+    "MPlayer"      , "pinentry"        , "ksnapshot"  , "pinentry"     , "gtksu"          ,
+    "xine"         , "feh"             , "kmix"       , "kcalc"        , "xcalc"          ,
+    "yakuake"      , "Select Color$"   , "kruler"     , "kcolorchooser", "Paste Special"  ,
+    "New Form"     , "Insert Picture"  , "kcharselect", "mythfrontend" , "plasmoidviewer"
+}
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -556,13 +579,6 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = s.tags[2] } },
-
-    { rule = { class= "sublime_merge", "Sublime_merge" },
-      properties = { screen = 1, tag = s.tags[3] } },
 }
 -- }}}
 
@@ -640,7 +656,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Social Pages
 t = s.tags[1]
 lain.util.useless_gaps_resize(4, s , t)
-awful.layout.set(awful.layout.suit.tile, t)
 
 -- Browser Page
 t = s.tags[2]
