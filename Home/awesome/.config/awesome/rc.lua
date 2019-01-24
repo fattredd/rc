@@ -82,6 +82,7 @@ awful.layout.layouts = {
     lain.layout.termfair.center,
     lain.layout.centerwork,
 }
+lain.util.useless_gap_resize(5)
 -- }}}
 
 -- {{{ Helper functions
@@ -343,6 +344,11 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+
+    -- Gap resizing
+    -- https://github.com/lcpz/lain/wiki/Utilities#useless-gaps-resize
+    awful.key({ modkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end),
+		awful.key({ modkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
