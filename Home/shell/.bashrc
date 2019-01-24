@@ -2,5 +2,10 @@
 # Aliases
 #
 
-for config (~/.shell/*.gen) source $config
-for config (~/.shell/*.bash) source $config
+for config in ~/.shell/*.gen; do
+  source $config
+done
+
+for config in ~/.shell/*.bash; do
+  source $config
+done

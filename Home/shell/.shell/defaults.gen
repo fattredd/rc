@@ -1,16 +1,14 @@
 #
 # Defaults
 #
-if emacs --version; then
+if command -v emacs > /dev/null; then
 	export EDITOR="emacsclient"
 else
 	export EDITOR=nano
 fi
 
-if urxvt --version; then
+if command -v urxvt > /dev/null; then
 	export TERMINAL=urxvt
-elif lxterminal --version; then
-	export TERMINAL=lxterminal
 else
 	export TERMINAL=xterm
 fi
