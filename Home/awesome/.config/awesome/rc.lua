@@ -189,6 +189,8 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+s = awful.screen.focused()
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -556,8 +558,11 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Firefox" },
+      properties = { screen = 1, tag = s.tags[2] } },
+
+    { rule = { class= "sublime_merge", "Sublime_merge" },
+      properties = { screen = 1, tag = s.tags[3] } },
 }
 -- }}}
 
@@ -631,7 +636,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 
-s = awful.screen.focused()
 
 -- Social Pages
 t = s.tags[1]
