@@ -1,0 +1,4 @@
+#
+# Download a youtube playlist, then extract the audio from it
+#
+youtube-dl --verbose --extract-audio --audio-format mp3 -o %(title)s.%(ext)s $@

@@ -116,9 +116,13 @@ widgetStyle=Breeze
 Theme=breeze-dark
 
 [KDE]
+LookAndFeelPackage=org.kde.breezedark.desktop
+ShowDeleteCommand=false
 ShowIconsInMenuItems=true
 ShowIconsOnPushButtons=true
+SingleClick=false
 contrast=4
+widgetStyle=Breeze
 
 [Toolbar style]
 ToolButtonStyle=TextBesideIcon
