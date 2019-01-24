@@ -63,7 +63,8 @@ editor_cmd = editor
 -- run_once("konqueror")
 run_once(terminal)
 run_once("firefox")
-
+run_once("nm-applet")
+run_once("synergy")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
