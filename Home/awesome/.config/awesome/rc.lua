@@ -82,7 +82,7 @@ awful.layout.layouts = {
     lain.layout.termfair.center,
     lain.layout.centerwork,
 }
-lain.util.useless_gap_resize(5)
+
 -- }}}
 
 -- {{{ Helper functions
@@ -629,3 +629,31 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+
+s = awful.screen.focused()
+
+-- Social Pages
+t = s.tags[1]
+lain.util.useless_gaps_resize(4, s , t)
+awful.layout.set(awful.layout.suit.tile, t)
+
+-- Browser Page
+t = s.tags[2]
+lain.util.useless_gaps_resize(3, s , t)
+awful.layout.set(awful.layout.tile, t)
+
+-- CLI Page
+t = s.tags[3]
+lain.util.useless_gaps_resize(3, s , t)
+awful.layout.set(awful.layout.suit.fair, t)
+
+-- Code Page
+t = s.tags[4]
+lain.util.useless_gaps_resize(3, s , t)
+awful.layout.set(awful.layout.suit.tile, t)
+
+-- Net Page
+t = s.tags[5]
+lain.util.useless_gaps_resize(3, s , t)
+awful.layout.set(awful.layout.suit.fairv, t)
