@@ -1,0 +1,112 @@
+[Channel 0]
+EnableNotifications[$d]
+Name=#manjaro
+Password=
+
+[Channel 1]
+EnableNotifications[$d]
+Name=#linux
+Password=
+
+[Channel 2]
+Name=#bash
+Password=
+
+[Channel 3]
+Name=#git
+Password=
+
+[Channel 4]
+EnableNotifications=true
+Name=#manjaro
+Password=
+
+[Channel 5]
+EnableNotifications=true
+Name=#manjaro-talk
+Password=
+
+[Channel 6]
+EnableNotifications=true
+Name=#manjaro-unregistered
+Password=
+
+[Channel 7]
+EnableNotifications=true
+Name=##linux
+Password=
+
+[Identity 0]
+AuthType=nickserv
+AutomaticAway=false
+AutomaticUnaway=false
+AwayInactivity=10
+AwayMessage=
+AwayNick=
+AwayReason=Gone away for now
+Bot=nickserv
+Codec=UTF-8
+Ident=fattredd
+InsertRememberLineOnAway=false
+KickReason=User terminated!
+Name=JButler
+Nicknames=fattredd,fattredd_,fattredd__,fattredd-,fattredd--
+NickservCommand=identify
+PartReason=Konversation terminated!
+Password=@superSecretPassword@
+PemClientCertFile=
+PreShellCommand=
+QuitReason=Konversation terminated!
+Realname=JButler
+ReturnMessage=
+SaslAccount=
+ShowAwayMessage=false
+
+[Identity 1]
+AuthType=nickserv
+AutomaticAway=false
+AutomaticUnaway=false
+AwayInactivity=10
+AwayMessage=
+AwayNick=
+AwayReason=Gone away for now
+Bot=nickserv
+Codec=UTF-8
+Ident=manjaro-user
+InsertRememberLineOnAway=false
+KickReason=User terminated!
+Name=fattredd
+Nicknames=fattredd,fattredd_,fattredd__,fattredd-,fattredd--
+NickservCommand=identify
+PartReason=Konversation terminated!
+Password=@superSecretPassword@
+PemClientCertFile=
+PreShellCommand=
+QuitReason=Konversation terminated!
+Realname=JButler
+ReturnMessage=
+SaslAccount=
+ShowAwayMessage=false
+
+[MainWindow]
+State=AAAA/wAAAAD9AAAAAAAAAoAAAAGrAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Server 0]
+BypassProxy=false
+Password=
+Port=8001
+SSLEnabled=false
+Server=chat.freenode.net
+
+[ServerGroup 0]
+AutoConnect=false
+AutoJoinChannels=Channel 0,Channel 1,Channel 2,Channel 3
+ChannelHistory=Channel 4,Channel 5,Channel 6,Channel 7
+ConnectCommands=
+EnableNotifications=true
+Expanded=false
+Identity=fattredd
+Name=freenode
+NotifyList=
+ServerList=Server 0

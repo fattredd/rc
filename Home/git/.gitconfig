@@ -1,3 +1,6 @@
 [user]
 	name = J.Butler
 	email = fattredd@gmail.com
+[filter "password"]
+	smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
+	clean = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
