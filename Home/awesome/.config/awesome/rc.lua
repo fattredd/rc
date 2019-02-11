@@ -199,12 +199,17 @@ awful.screen.connect_for_each_screen(function(s)
         layout = awful.layout.suit.tile,
         gap = 5,
         screen = s,
-	exec_once   = {"konversation"}, 
+	exclusive = true,
+	exec_once   = {"konversation"},
+	class = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+            "konversation","urxvt","URxvt","irssi","pidgin"
+        },
     })
     awful.tag.add("", {
         layout = awful.layout.suit.tile,
         gap = 3,
         screen = s,
+	exclusive = true,
 	selected = true,
 	exec_once   = {"firefox"},
 	class = { --Accept the following classes, refuse everything else (because of "exclusive=true")
@@ -216,6 +221,10 @@ awful.screen.connect_for_each_screen(function(s)
         gap = 5,
         screen = s,
 	exec_once = {terminal},
+	exclusive = true,
+	class = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+            "urxvt","URxvt"
+        },
     })
     awful.tag.add("", {
         layout = awful.layout.suit.tile,
