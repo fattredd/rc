@@ -1,6 +1,8 @@
 [user]
 	name = J.Butler
 	email = fattredd@gmail.com
+[alias]
+	lg = log --oneline --all --graph --decorate  $*
 [filter "password"]
 	smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
 	clean = sed -e 's/@superSecretPassword@/@superSecretPassword@/'

@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Insert Nums",
+		"ixio",
+		"Log Highlight",
+		"M3U Syntax",
+		"New Moon Color Scheme",
+		"OpenScad",
+		"Package Control",
+		"Pretty JSON",
+		"Text Pastry",
+		"UnicodeCompletion"
+	]
+}

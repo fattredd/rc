@@ -1,0 +1,7 @@
+[
+    {
+        "caption": "Fetch develop:develop",
+        "command": "git",
+        "args": { "argv": ["fetch", "origin", "develop:develop"], }
+    },
+]

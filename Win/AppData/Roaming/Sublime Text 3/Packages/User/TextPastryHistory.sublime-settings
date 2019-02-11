@@ -1,0 +1,487 @@
+{
+	"history":
+	[
+		{
+			"data":
+			{
+				"args":
+				{
+					"start": "1",
+					"step": "1",
+					"stop": "150"
+				},
+				"command": "text_pastry_range",
+				"text": "range 1 150 1"
+			},
+			"key": "fb25443a377f835958c6d7e7fae98af1",
+			"label": "range 1 150 1"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "1 100 3"
+				},
+				"command": "text_pastry_step",
+				"text": "1 100 3"
+			},
+			"key": "d6ab1f8357bf3821a69b5da61a679b6e",
+			"label": "1 100 3"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "1 100"
+				},
+				"command": "text_pastry_step",
+				"text": "1 100"
+			},
+			"key": "cc7d6b765edcc7df3bf820aef92ad13f",
+			"label": "1 100"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "1 0.33 "
+				},
+				"command": "text_pastry_step",
+				"text": "1 0.33 "
+			},
+			"key": "01cec1b964c3255e3499557c9f3640b5",
+			"label": "1 0.33 "
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "null"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find null"
+			},
+			"key": "f535369df2e61d0f0b29b6aaabd271e1",
+			"label": "find null"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "1 0.3333 1"
+				},
+				"command": "text_pastry_step",
+				"text": "1 0.3333 1"
+			},
+			"key": "a7a5efeb7311ea3e6eee4bf1d00cd4b7",
+			"label": "1 0.3333 1"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "0 33 100"
+				},
+				"command": "text_pastry_step",
+				"text": "0 33 100"
+			},
+			"key": "25bcf069dae8adf989776cff9e736f66",
+			"label": "0 33 100"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "0 33 5"
+				},
+				"command": "text_pastry_step",
+				"text": "0 33 5"
+			},
+			"key": "80207d2ed82c0d7cd9c6b156217a9353",
+			"label": "0 33 5"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "0 33 3"
+				},
+				"command": "text_pastry_step",
+				"text": "0 33 3"
+			},
+			"key": "662445342860af85380d8ed9d282965d",
+			"label": "0 33 3"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": ".2:2e-3~6.4f",
+					"threshold": 3
+				},
+				"command": "text_pastry_insert_text",
+				"text": ".2:2e-3~6.4f"
+			},
+			"key": "48a3f3426aadb6ad4469df71292213b2",
+			"label": ".2:2e-3~6.4f"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "0"
+				},
+				"command": "text_pastry_step",
+				"text": "0"
+			},
+			"key": "cfcd208495d565ef66e7dff9f98764da",
+			"label": "0"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "-10:2~3"
+				},
+				"command": "text_pastry_step",
+				"text": "-10:2~3"
+			},
+			"key": "8ac5d0bfb8162ba3aa4e3422e00ac246",
+			"label": "-10:2~3"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "1:0.4"
+				},
+				"command": "text_pastry_step",
+				"text": "1:0.4"
+			},
+			"key": "e5a7290019d3b5df6edf2576cba2193a",
+			"label": "1:0.4"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "1 0.4"
+				},
+				"command": "text_pastry_step",
+				"text": "1 0.4"
+			},
+			"key": "773d1976333be28ea3607fb57265db21",
+			"label": "1 0.4"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "280"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 280"
+			},
+			"key": "5a33f3289bc6782007e3c03e48e1d724",
+			"label": "find 280"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "513"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 513"
+			},
+			"key": "093fa2cd0045f49ce6e96d6bfda083ac",
+			"label": "find 513"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "580"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 580"
+			},
+			"key": "5f137fc27a5b873eb4174770c8bcb241",
+			"label": "find 580"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "532"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 532"
+			},
+			"key": "9e156c8a2e2a2e4bfc2f010f64a613c1",
+			"label": "find 532"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "594"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 594"
+			},
+			"key": "ef2eab9746c2fb27c34581b7b748e2cd",
+			"label": "find 594"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "549"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 549"
+			},
+			"key": "4ac4610b89001642cf322f98b071be0b",
+			"label": "find 549"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "512"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 512"
+			},
+			"key": "fdb25d2e0ba4147517b96593839554b7",
+			"label": "find 512"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "\\d\\d?50"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find \\d\\d?50"
+			},
+			"key": "d30741ed6a825fe64a92eb693e0af1a2",
+			"label": "find \\d\\d?50"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "NULL",
+					"threshold": 3
+				},
+				"command": "text_pastry_insert_text",
+				"text": "NULL"
+			},
+			"key": "6c3e226b4d4795d518ab341b0824ec29",
+			"label": "NULL"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "NULL"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find NULL"
+			},
+			"key": "a76e01501f16dc743db5939cdf295b06",
+			"label": "find NULL"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "File"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find File"
+			},
+			"key": "33c14ff948552872c7c0e846d5374886",
+			"label": "find File"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "\\[\\d+\\]"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find \\[\\d+\\]"
+			},
+			"key": "14ad81475a08d17ea9d8546cce4c3641",
+			"label": "find \\[\\d+\\]"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "Nan"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find Nan"
+			},
+			"key": "fc90eaaa13ae9688434f560d1e61ceb2",
+			"label": "find Nan"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "F1"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find F1"
+			},
+			"key": "7faec999d30830adbe4e69460671c013",
+			"label": "find F1"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "1"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 1"
+			},
+			"key": "afb42996a5e6e8ab960883e5caa8f9f0",
+			"label": "find 1"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "22"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 22"
+			},
+			"key": "ba72f80b7c4833e65c68359860aa4e3d",
+			"label": "find 22"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "203"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 203"
+			},
+			"key": "1c1e23bcc371e50bcb894ad05eec7a34",
+			"label": "find 203"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "NaN"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find NaN"
+			},
+			"key": "2939ed040c3c3ba767baf71a368c2c19",
+			"label": "find NaN"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "414"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 414"
+			},
+			"key": "b1559d2e554a1e7b909c6473ceb2c9aa",
+			"label": "find 414"
+		}
+	],
+	"last_command":
+	{
+		"args":
+		{
+			"context": null,
+			"operator": null,
+			"pattern": "414"
+		},
+		"command": "text_pastry_modify_selection",
+		"text": "find 414"
+	}
+}

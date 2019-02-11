@@ -240,6 +240,10 @@ awful.screen.connect_for_each_screen(function(s)
         gap = 5,
         screen = s,
 	fallback = true,
+	exclusive = true,
+	class = {
+	      "urxvt"
+	},
     })
 
 -- Ignore the tag "exclusive" property for the following clients (matched by classes)
@@ -288,10 +292,10 @@ tyrannical.properties.floating = {
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            s.mylayoutbox,
+            -- mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
-            s.mylayoutbox,
         },
     }
 end)
@@ -669,19 +673,15 @@ lain.util.useless_gaps_resize(4, s , t)
 -- Browser Page
 t = s.tags[2]
 lain.util.useless_gaps_resize(3, s , t)
-awful.layout.set(awful.layout.tile, t)
 
 -- CLI Page
 t = s.tags[3]
 lain.util.useless_gaps_resize(3, s , t)
-awful.layout.set(awful.layout.suit.fair, t)
 
 -- Code Page
 t = s.tags[4]
 lain.util.useless_gaps_resize(3, s , t)
-awful.layout.set(awful.layout.suit.tile, t)
 
 -- Net Page
 t = s.tags[5]
 lain.util.useless_gaps_resize(3, s , t)
-awful.layout.set(awful.layout.suit.fairv, t)
