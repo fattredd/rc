@@ -449,13 +449,27 @@
 				{
 					"context": null,
 					"operator": null,
-					"pattern": "NaN"
+					"pattern": "414"
 				},
 				"command": "text_pastry_modify_selection",
-				"text": "find NaN"
+				"text": "find 414"
 			},
-			"key": "2939ed040c3c3ba767baf71a368c2c19",
-			"label": "find NaN"
+			"key": "b1559d2e554a1e7b909c6473ceb2c9aa",
+			"label": "find 414"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"start": "40",
+					"stop": "68"
+				},
+				"command": "text_pastry_range",
+				"text": "range 40-68"
+			},
+			"key": "aec09f65318ef6b36548e30d235fbc54",
+			"label": "range 40-68"
 		},
 		{
 			"data":
@@ -464,13 +478,132 @@
 				{
 					"context": null,
 					"operator": null,
-					"pattern": "414"
+					"pattern": "01"
 				},
 				"command": "text_pastry_modify_selection",
-				"text": "find 414"
+				"text": "find 01"
 			},
-			"key": "b1559d2e554a1e7b909c6473ceb2c9aa",
-			"label": "find 414"
+			"key": "dda7988710188fd45352bb1f6f255b27",
+			"label": "find 01"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "106"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 106"
+			},
+			"key": "042d1d2da5398fa97ead29529ddef667",
+			"label": "find 106"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "101"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 101"
+			},
+			"key": "0b773ad4dd57c361ab0fc0e2b63cd6ee",
+			"label": "find 101"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"text": "NaN",
+					"threshold": 3
+				},
+				"command": "text_pastry_insert_text",
+				"text": "NaN"
+			},
+			"key": "7ecfb3bf076a6a9635f975fe96ac97fd",
+			"label": "NaN"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "\\d_"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find \\d_"
+			},
+			"key": "2c1428379990c7acb1958c407faee7ed",
+			"label": "find \\d_"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "NoN"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find NoN"
+			},
+			"key": "5fbce23bad50418ecac0d1e57998f1d3",
+			"label": "find NoN"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "16"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 16"
+			},
+			"key": "ea99cca84582c5b13a6cc5588636fa34",
+			"label": "find 16"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "17"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 17"
+			},
+			"key": "1ef8c84bba3963db1bd709b95bff60e2",
+			"label": "find 17"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
+					"pattern": "NaN"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find NaN"
+			},
+			"key": "2939ed040c3c3ba767baf71a368c2c19",
+			"label": "find NaN"
 		}
 	],
 	"last_command":
@@ -479,9 +612,9 @@
 		{
 			"context": null,
 			"operator": null,
-			"pattern": "414"
+			"pattern": "NaN"
 		},
 		"command": "text_pastry_modify_selection",
-		"text": "find 414"
+		"text": "find NaN"
 	}
 }

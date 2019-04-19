@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Echo Evaluator",
 		"Insert Nums",
 		"ixio",
 		"Log Highlight",
@@ -14,6 +15,7 @@
 		"Package Control",
 		"Pretty JSON",
 		"Text Pastry",
-		"UnicodeCompletion"
+		"UnicodeCompletion",
+		"Vala-TMBundle"
 	]
 }

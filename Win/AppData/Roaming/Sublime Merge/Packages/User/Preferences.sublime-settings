@@ -1,4 +1,6 @@
 {
 	"git_binary": "system",
+	"theme": "Merge Dark.sublime-theme",
+	"translate_tabs_to_spaces": false,
 	"word_wrap": false
 }

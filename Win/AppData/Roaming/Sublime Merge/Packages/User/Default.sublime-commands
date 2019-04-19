@@ -3,5 +3,9 @@
         "caption": "Fetch develop:develop",
         "command": "git",
         "args": { "argv": ["fetch", "origin", "develop:develop"], }
+    },{
+        "caption": "Fetch master",
+        "command": "git",
+        "args": { "argv": ["fetch", "origin", "master:master"], }
     },
 ]
