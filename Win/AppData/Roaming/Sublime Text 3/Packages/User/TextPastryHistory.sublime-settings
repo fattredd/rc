@@ -597,6 +597,21 @@
 				{
 					"context": null,
 					"operator": null,
+					"pattern": "0"
+				},
+				"command": "text_pastry_modify_selection",
+				"text": "find 0"
+			},
+			"key": "95cd147c670509be35fd752fab511164",
+			"label": "find 0"
+		},
+		{
+			"data":
+			{
+				"args":
+				{
+					"context": null,
+					"operator": null,
 					"pattern": "NaN"
 				},
 				"command": "text_pastry_modify_selection",
