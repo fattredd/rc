@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"AutoHotkey",
 		"Echo Evaluator",
 		"Insert Nums",
 		"ixio",
@@ -13,8 +14,10 @@
 		"New Moon Color Scheme",
 		"OpenScad",
 		"Package Control",
+		"PowerShell",
 		"Pretty JSON",
 		"Rust Enhanced",
+		"SublimeREPL",
 		"Text Pastry",
 		"UnicodeCompletion",
 		"Vala-TMBundle"

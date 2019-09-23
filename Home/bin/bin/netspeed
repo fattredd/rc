@@ -1,0 +1,11 @@
+#!/bin/bash
+
+##
+## Show the current upload/download speed
+##
+
+interface=${1:-wlan0}
+
+echo "Currently $interface is using:"
+awk '{if(l1){print ($2-l1)/1024"kB/s",($10-l2)/1024"kB/s"} else{l1=$2; l2=$10;}}' \
+    <(grep $interface /proc/net/dev) <(sleep 1; grep $interface /proc/net/dev)
