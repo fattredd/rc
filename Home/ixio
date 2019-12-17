@@ -1,0 +1,17 @@
+
+; <<>> DiG 9.14.4 <<>> ://net.rigidgear.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 57143
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;://net.rigidgear.com.		IN	A
+
+;; Query time: 2 msec
+;; SERVER: 192.168.1.19#53(192.168.1.19)
+;; WHEN: Sun Sep 22 23:51:15 EDT 2019
+;; MSG SIZE  rcvd: 49
+
