@@ -22,6 +22,11 @@ function cl() {
   fi
 }
 
+function scour () {
+  # search everywhere
+  find / -iname '*'$1'*'
+}
+
 function mcd () {
   # mkdir and cd in
   mkdir -p $1 && cd $1
