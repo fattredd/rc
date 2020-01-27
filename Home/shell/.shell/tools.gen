@@ -5,4 +5,7 @@
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias wine32='env WINEARCH=win32 WINEPREFIX="$HOME/.wine32" wine'
 alias resteam='find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete'
-
+alias pingReport="ping -i 30 -a"
+alias clockAdd="while sleep 1; do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &"
+alias topProc="ps aux | sort -nk +4 | tail"
+alias ldisk="sudo lsblk -o name,mountpoint,label,size,uuid,type"
