@@ -1,6 +1,9 @@
 ; http://www.daveamenta.com/2011-05/programmatically-or-command-line-change-the-default-sound-playback-device-in-windows-7/
+#Include Scripts/VA.ahk
 Devices := {}
-headphones := False
+currDevice := VA_GetDeviceName(VA_GetDevice("playback"))
+subStr := SubStr(currDevice, 1, InStr(currDevice,"(")-2)
+headphones := subStr = "Headphones"
 IMMDeviceEnumerator := ComObjCreate("{BCDE0395-E52F-467C-8E3D-C4579291692E}", "{A95664D2-9614-4F35-A746-DE8DB63617E6}")
 
 ; IMMDeviceEnumerator::EnumAudioEndpoints
@@ -44,9 +47,11 @@ Return
 ^#F1::
     if (headphones) {
         SetDefaultEndpoint( GetDeviceID(Devices, "Sceptre M25") )
+    ToolTip Set output: Speakers
     } else {
         SetDefaultEndpoint( GetDeviceID(Devices, "Headphones") )
-    }    
+        ToolTip Set output: Headphones
+    }
     headphones := not(headphones)
     return
 
