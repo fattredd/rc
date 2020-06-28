@@ -1,5 +1,6 @@
 ; Startup
 
+#Include Scripts\swapAudio.ahk
 
 CapsLock::
 	CAlone := True
