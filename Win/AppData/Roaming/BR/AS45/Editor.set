@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.5.2.102?>
-<EditorSettings TabWidth="4" SyntaxColoring="true" Intellisense="true" AutoDeclare="false" ShowWhiteSpace="false" ReplaceTabs="false" IndentMode="Smart" VirtualWhiteSpace="false" ShowLineNumbers="true" AutoFormat="true" PromptBeforeDrag="false" FilteredDescription="false" WordWrapping="false" Outlining="true" ShowLineModifications="true" ShowHypertext="true" xmlns="http://br-automation.co.at/AS/EditorSettings">
+<EditorSettings TabWidth="4" SyntaxColoring="true" Intellisense="true" AutoDeclare="false" ShowWhiteSpace="false" ReplaceTabs="false" IndentMode="Block" VirtualWhiteSpace="false" ShowLineNumbers="true" AutoFormat="true" PromptBeforeDrag="false" FilteredDescription="false" WordWrapping="false" Outlining="true" ShowLineModifications="true" ShowHypertext="true" xmlns="http://br-automation.co.at/AS/EditorSettings">
   <Categories>
     <Category Name="Editor">
       <Font Name="Microsoft Sans Serif" Size="8" Style="Regular" />
@@ -133,7 +133,7 @@
           <ForeColor Red="255" Green="255" Blue="255" />
         </Item>
         <Item Name="Remark">
-          <ForeColor Red="255" Green="173" Blue="91" />
+          <ForeColor Red="152" Green="251" Blue="152" />
         </Item>
         <Item Name="String">
           <ForeColor Red="247" Green="196" Blue="251" />
