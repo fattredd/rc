@@ -1,6 +1,6 @@
 [user]
 	name = JButler
-	email = jack.butler@bwpapersystems.com
+	email = fattredd@gmail.com
 [alias]
 	lg = log --oneline --all --graph --decorate  $*
 [filter "password"]

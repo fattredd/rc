@@ -3,15 +3,74 @@
 #
 
 eval $(thefuck --alias)
-alias pingReport="ping -i 30 -a"
-alias clockAdd="while sleep 1; do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &"
-alias topProc="ps aux | sort -nk +4 | tail"
-alias ldisk="sudo lsblk -o name,mountpoint,label,size,uuid,type"
+
+# delete empty directories recursively
+alias rcl='find . -type d -empty -delete'
+
+# rsync shortcuts
 alias rcp='rsync -av -P'
 alias rmv='rsync -av -P --remove-source-files'
-alias rcl='find . -type d -empty -delete'
-ex () # ex - archive extractor
-{ # usage: ex <file>
+
+function cl() {
+  # cd and ls in one
+  local dir="$1"
+  local dir="${dir:=$HOME}"
+  if [[ -d "$dir" ]]; then
+    cd "$dir" >/dev/null; ls
+  else
+    echo "bash: cl: $dir: Directory not found"
+  fi
+}
+
+function scour () {
+  # search everywhere
+  find / -iname '*'$1'*'
+}
+
+function mcd () {
+  # mkdir and cd in
+  mkdir -p $1 && cd $1
+}
+
+function cpln () {
+  # Copy and link
+  for f in `ls $1`; do
+    sudo ln $1/$f $2 && sudo ln -sf $2/$f $1
+  done
+}
+
+function mkln () {
+  # make a file, link it, then open it for editing
+  sudo touch $1 && sudo ln -s $1 $2 && nano $1
+}
+
+function calc () {
+  # calculator
+  echo "scale=3;$@" | bc -l
+}
+
+note () {
+  # simple note taker
+  if [[ ! -f $HOME/.notes ]]; then
+    touch "$HOME/.notes"
+  fi
+
+  if ! (($#)); then
+    # no arguments, print file
+    cat "$HOME/.notes"
+  elif [[ "$1" == "-c" ]]; then
+    # clear file
+    printf "%s" > "$HOME/.notes"
+  elif [[ "$1" == "-h" ]]; then
+    echo "note -c to clear"
+  else
+    # add all arguments to file
+    printf "%s\n" "$*" >> "$HOME/.notes"
+  fi
+}
+
+ex () { 
+  # usage: ex <file>
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;

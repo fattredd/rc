@@ -2,7 +2,7 @@
 # Defaults
 #
 if command -v emacs > /dev/null; then
-	export EDITOR="emacsclient"
+	export EDITOR="nano"
 else
 	export EDITOR=nano
 fi
