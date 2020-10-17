@@ -9,5 +9,3 @@ done
 for config in ~/.shell/*.bash; do
   source $config
 done
-
-eval "$(thefuck --alias)"
