@@ -24,7 +24,7 @@ function cl() {
 
 function scour () {
   # search everywhere
-  find / -iname '*'$1'*'
+  sudo find / -iname '*'$1'*'
 }
 
 function mcd () {
