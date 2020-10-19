@@ -43,14 +43,16 @@ Loop % (Count)
 ObjRelease(IMMDeviceCollection)
 Return
 
-
+Browser_Home::^#F1
 ^#F1::
     if (headphones) {
-        SetDefaultEndpoint( GetDeviceID(Devices, "Sceptre M25") )
-    ToolTip Set output: Speakers
+        SetDefaultEndpoint( GetDeviceID(Devices, "Optical") )
+        ToolTip Set output: Speakers
+        SetTimer, RemoveToolTip, -500
     } else {
         SetDefaultEndpoint( GetDeviceID(Devices, "Headphones") )
         ToolTip Set output: Headphones
+        SetTimer, RemoveToolTip, -500
     }
     headphones := not(headphones)
     return
@@ -68,3 +70,7 @@ GetDeviceID(Devices, Name)
         If (InStr(DeviceName, Name))
             Return DeviceID
 }
+
+RemoveToolTip:
+    ToolTip,,,, [color=darkred]20[/color]
+    Return

@@ -1,4 +1,2 @@
 #!/bin/bash
-sudo pip install requests numpy cheat 
-sudo pip3 install thefuck
-
+sudo pip install requests numpy cheat wheel dploy

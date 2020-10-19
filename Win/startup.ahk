@@ -1,9 +1,9 @@
 ; Startup
-
+#SingleInstance Force
 #Include Scripts\swapAudio.ahk
 
 CapsLock::
-	CAlone := True
+	;CAlone := True
 	Return
 CapsLock Up::
 	If (CAlone) {
@@ -42,3 +42,28 @@ Right::
 	}
 
 AppsKey::RCtrl
+
+~RButton & WheelUp::
+ Send {Volume_Up}
+ SetTimer, CloseContextMenu, 50
+return
+
+~RButton & WheelDown::
+ Send {Volume_Down}
+ SetTimer, CloseContextMenu, 50
+return
+
+ CloseContextMenu:
+KeyWait, RButton, R
+Send, {ALT Down}{ALT Up}
+SetTimer, CloseContextMenu, off
+return
+
+;Nothing
+Launch_Mail::
+Launch_App1::
+return
+
+NumpadDiv::^#F1
+
+; @gj2mY7Rm*7^gtY

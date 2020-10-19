@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo pacman -Sy
+sudo pacman -S yay
 sudo yay -Sy
 
 for i in $@; do

@@ -1,10 +1,11 @@
 #!/bin/bash
 sudo apt update
 
-bash ./apt.sh
+bash ./apt.sh all dev &
+bash ./python.sh &
 
 cd ../Home
-rm ~/.bashrc ~/.bash_logout
+rm ~/.bashrc ~/.bash_logout ~/.inputrc
 stow -t ~ {shell,bin,git,tmux}
 
-mkdir ~/Source
+mkdir -p ~/Source
