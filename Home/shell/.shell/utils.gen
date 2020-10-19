@@ -2,8 +2,6 @@
 # Utils
 #
 
-eval $(thefuck --alias)
-
 # delete empty directories recursively
 alias rcl='find . -type d -empty -delete'
 
@@ -91,3 +89,46 @@ ex () {
   fi
 }
 
+function dockerclear() {
+  # Stop and remove a docker container
+  docker stop $1
+  docker rm $1
+}
+
+function resrc() {
+  # Reload .bashrc
+  source ~/.bashrc
+}
+
+function cmakeb() {
+  # CMake and build a project, maybe do other things too
+  currDir=${PWD##*/}
+  command=$1
+
+  if [[ $currDir == "build" ]]; then
+    echo Already in build dir
+  else
+    # Not in build dir
+    echo Making build dir
+    mkdir -p build
+    cd build
+  fi
+
+  echo Building...
+  cmake clean .
+  cmake ..
+  cmake --build .
+  
+  if [[ $command == "install" ]]; then
+    echo Installing as well
+    sudo cmake --build . --target install
+    sudo ldconfig
+  elif [[ $command == "test" ]]; then
+    echo Testing as well
+    cd ..
+    cmake --build ./build --target test
+  elif [[ $command == "docs" ]]; then
+    echo Gen docs as well
+    cmake --build . --target docs
+  fi
+}

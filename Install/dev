@@ -1,0 +1,7 @@
+cmake
+build-essential
+python-dev
+python3-distutils
+swig3.0
+openjdk-8-jdk
+ninja-build

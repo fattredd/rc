@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<HelpFavorites>
-  <Item Name="ValueChanged" HelpId="95f7a81b-4814-4632-87f9-4f48b03ad1c8" />
-  <Item Name="AsIODPStatus()" HelpId="2e761594-2a0c-4845-b396-14d597f0f4c5" />
-  <Item Name="Declaring new PLC data types" HelpId="a34efbe2-8977-461b-be6d-ce03e0b91f4c" />
-  <Item Name="AsIOPVInfo()" HelpId="d99962e2-6708-4e66-9c2d-0884988d2e7e" />
-  <Item Name="MpComConfigManager" HelpId="7f99bab0-31fb-4caf-98f6-192a088696de" />
-</HelpFavorites>
