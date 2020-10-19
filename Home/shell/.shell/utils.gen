@@ -111,6 +111,7 @@ function cmakeb() {
 
   if [[ $currDir == "build" ]]; then
     echo Already in build dir
+    inBuild=true
   else
     # Not in build dir
     echo Making build dir
@@ -134,5 +135,9 @@ function cmakeb() {
   elif [[ $command == "docs" ]]; then
     echo Gen docs as well
     cmake --build . --target docs
+  fi
+
+  if [[ !inBuild ]]; then
+    cd ..
   fi
 }
