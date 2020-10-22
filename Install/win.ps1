@@ -30,4 +30,5 @@ Foreach-Object {
 #>
 
 pip install dploy
+echo "Go to .rc/Home and run:"
 echo "> dploy stow {folders} $env:USERPROFILE"
