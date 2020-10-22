@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo pip install requests numpy cheat wheel dploy
+sudo pip3 install fuckit requests numpy cheat wheel dploy
