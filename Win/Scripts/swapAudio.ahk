@@ -3,7 +3,7 @@
 Devices := {}
 currDevice := VA_GetDeviceName(VA_GetDevice("playback"))
 subStr := SubStr(currDevice, 1, InStr(currDevice,"(")-2)
-headphones := subStr = "Headphones"
+headphones := subStr = "Headphones (Scarlett)"
 IMMDeviceEnumerator := ComObjCreate("{BCDE0395-E52F-467C-8E3D-C4579291692E}", "{A95664D2-9614-4F35-A746-DE8DB63617E6}")
 
 ; IMMDeviceEnumerator::EnumAudioEndpoints
@@ -50,7 +50,7 @@ Browser_Home::^#F1
         ToolTip Set output: Speakers
         SetTimer, RemoveToolTip, -500
     } else {
-        SetDefaultEndpoint( GetDeviceID(Devices, "Headphones") )
+        SetDefaultEndpoint( GetDeviceID(Devices, "Headphones (Scarlett)") )
         ToolTip Set output: Headphones
         SetTimer, RemoveToolTip, -500
     }

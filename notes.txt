@@ -1,0 +1,7 @@
+# Ideas to add
+python -m pip install --upgrade pip
+dploy
+
+pip install wheel
+
+grep -rnw '/path/to/somewhere/' -e 'pattern'

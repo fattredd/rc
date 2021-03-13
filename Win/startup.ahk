@@ -64,6 +64,28 @@ Launch_Mail::
 Launch_App1::
 return
 
+#^z::
+Toggle := True
+Loop
+{
+	If (!Toggle)
+		Break
+	Click
+	Sleep 370 ; Make this number higher for slower clicks, lower for faster.
+}
+#^x::
+Toggle := False
+return
+
+#^c::
+HoldMouse := !HoldMouse
+If (HoldMouse) {
+	Send {LButton down}
+} else {
+	Send {LButton up}
+}
+return
+
 NumpadDiv::^#F1
 
 ; @gj2mY7Rm*7^gtY
