@@ -1,12 +1,18 @@
 #!/bin/bash
-sudo apt update && apt upgrade -y
+
+sudo add-apt-repository universe
+sudo apt update 
+sudo apt upgrade -y
 
 for i in $@; do
 	set +e
 	while read -r line; do
-		if [[ ! -z $line ]]; then
-			sudo apt update -y $line
+		cleanline=`echo -n $line | tr -d "\n"`
+		if [[ ! -z $cleanline ]]; then
+			sudo apt-get install -y $cleanline
 		fi
 	done < "$i"
 	set -e
 done
+
+sudo apt autoremove
