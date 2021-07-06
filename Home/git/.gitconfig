@@ -6,11 +6,11 @@
 	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	lg3 = !"git lg1"
-  fuckit = git checkout . && git clean -fdx
-  redo = git reset --hard @~1 && git pull
+	fuckit = !"git checkout . && git clean -fdx"
+	redo = !"git reset --hard @~1 && git pull"
 [filter "password"]
-	smudge = sed -e 's/@***REMOVED***@/@superSecretPassword@/'
-	clean = sed -e 's/@***REMOVED***@/@superSecretPassword@/'
+	smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
+	clean = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
 [filter "workemail"]
 	smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
 	clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'

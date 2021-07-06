@@ -141,3 +141,8 @@ function cmakeb() {
     cd ..
   fi
 }
+
+# find invalid logins
+function mclog() {
+  zcat logs/2* | grep ServerLoginNetHandler | grep lost | cut -d" " -f6 | cut -d, -f2 | sort | uniq
+}
