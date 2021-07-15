@@ -1,16 +1,23 @@
 [user]
-	name = JButler
-	email = fattredd@gmail.com
+  name = JButler
+  email = fattredd@gmail.com
+[commit]
+  template = ~/.config/git/commit_template
+[core]
+  attributesfile = ~/.config/git/attributes
+[log]
+  date = auto:human
 [alias]
-	lg = log --oneline --all --graph --decorate  $*
-	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-	lg3 = !"git lg1"
-	fuckit = !"git checkout . && git clean -fdx"
-	redo = !"git reset --hard @~1 && git pull"
+  lg = log --oneline --all --graph --decorate  $*
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lg3 = !"git lg1"
+  fuckit = !"git checkout . && git clean -fdx"
+  redo = !"git reset --hard @~1 && git pull"
+  fire = !"git-fire"
 [filter "password"]
-	smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
-	clean = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
+  smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
+  clean = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
 [filter "workemail"]
-	smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
-	clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'
+  smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
+  clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'
