@@ -1,6 +1,8 @@
 #!/bin/bash
 sudo apt update
 
+ssh-import-id-gh fattredd
+
 bash ./apt.sh all dev &&
 bash ./python.sh &&
 
