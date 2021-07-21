@@ -21,3 +21,5 @@
 [filter "workemail"]
   smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
   clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'
+[pull]
+	rebase = true
