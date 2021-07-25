@@ -20,6 +20,11 @@ function cl() {
   fi
 }
 
+function lc() {
+  # Cat and ls in one
+  [ -d $1 ] && ls $1 || cat $1
+}
+
 function scour () {
   # search everywhere
   sudo find / -iname '*'$1'*'
