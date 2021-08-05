@@ -1,9 +1,11 @@
 stow
 git
 pv
+ssh-import-id
 unzip
 rclone
 fzf
+tldr
 thefuck
 python3
 python3-pip

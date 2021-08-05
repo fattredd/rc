@@ -1,4 +1,10 @@
 ; Startup
+
+I_Icon = Scripts\assets\twister.ico
+IfExist, %I_Icon%
+  Menu, Tray, Icon, %I_Icon%
+
+
 #SingleInstance Force
 #Include Scripts\swapAudio.ahk
 

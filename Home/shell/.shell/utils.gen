@@ -20,6 +20,11 @@ function cl() {
   fi
 }
 
+function lc() {
+  # Cat and ls in one
+  [ -d $1 ] && ls $1 || cat $1
+}
+
 function scour () {
   # search everywhere
   sudo find / -iname '*'$1'*'
@@ -140,4 +145,9 @@ function cmakeb() {
   if [[ !inBuild ]]; then
     cd ..
   fi
+}
+
+# find invalid logins
+function mclog() {
+  zcat logs/2* | grep ServerLoginNetHandler | grep lost | cut -d" " -f6 | cut -d, -f2 | sort | uniq
 }

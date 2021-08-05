@@ -24,6 +24,18 @@ set output-meta on
 set bell-style none
 # set bell-style visible
 
+# setup custom binds
+"\C-h": backward-kill-word
+"\e[3;5~": kill-word
+
+# setup custom settings
+set page-completions on
+set completion-ignore-case on
+set completion-query-items 200
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set visible-stats on
+
 # some defaults / modifications for the emacs mode
 $if mode=emacs
 
