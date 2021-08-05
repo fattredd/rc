@@ -3,6 +3,8 @@
 waitTime=${1:-5}
 script="${@:2}"
 
+tz="-4"
+
 if [ -z $script ]; then
   echo "Usage: estPercent.sh <waitTime> <script>"
   exit 1
@@ -25,7 +27,7 @@ function calcTime() {
   rMin=`bc -l <<< "scale=4; $rSec / 60"`
   rHours=`bc -l <<< "scale=4; $rMin / 60"`
   rDays=`bc -l <<< "scale=4; $rHours / 24"`
-  dComp=`date -d "today $rSec seconds" +'%D %H:%M'`
+  dComp=`date -d "today $rSec seconds $tz hours" +'%D %H:%M'` # hours to account for timezone
 
   clear
   tput cup 0 0
@@ -47,6 +49,6 @@ do
     echo "Done!"
     exit 0
   fi
-  
+
   calcTime &
 done
