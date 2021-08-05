@@ -2,6 +2,9 @@
 
 waitTime=${1:-5}
 
+clear
+echo "Wait for initial readings"
+
 lastRead=$(./synced.sh 1)
 lastTime=$(date +%s)
 i=0
@@ -10,11 +13,12 @@ function calcTime() {
   dRead=`echo $thisRead - $lastRead | bc`
   dTime=`echo $thisTime - $lastTime | bc`
 
-  rate=`echo "scale=4; $dRead / $dTime * 3600" | bc -l`
-  tTotal=`echo "scale=4; 100 * $dTime / $dRead" | bc -l`
-  rSec=`echo "$tTotal - $thisRead" | bc -l`
-  rHours=`echo "scale=4; $rSec / 60 / 60" | bc -l`
-  rDays=`echo "scale=4; $rHours / 24" | bc -l`
+  rate=`bc -l <<< "scale=4; $dRead / $dTime * 3600"`
+  tTotal=`bc -l <<< "scale=4; 100 * $dTime / $dRead"`
+  rSec=`bc -l <<< "$tTotal - $thisRead"`
+  rHours=`bc -l <<< "scale=4; $rSec / 60 / 60"`
+  rDays=`bc -l <<< "scale=4; $rHours / 24"`
+  dComp=`date -d "today 71014.15347 seconds" +'%D %H:%M'`
 
   clear
   tput cup 0 0
@@ -22,6 +26,7 @@ function calcTime() {
   echo $dRead% in $dTime sec
   echo Rate: $rate %/min
   echo Done in: $rSec s, $rHours hr, $rDays days
+  echo Complete at: $dComp
 }
 
 while :
