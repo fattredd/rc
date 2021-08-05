@@ -8,9 +8,9 @@ ssh-import-id-gh fattredd
 
 cd ../Home
 set -e
-rm ~/.bashrc ~/.bash_logout ~/.inputrc
+rm -f ~/.bashrc ~/.bash_logout ~/.inputrc
 stow -t ~ {shell,bin,git,tmux}
 
 mkdir -p ~/Source
 source ~/.bashrc
-tldr -u
+tldr --update
