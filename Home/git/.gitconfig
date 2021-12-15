@@ -2,7 +2,7 @@
   name = JButler
   email = fattredd@gmail.com
 [commit]
-  template = ~/.config/git/commit_template
+#  template = ~/.config/git/commit_template
 [core]
   attributesfile = ~/.config/git/attributes
 [log]
@@ -22,4 +22,5 @@
   smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
   clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'
 [pull]
-	rebase = true
+	ff = only
+#	rebase = true
