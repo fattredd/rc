@@ -12,3 +12,23 @@ alias topProc="ps aux | sort -nk +4 | tail"
 alias ldisk="sudo lsblk -o name,mountpoint,label,size,uuid,type"
 alias zls='zfs list -o name,used,referenced,avail,compressratio,mountpoint,mounted'
 alias aptList="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
+
+# Apt and Dpkg
+alias aptuu="sudo apt update && sudo apt upgrade"
+alias kern-ls="dpkg --list | grep '^ii' | grep -i -E --color 'linux-image|linux-kernel'" # List all installed kernels
+function kern-rm() {
+  # Uninstall all the unused kernels
+  v="$(uname -r | awk -F '-virtual' '{ print $1}')"
+  i="linux-headers-virtual|linux-image-virtual|linux-headers-generic-hwe-|linux-image-generic-hwe-|linux-headers-${v}|linux-image-$(uname -r)|linux-image-generic|linux-headers-generic"
+  echo Packages to remove:
+  dpkg --list | egrep -i 'linux-image|linux-headers' | awk '/ii/{ print $2}' | egrep -v "$i"
+  echo Currently running $(uname -r)
+  echo About to remove several kernels
+  read -r -p "Are you sure? [y/N] " response
+  if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[aA])$ ]]
+  then
+      sudo apt-get --purge remove $(dpkg --list | egrep -i 'linux-image|linux-headers' | awk '/ii/{ print $2}' | egrep -v "$i")
+  else
+      echo Doing nothing
+  fi
+}
