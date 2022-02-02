@@ -22,5 +22,6 @@
   smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
   clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'
 [pull]
-	ff = only
-#	rebase = true
+  ff = only
+[rebase]
+  autostash = true	
