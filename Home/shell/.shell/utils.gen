@@ -147,6 +147,10 @@ function cmakeb() {
   fi
 }
 
+function pls() {
+  printf '%s\n' "$AMZN_WS_KEY" | sudo -p "" -S $@
+}
+
 # find invalid logins
 function mclog() {
   zcat logs/2* | grep ServerLoginNetHandler | grep lost | cut -d" " -f6 | cut -d, -f2 | sort | uniq
