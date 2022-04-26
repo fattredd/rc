@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# Git will ignore lines ending in #HideLine
+#          remove                 #RemLine
+
+sed -e "s/.*#HideLine$//" \
+    -e "/.*#RemLine$/d" \
+    "$@"
