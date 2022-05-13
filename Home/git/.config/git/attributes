@@ -13,3 +13,4 @@
 *.ppt   diff=ppt
 
 *.sh    filter=hideline
+*.patch filter=version

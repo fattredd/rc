@@ -6,6 +6,8 @@
 [ -f ~/.local/bin/thefuck ] && eval "$(thefuck --alias)"
 [ -f /usr/bin/thefuck ] && eval "$(thefuck --alias)"
 
+alias resource="source $HOME/.bashrc"
+
 if shopt -q login_shell; then
 	echo Sourced
 fi
