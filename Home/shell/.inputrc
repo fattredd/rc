@@ -37,7 +37,7 @@ set show-all-if-unmodified on
 set visible-stats on
 
 # some defaults / modifications for the emacs mode
-$if mode=emacs
+#$if mode=emacs
 
     # allow the use of the Home/End keys
     "\e[1~": beginning-of-line
@@ -79,4 +79,4 @@ $if mode=emacs
     # "\e[H": beginning-of-line
     # "\e[F": end-of-line
 
-$endif
+#$endif
