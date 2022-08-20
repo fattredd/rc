@@ -1,12 +1,16 @@
 ; Startup
 
+#SingleInstance Force
+SetWorkingDir %A_ScriptDir%
+
 I_Icon = Scripts\assets\twister.ico
 IfExist, %I_Icon%
   Menu, Tray, Icon, %I_Icon%
 
-
-#SingleInstance Force
 #Include Scripts\swapAudio.ahk
+#Include Scripts\osrs.ahk
+#Include Scripts\macropad.ahk
+;#Include Scripts\monitorSwap.ahk
 
 CapsLock::
 	;CAlone := True
@@ -77,14 +81,14 @@ Loop
 	If (!Toggle)
 		Break
 	Click
-	Sleep 370 ; Make this number higher for slower clicks, lower for faster.
+	Sleep 100 ; Make this number higher for slower clicks, lower for faster.
 }
 #^x::
 Toggle := False
 return
 
 #^c::
-HoldMouse := !HoldMouse
+HoldMouse := !Z
 If (HoldMouse) {
 	Send {LButton down}
 } else {
@@ -92,6 +96,12 @@ If (HoldMouse) {
 }
 return
 
+#Esc::
+Send, {Win Down}{L}{Win Up}
+return
+
 NumpadDiv::^#F1
 
-; @gj2mY7Rm*7^gtY
+#q::
+Send, {Alt Down}{F4}{Alt Up}
+return
