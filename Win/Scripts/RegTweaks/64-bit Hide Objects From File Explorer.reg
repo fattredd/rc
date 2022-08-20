@@ -1,0 +1,21 @@
+Windows Registry Editor Version 5.00
+
+; Hide 3D Objects in Explorer
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+
+; HKLM = MKEY_LOCAL_MACHINE - Settings specific to the local computer
+;   - SAM = Security Accounts Manager
+;     - hackers want this.
+;     - Contains passwords etc
+;     - Stored as hashes. Easy to crack
+;   - SECURITY = (Only admin can access this)
+;   - SYSTEM = Critical boot process and other kernel funtions
+;   - SOFTWARE = 3rd party software settings (big)
+;   - HARDWARE = (Created dynamically during boot)
+;   - Components = ?
+;   - BCD.dat = (in the \boot folder in the system partition)
+; HKCU = MKEY_CURRENT_USER - Information gathered during runtime. This key is temporary and is deleted when the system is restarted.
+; HKCR = MKEY_CLASSES_ROOT - Information about registed applications
+;   - 
+; HKCC = MKEY_CURRENT_CONFIG
+; HKU  = MKEY_USERS
