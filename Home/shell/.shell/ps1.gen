@@ -17,7 +17,7 @@ function git_branch {
     echo "($commit)"
   fi
 }
-export PS1='\[\033[38;5;155m\]\u\
+export PS1='\[\033[38;5;155m\]jbutler\
 \[\033[38;5;244m\]@\
 \[\033[38;5;144m\]\h \
 \[\033[38;5;49m\]\w `git_branch`\n\
