@@ -166,3 +166,11 @@ man() {
     LESS_TERMCAP_se=$'\e[0m' \
     command man "$@"
 }
+
+# AWS crap
+alias mfa="source ~/bin/mfa"
+function awsdecode() {
+  aws sts decode-authorization-message --encoded-message \
+    "$1" | jq -r .DecodedMessage | jq
+}
+
