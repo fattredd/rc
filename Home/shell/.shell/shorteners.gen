@@ -5,3 +5,7 @@
 alias sf='screenfetch'
 alias pdf='mupdf'
 alias untar='tar -xvf'
+
+if command -v minikube &>/dev/null; then
+  alias kubectl="minikube kubectl --"
+fi
