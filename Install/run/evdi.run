@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# From:
+# https://github.com/DisplayLink/evdi/issues/384
+
+set -e
+
+# Setup signing keys
+if [ -n "$1" ]; then
+  echo skipping stuff
+  cd /lib/modules/$(uname -r)/build/certs
+
+sudo tee x509.genkey > /dev/null << 'EOF'
+[ req ]
+default_bits = 4096
+distinguished_name = req_distinguished_name
+prompt = no
+string_mask = utf8only
+x509_extensions = myexts
+[ req_distinguished_name ]
+CN = Modules
+[ myexts ]
+basicConstraints=critical,CA:FALSE
+keyUsage=digitalSignature
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+EOF
+
+sudo openssl req -new -nodes -utf8 -sha512 -days 36500 -batch -x509 -config x509.genkey -outform DER -out signing_key.x509 -keyout signing_key.pem
+fi
+
+# Setup evdi
+cd /tmp
+git clone git@github.com:DisplayLink/evdi.git || true
+sudo mv evdi /usr/src/evdi || true
+cd /usr/src
+sudo mv evdi-1.12.0 evdi-1.12.0-backup || true
+sudo ln -s evdi/module evdi-1.12.0
+cd evdi-1.12.0
+sudo make
+sudo make install
+
+# Manually install dkms
+# https://github.com/DisplayLink/evdi/issues/387#issuecomment-1312453970
+sudo dkms add -m evdi -v 1.12.0
+sudo dkms build -m evdi -v 1.12.0
+sudo dkms install -m evdi -v 1.12.0
+
+# Then install the DisplayLink Driver
+# https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu
+
