@@ -7,23 +7,26 @@ I_Icon = Scripts\assets\twister.ico
 IfExist, %I_Icon%
   Menu, Tray, Icon, %I_Icon%
 
-#Include Scripts\swapAudio.ahk
-#Include Scripts\osrs.ahk
-#Include Scripts\macropad.ahk
+;#Include Scripts\swapAudio.ahk
+;#Include Scripts\osrs.ahk
+;#Include Scripts\macropad.ahk
+;#Include Scripts\komorebi.ahk
 ;#Include Scripts\monitorSwap.ahk
 
-CapsLock::
-	;CAlone := True
-	Return
-CapsLock Up::
-	If (CAlone) {
-		Send, {LWin down}
-		Send, {Tab}
-		Send, {LWin up}
-		Return
-	} Else {
-		Return
-	}
+#^+R::
+reload
+return
+
+CapsLock::Ctrl
+;	CAlone := True
+;	Return
+;CapsLock Up::
+;  If (CAlone) {
+;    ;Send, {LWin down}
+;    ;Send, {Tab}
+;    ;Send, {LWin up}
+;  }
+;  Return
 
 Left::
 	CAlone := False
@@ -98,6 +101,36 @@ return
 
 #Esc::
 Send, {Win Down}{L}{Win Up}
+return
+
+#t::
+RUN %localappdata%\Microsoft\WindowsApps\wt.exe
+return
+
+#m::
+{
+WinGet, winstate, MinMax, A
+if winstate != 1
+	WinMaximize, A
+else
+	WinRestore, A
+}
+return
+
+#c::
+{
+SetTitleMatchMode, 2
+Process, Exist, calc.exe
+if !ErrorLevel = 0
+{
+	WinGet, winstate, MinMax, Calculator
+	if winstate != 1
+		WinMaximize, Calculator
+	else
+		WinRestore, Calculator
+} else
+	RUN C:\Windows\System32\calc.exe 
+}
 return
 
 NumpadDiv::^#F1
