@@ -174,3 +174,13 @@ function awsdecode() {
     "$1" | jq -r .DecodedMessage | jq
 }
 
+# Shh find
+function finds() {
+  find $@ 2>/dev/null
+}
+
+# Shh whatever
+function shh() {
+  $@ 2>/dev/null
+}
+
