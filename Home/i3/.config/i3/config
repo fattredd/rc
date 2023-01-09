@@ -41,6 +41,7 @@ workspace $ws_0 output $secondary_monitor
 #
 #font pango:monospace 8
 font pango:DejaVu Sans Mono 10
+#border 1pixel
 # Start i3bar to display a workspace bar
 bar {
     id main
@@ -48,6 +49,7 @@ bar {
     tray_padding 2
     separator_symbol "⸱"
 }
+bindsym $mod+Shift+t border toggle
 
 
 #
