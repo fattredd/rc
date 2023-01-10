@@ -41,7 +41,19 @@ workspace $ws_0 output $secondary_monitor
 #
 #font pango:monospace 8
 font pango:DejaVu Sans Mono 10
-#border 1pixel
+
+default_orientation auto
+workspace_auto_back_and_forth yes
+
+# Newer format
+# title_align center
+# default_border pixel 3
+# default_floating_border pixel 3
+
+# Older format
+new_window pixel 3
+new_float pixel 3
+
 # Start i3bar to display a workspace bar
 bar {
     id main
@@ -64,6 +76,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+t exec $terminal
 bindsym $mod+e exec $folder
 bindsym $mod+w exec $browser
+bindsym $mod+b exec $browser
 bindsym $mod+c exec $code
 
 bindsym $mod+d exec dmenu_run
@@ -74,7 +87,7 @@ bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 #
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really exit i3? Th' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'Really exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #
 # FOCUS
@@ -93,6 +106,11 @@ bindsym $mod+Right focus right
 bindsym $mod+Tab exec --no-startup-id i3-cycle next
 bindsym $mod+Shift+Tab exec --no-startup-id i3-cycle prev
 
+# change between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+bindsym $mod+minus focus parent
+bindsym $mod+equals focus child
 
 #
 # MOVE focused window
@@ -101,7 +119,6 @@ bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -118,7 +135,7 @@ bindsym $mod+v split v
 #
 # WM toggles
 #
-# fullscreenR
+# fullscreen
 bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -127,17 +144,8 @@ bindsym $mod+u layout tabbed
 bindsym $mod+i layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 bindsym $mod+f floating toggle
-
-#
-# FOCUS
-#
-# change between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-#bindsym $mod+a focus parent
-#bindsym $mod+d focus child
 
 #
 # WORKSPACE switch
@@ -152,6 +160,7 @@ bindsym $mod+7 workspace $ws_7
 bindsym $mod+8 workspace $ws_8
 bindsym $mod+9 workspace $ws_9
 bindsym $mod+0 workspace $ws_0
+bindsym $mod+grave scratchpad show
 
 #
 # WORKSPACE move
@@ -166,6 +175,8 @@ bindsym $mod+Shift+7 move container to workspace $ws_7
 bindsym $mod+Shift+8 move container to workspace $ws_8
 bindsym $mod+Shift+9 move container to workspace $ws_9
 bindsym $mod+Shift+0 move container to workspace $ws_0
+bindsym $mod+Shift+grave move scratchpad
+
 #
 # RESIZE window
 #
@@ -175,21 +186,24 @@ floating_modifier $mod
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+
+        # same for smaller adjustments 
+        bindsym Shift+j resize shrink width 5 px or 5 ppt
+        bindsym Shift+k resize grow height 5 px or 5 ppt
+        bindsym Shift+l resize shrink height 5 px or 5 ppt
+        bindsym Shift+semicolon resize grow width 5 px or 5 ppt
+        bindsym Shift+Left resize shrink width 5 px or 5 ppt
+        bindsym Shift+Down resize grow height 5 px or 5 ppt
+        bindsym Shift+Up resize shrink height 5 px or 5 ppt
+        bindsym Shift+Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -199,36 +213,25 @@ mode "resize" {
 #
 # Audio
 #
-# Fn-F1  XF86AudioMute
 bindsym XF86AudioMute					exec --no-startup-id i3-volume toggle
 bindsym $mod+XF86AudioMute				exec --no-startup-id i3-volume set 50
-
-# Fn-F2  XF86AudioLowerVolume
-# Fn-F3  XF86AudioRaiseVolume
 bindsym XF86AudioLowerVolume			exec --no-startup-id i3-volume down
 bindsym XF86AudioRaiseVolume			exec --no-startup-id i3-volume up
-bindsym Shift+XF86AudioLowerVolume		exec --no-startup-id sonos volume -10
-bindsym Shift+XF86AudioRaiseVolume		exec --no-startup-id sonos volume +10
-
-
 bindsym $mod+Control+comma				exec --no-startup-id i3-volume down
 bindsym $mod+Control+period				exec --no-startup-id i3-volume up
-bindsym $mod+Shift+Control+comma		exec --no-startup-id sonos volume -10
-bindsym $mod+Shift+Control+period		exec --no-startup-id sonos volume +10
 bindsym $mod+Control+slash				exec --no-startup-id i3-volume toggle
 
 bindsym XF86AudioPrev					exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay					exec --no-startup-id playerctl play-pause
-bindsym Shift+XF86AudioPlay				exec --no-startup-id playerctl stop
+bindsym Shift+XF86AudioPlay		exec --no-startup-id playerctl stop
 bindsym XF86AudioNext					exec --no-startup-id playerctl next
-
-bindsym $mod+XF86AudioLowerVolume		exec --no-startup-id playerctl previous
-bindsym $mod+XF86AudioRaiseVolume		exec --no-startup-id playerctl next
-
 bindsym $mod+comma						exec --no-startup-id playerctl previous
 bindsym $mod+period						exec --no-startup-id playerctl next
 bindsym $mod+slash						exec --no-startup-id playerctl play-pause
-bindsym $mod+Shift+slash				exec --no-startup-id playerctl stop
+bindsym $mod+Shift+slash			exec --no-startup-id playerctl stop
+
+bindsym $mod+XF86AudioLowerVolume		exec --no-startup-id playerctl previous
+bindsym $mod+XF86AudioRaiseVolume		exec --no-startup-id playerctl next
 
 #
 # Window preplacement
