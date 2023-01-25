@@ -9,3 +9,6 @@ alias untar='tar -xvf'
 if command -v minikube &>/dev/null; then
   alias kubectl="minikube kubectl --"
 fi
+
+alias wgetall='wget -r -np -R "index.html*"'
+
