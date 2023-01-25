@@ -52,3 +52,5 @@
 	process = git-lfs filter-process
 	required = true
 
+[lfs "https://git.rigidgear.com/jack/rc.git/info/lfs"]
+	locksverify = true
