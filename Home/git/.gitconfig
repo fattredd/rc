@@ -5,7 +5,8 @@
 #  template = ~/.config/git/commit_template
 [core]
   attributesfile = ~/.config/git/attributes
-	autocrlf = false
+  excludesFile = ~/.config/git/global_ignore
+  autocrlf = false
 [log]
   date = auto:human
 [alias]
