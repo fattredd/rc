@@ -30,6 +30,10 @@ set ruler " Show row and column ruler information
 set undolevels=1000 " Number of undo levels
 set backspace=indent,eol,start " Backspace behaviour
 set autoread " Auto-updates vim after disk-changes
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 set wildmenu
 set wildmode=list,longest
 set wildignore=*.docx,*.doc,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe
@@ -99,4 +103,8 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTReeGitStatusUseNerdFonts = 1
 nmap <leader>g :GitGutterLineHighlightsToggle<CR>
+command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
+
 cnoreabbr git Git
+cnoreabbr share Share
+cnoreabbr o tabnew
