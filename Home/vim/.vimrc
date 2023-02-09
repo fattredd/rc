@@ -22,7 +22,6 @@ set shiftwidth=2 " Number of auto-indent spaces
 set smartindent " Enable smart-indent
 set smarttab " Enable smart-tabs
 set softtabstop=2 " Number of spaces per Tab
-set fixendofline
 set eol
 set splitbelow
 set splitright
@@ -30,18 +29,23 @@ set nocompatible
 set ruler " Show row and column ruler information
 set undolevels=1000 " Number of undo levels
 set backspace=indent,eol,start " Backspace behaviour
-set display+=lastline
-set display+=truncate
 set autoread " Auto-updates vim after disk-changes
 set wildmenu
 set wildmode=list,longest
 set wildignore=*.docx,*.doc,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe
+if has('patch-8.2.1663')
+  set fixendofline
+endif
 
 if &t_Co == 8 && $TERM !~# '^Eterm'
   set t_Co=16
 endif
 
 let g:mapleader = ','
+
+nnoremap <leader>s w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <BS> i<BS><ESC>`^
 
 " Tab/Shift tab for cmd and insert modes
 nnoremap <S-Tab> <<
@@ -78,8 +82,6 @@ call plug#begin()
 call plug#end()
 nnoremap <leader>pp :PlugInstall<CR>
 nnoremap <leader>pr :source $MYVIMRC<CR>
-nnoremap <leader>s w<CR>
-nnoremap <leader>q :q<CR>
 
 " NERDTREE
 nnoremap <leader>b :NERDTreeToggle<CR>
