@@ -79,6 +79,10 @@ call plug#begin()
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'vim-airline/vim-airline'
   Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  if has('patch-7.4.2008')
+    Plug 'romainl/vim-cool'
+  endif
 call plug#end()
 nnoremap <leader>pp :PlugInstall<CR>
 nnoremap <leader>pr :source $MYVIMRC<CR>
@@ -93,6 +97,5 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTReeGitStatusUseNerdFonts = 1
-
 nmap <leader>g :GitGutterLineHighlightsToggle<CR>
-
+cnoreabbr git Git
