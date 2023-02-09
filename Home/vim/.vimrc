@@ -80,6 +80,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-commentary'
   if has('patch-7.4.2008')
     Plug 'romainl/vim-cool'
   endif
