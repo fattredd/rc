@@ -85,6 +85,7 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-obsession'
   if has('patch-7.4.2008')
     Plug 'romainl/vim-cool'
   endif
@@ -95,6 +96,7 @@ nnoremap <leader>pr :source $MYVIMRC<CR>
 " NERDTREE
 nnoremap <leader>b :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
@@ -106,5 +108,6 @@ nmap <leader>g :GitGutterLineHighlightsToggle<CR>
 command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 
 cnoreabbr git Git
+cnoreabbr sess Obsess
 cnoreabbr share Share
 cnoreabbr o tabnew

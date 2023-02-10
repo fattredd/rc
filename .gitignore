@@ -13,3 +13,4 @@ Home/ssh/*
 /Win/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.cache
 **bash_history**
 Home/fonts/.local/*
+Session.vim
