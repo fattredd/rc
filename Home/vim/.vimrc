@@ -41,6 +41,10 @@ if has('patch-8.2.1663')
   set fixendofline
 endif
 
+if has('patch-8.1.2134')
+  set t_TI=
+  set t_TE=
+endif
 if &t_Co == 8 && $TERM !~# '^Eterm'
   set t_Co=16
 endif
