@@ -32,3 +32,18 @@ function kern-rm() {
       echo Doing nothing
   fi
 }
+
+function f-bak() {
+  file=$1
+  cp "${1}" "${1}.bak"
+}
+function f-rest() {
+  file=$1
+  cp "${1}.bak" "${1}"
+}
+function f-swp() {
+  file=$1
+  mv "${1}" "${1}.bak2"
+  mv "${1}.bak" "${1}"
+  mv "${1}.bak2" "${1}"
+}
