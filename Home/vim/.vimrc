@@ -37,6 +37,8 @@ set foldlevel=2
 set wildmenu
 set wildmode=list,longest
 set wildignore=*.docx,*.doc,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe
+set shortmess=atI
+set title
 if has('patch-8.2.1663')
   set fixendofline
 endif
@@ -45,13 +47,21 @@ if has('patch-8.1.2134')
   set t_TI=
   set t_TE=
 endif
+if has('persistant_undo')
+  silent !mkdir -vp ~/.backup/vim/undo/ > /dev/null 2>&1
+  set backupdir=~/.backup/vim,.
+  set directory=~/.backup/vim,~/tmp,.
+  set undofile
+  set undodir=~/.backup/vim/undo/,~/tmp,.
+endif
 if &t_Co == 8 && $TERM !~# '^Eterm'
   set t_Co=16
 endif
 
-let g:mapleader = ','
+let g:mapleader = ' '
 
 nnoremap <leader>s w<CR>
+nnoremap <leader>W :w !sudo tee % > /dev/null<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <BS> i<BS><ESC>`^
 
@@ -77,6 +87,7 @@ nnoremap <leader>h :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>n :tabnext<CR>
+nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<CR>
 
 " Plugins
@@ -98,8 +109,12 @@ nnoremap <leader>pp :PlugInstall<CR>
 nnoremap <leader>pr :source $MYVIMRC<CR>
 
 " NERDTREE
-nnoremap <leader>b :NERDTreeToggle<CR>
-nnoremap <leader>m :NERDTreeFind<CR>
+map <leader>b <plug>NERDTreeTabsToggle<CR>
+nnoremap <leader>m :NERDTreeFind<CR>I
+let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_smart_startup_focus = 2
+let g:nerdtree_tabs_focus_on_files = 1
+let g:nerdtree_tabs_autofind = 1
 let NERDTreeShowHidden=1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
