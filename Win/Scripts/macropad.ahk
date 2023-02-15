@@ -6,99 +6,99 @@
 ;=================================================================
 
 ;=================================================================
-;                       Layer 0
+;                       Layer 0 RED
 ;;=================================================================
 ;Row 1
 
-F13::Send a
-F14::Send b
-F15::Send c
-F16::Send d
+F13::Send {Enter}Oof{Enter}
+F14::Send F1
+F15::Send F2
+F16::Send F5
 
 ;Row 2
 
-F17::Send e
-F18::Send f
-F19::Send g
-F20::Send h
+F17::Send {Enter}Oof{Enter}
+F18::Send {Enter}Oof{Enter}
+F19::Send {CtrlDown}u{CtrlUp}
+F20::Send {CtrlDown}y{CtrlUp}
 
 ;Row 3
 
-;F21::Send i in osrs
-F22::Send j
-F23::Send k
-F24::Send l
+;F21::  ; doubleclick osrs.ahk
+;F22::Send {Enter}Ouch{Enter}
+;F23::Send {CtrlDown}z{CtrlUp}
+F24::Send {CtrlDown}y{CtrlUp}
 
 
 ;=================================================================
-;                       Layer 1
+;                       Layer 1  GREEN
 ;;=================================================================
 ;Row 1
 
-!F13::Send m
-!F14::Send n
-!F15::Send o
-!F16::Send p
+;!F13::Return
+!F14::Return
+!F15::Return
+!F16::Return
 
 ;Row 2
 
-!F17::Send q
-!F18::Send r
-!F19::Send s
-!F20::Send t
+;!F17::Return ; reload in startup.ahk
+;!F18::Return ; alt reload
+!F19::Return
+!F20::Return
 
 ;Row 3
 
-!F21::Send u
-!F22::Send v
-!F23::Send w
-!F24::Send x
+;!F21::Return
+;!F22::Return
+;!F23::Return
+;!F24::Return
 
 
 ;=================================================================
-;                       Layer 2
+;                       Layer 2 YELLOW
 ;;=================================================================
 ;Row 1
 
-+F13::Send y
-+F14::Send z
-+F15::Send A
-+F16::Send B
++F13::Return
++F14::Return
++F15::Return
++F16::Return
 
 ;Row 2
 
-+F17::Send C
-+F18::Send D
-+F19::Send E
-+F20::Send F
++F17::Return
++F18::Return
++F19::Return
++F20::Return
 
 ;Row 3
 
-+F21::Send G
-+F22::Send H
-+F23::Send I
-+F24::Send J
++F21::Return
++F22::Return
++F23::Return
++F24::Return
 
 ;=================================================================
-;                       Layer 3
+;                       Layer 3 BLUE
 ;;=================================================================
 ;Row 1
 
-^F13::Send K
-^F14::Send L
-^F15::Send M
-^F16::Send N
+^F13::Return
+^F14::Return
+^F15::Return
+^F16::Reload
 
 ;Row 2
 
-^F17::Send O
-^F18::Send P
-^F19::Send Q
-^F20::Send R
+^F17::Return
+^F18::Return
+^F19::Return
+^F20::Return
 
 ;Row 3
 
-^F21::Send S
-^F22::Send T
-^F23::Send U
-^F24::Send V
+^F21::Return
+^F22::Return
+^F23::Send ***REMOVED*** ; rs2
+^F24::Send ***REMOVED*** ; gim

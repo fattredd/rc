@@ -16,15 +16,22 @@ DoubleClick() {
   Mouseclick()
 }
 
+
 F21::
-;Toggle := True
-;Loop {
-;	If (!Toggle)
-;		Break
   DoubleClick()
-;}
+  return
+
+F22::
+Toggle := True
+Loop {
+	If (!Toggle)
+		Break
+  DoubleClick()
+  Random, AMSecClick, 2200, 2700
+  Sleep, %AMSecClick%
+}
 return
 
-~!2::
-;Toggle := False
+F23::
+Toggle := False
 return
