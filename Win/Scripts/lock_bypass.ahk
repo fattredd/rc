@@ -23,7 +23,9 @@ OnExit, OnExitSub
   ; Temporary enable locking
   SetDisableLockWorkstationRegKeyValue( 0 )
   ; Lock
+  Sleep, 250
   DllCall( "User32\LockWorkStation" )
+  Sleep, 250
   ; Disable locking again
   SetDisableLockWorkstationRegKeyValue( 1 )
   return
