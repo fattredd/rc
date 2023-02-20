@@ -19,10 +19,10 @@ set $ws_3 3
 set $ws_4 4
 set $ws_5 5
 set $ws_6 6
-set $ws_7 "☇"
+set $ws_7 "☋"
 set $ws_8 "☈"
-set $ws_9 "☊"
-set $ws_0 "☋"
+set $ws_9 "☇"
+set $ws_0 "☊"
 
 # Put workspaces on specific screens
 workspace $ws_1 output $primary_monitor
@@ -43,7 +43,7 @@ workspace $ws_0 output $secondary_monitor
 font pango:DejaVu Sans Mono 10
 
 default_orientation auto
-workspace_auto_back_and_forth yes
+# workspace_auto_back_and_forth yes
 
 # Newer format
 # title_align center
@@ -102,9 +102,9 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Requires `pip install i3-cycle`
-bindsym $mod+Tab exec --no-startup-id i3-cycle next
-bindsym $mod+Shift+Tab exec --no-startup-id i3-cycle prev
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+, workspace next
+bindsym $mod+. workspace prev
 
 # change between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
@@ -195,7 +195,7 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # same for smaller adjustments 
+        # same for smaller adjustments
         bindsym Shift+j resize shrink width 5 px or 5 ppt
         bindsym Shift+k resize grow height 5 px or 5 ppt
         bindsym Shift+l resize shrink height 5 px or 5 ppt

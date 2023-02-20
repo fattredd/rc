@@ -76,7 +76,7 @@ note () {
   fi
 }
 
-ex () { 
+ex () {
   # usage: ex <file>
   if [ -f $1 ] ; then
     case $1 in
@@ -128,7 +128,7 @@ function cmakeb() {
   cmake clean .
   cmake ..
   cmake --build .
-  
+
   if [[ $command == "install" ]]; then
     echo Installing as well
     sudo cmake --build . --target install
@@ -148,7 +148,7 @@ function cmakeb() {
 }
 
 function pls() {
-  printf '%s\n' "$AMZN_WS_KEY" | sudo -p "" -S $@
+  printf '%s\n' "$AMZN_WS_KEY" | sudo -p "" -S echo; sudo $@
 }
 
 # find invalid logins

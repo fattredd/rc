@@ -49,13 +49,16 @@ if has('patch-8.1.2134')
 endif
 if has('persistant_undo')
   silent !mkdir -vp ~/.backup/vim/undo/ > /dev/null 2>&1
-  set backupdir=~/.backup/vim,.
-  set directory=~/.backup/vim,~/tmp,.
+  set backupdir=~/.backup/vim//
+  set directory=~/.backup/vim//
   set undofile
-  set undodir=~/.backup/vim/undo/,~/tmp,.
+  set undodir=~/.backup/vim/undo//
 endif
 if &t_Co == 8 && $TERM !~# '^Eterm'
   set t_Co=16
+endif
+if has('gui_running')
+  set guioptions=mdRk
 endif
 
 let g:mapleader = ' '
