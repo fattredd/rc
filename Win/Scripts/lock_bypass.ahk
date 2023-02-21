@@ -1,8 +1,5 @@
 #NoEnv
 #SingleInstance, Force
-SendMode, Input
-SetBatchLines, -1
-SetWorkingDir, %A_ScriptDir%
 
 ; https://superuser.com/questions/726988/how-to-remap-a-program-to-lock-windows-winl
 
@@ -13,9 +10,9 @@ SetWorkingDir, %A_ScriptDir%
 ; The following 3 code lines are auto-executed upon script run, the return line marks an end to the auto-executed code section.
 ; Register user defined subroutine 'OnExitSub' to be executed when this script is terminating
 OnExit, OnExitSub
-  ; Disable LockWorkStation, so Windows doesn't intercept Win+L and this script can act on that key combination
-  SetDisableLockWorkstationRegKeyValue( 1 )
-  return
+; Disable LockWorkStation, so Windows doesn't intercept Win+L and this script can act on that key combination
+SetDisableLockWorkstationRegKeyValue( 1 )
+return
 
 #Esc::
 ^!l::
@@ -36,7 +33,6 @@ OnExitSub:
   ExitApp
   return
 
-SetDisableLockWorkstationRegKeyValue( value )
-  {
-  RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Policies\System, DisableLockWorkstation, %value%
-  }
+SetDisableLockWorkstationRegKeyValue( value ) {
+  RegWrite, REG_DWORD, HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System, DisableLockWorkstation, %value%
+}
