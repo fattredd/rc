@@ -13,16 +13,16 @@ set $browser firefox
 set $folder caja
 set $code code
 
-set $ws_1 1
-set $ws_2 2
-set $ws_3 3
-set $ws_4 4
-set $ws_5 5
-set $ws_6 6
-set $ws_7 "☋"
-set $ws_8 "☈"
-set $ws_9 "☇"
-set $ws_0 "☊"
+set $ws_1 "1:1"
+set $ws_2 "2:2"
+set $ws_3 "3:3"
+set $ws_4 "4:4"
+set $ws_5 "5:5"
+set $ws_6 "6:6"
+set $ws_7 "7:☇"
+set $ws_8 "8:☈"
+set $ws_9 "9:☊"
+set $ws_0 "10:☋"
 
 # Put workspaces on specific screens
 workspace $ws_1 output $primary_monitor
@@ -60,6 +60,7 @@ bar {
     status_command i3status
     tray_padding 2
     separator_symbol "⸱"
+    strip_workspace_numbers yes
 }
 bindsym $mod+Shift+t border toggle
 
@@ -103,14 +104,14 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+, workspace next
-bindsym $mod+. workspace prev
+bindsym $mod+comma workspace prev
+bindsym $mod+period workspace next
 
 # change between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
 
 bindsym $mod+minus focus parent
-bindsym $mod+equals focus child
+bindsym $mod+equal focus child
 
 #
 # MOVE focused window
@@ -225,8 +226,8 @@ bindsym XF86AudioPrev					exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay					exec --no-startup-id playerctl play-pause
 bindsym Shift+XF86AudioPlay		exec --no-startup-id playerctl stop
 bindsym XF86AudioNext					exec --no-startup-id playerctl next
-bindsym $mod+comma						exec --no-startup-id playerctl previous
-bindsym $mod+period						exec --no-startup-id playerctl next
+#bindsym $mod+comma						exec --no-startup-id playerctl previous
+#bindsym $mod+period						exec --no-startup-id playerctl next
 bindsym $mod+slash						exec --no-startup-id playerctl play-pause
 bindsym $mod+Shift+slash			exec --no-startup-id playerctl stop
 
