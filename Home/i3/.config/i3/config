@@ -64,7 +64,6 @@ bar {
 }
 bindsym $mod+Shift+t border toggle
 
-
 #
 # KEYBINDS
 #
@@ -214,25 +213,25 @@ mode "resize" {
 #
 # Audio
 #
-bindsym XF86AudioMute					exec --no-startup-id i3-volume toggle
-bindsym $mod+XF86AudioMute				exec --no-startup-id i3-volume set 50
-bindsym XF86AudioLowerVolume			exec --no-startup-id i3-volume down
-bindsym XF86AudioRaiseVolume			exec --no-startup-id i3-volume up
-bindsym $mod+Control+comma				exec --no-startup-id i3-volume down
-bindsym $mod+Control+period				exec --no-startup-id i3-volume up
-bindsym $mod+Control+slash				exec --no-startup-id i3-volume toggle
+bindsym XF86AudioMute         exec --no-startup-id i3-volume toggle
+bindsym $mod+XF86AudioMute    exec --no-startup-id i3-volume set 50
+bindsym XF86AudioLowerVolume  exec --no-startup-id i3-volume down
+bindsym XF86AudioRaiseVolume  exec --no-startup-id i3-volume up
+bindsym $mod+Control+comma    exec --no-startup-id i3-volume down
+bindsym $mod+Control+period   exec --no-startup-id i3-volume up
+bindsym $mod+Control+slash    exec --no-startup-id i3-volume toggle
 
-bindsym XF86AudioPrev					exec --no-startup-id playerctl previous
-bindsym XF86AudioPlay					exec --no-startup-id playerctl play-pause
-bindsym Shift+XF86AudioPlay		exec --no-startup-id playerctl stop
-bindsym XF86AudioNext					exec --no-startup-id playerctl next
-#bindsym $mod+comma						exec --no-startup-id playerctl previous
-#bindsym $mod+period						exec --no-startup-id playerctl next
-bindsym $mod+slash						exec --no-startup-id playerctl play-pause
-bindsym $mod+Shift+slash			exec --no-startup-id playerctl stop
+bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
+bindsym Shift+XF86AudioPlay   exec --no-startup-id playerctl stop
+bindsym XF86AudioNext         exec --no-startup-id playerctl next
+#bindsym $mod+comma           exec --no-startup-id playerctl previous
+#bindsym $mod+period          exec --no-startup-id playerctl next
+bindsym $mod+slash            exec --no-startup-id playerctl play-pause
+bindsym $mod+Shift+slash      exec --no-startup-id playerctl stop
 
-bindsym $mod+XF86AudioLowerVolume		exec --no-startup-id playerctl previous
-bindsym $mod+XF86AudioRaiseVolume		exec --no-startup-id playerctl next
+bindsym $mod+XF86AudioLowerVolume    exec --no-startup-id playerctl previous
+bindsym $mod+XF86AudioRaiseVolume    exec --no-startup-id playerctl next
 
 #
 # Window preplacement
@@ -240,3 +239,6 @@ bindsym $mod+XF86AudioRaiseVolume		exec --no-startup-id playerctl next
 
 exec --no-startup-id i3-msg "workspace $WS_1; exec $terminal"
 exec --no-startup-id i3-msg "workspace $WS_0; exec slack; exec firefox"
+
+# Use feh for background, but only if availible
+exec --no-startup-id "command -v feh &>/dev/null && [ -f ~/.fehbg ] && ~/.fehbg"
