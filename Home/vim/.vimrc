@@ -71,6 +71,9 @@ nnoremap <BS> i<BS><ESC>`^
 " Tab/Shift tab for cmd and insert modes
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+nnoremap <c-Space> <S-V>
 
 " Resize panes Horiz
 noremap <leader>. :10winc <<CR>

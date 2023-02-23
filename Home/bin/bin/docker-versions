@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ -n "$1" ]; then
+  img_name=$1
+else
+  read -p 'Dev image name:' img_name
+fi
+
+if [ -n "$2" ]; then
+  default_group=
+else
+  default_group=photon/
+fi
+
+curl -u photon:photon https://development-docker-pull.dsoc.internal/v2/${default_group}${img_name}/tags/list 2>/dev/null | jq

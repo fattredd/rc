@@ -47,20 +47,17 @@ default_orientation auto
 
 # Newer format
 # title_align center
-# default_border pixel 3
-# default_floating_border pixel 3
-
-# Older format
-new_window pixel 3
-new_float pixel 3
+for_window [class="^.*"] border pixel 2
+#gaps inner 3
+#gaps outer 5
 
 # Start i3bar to display a workspace bar
 bar {
-    id main
-    status_command i3status
-    tray_padding 2
-    separator_symbol "⸱"
-    strip_workspace_numbers yes
+  id main
+  status_command i3status
+  tray_padding 2
+  separator_symbol "⸱"
+  strip_workspace_numbers yes
 }
 bindsym $mod+Shift+t border toggle
 
@@ -93,9 +90,9 @@ bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'Really exit i3?' -b 'Ye
 # FOCUS
 #
 bindsym $mod+j focus left
-bindsym $mod+k focus down
+bindsym $mod+k focus right
 bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+semicolon focus down
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -107,7 +104,7 @@ bindsym $mod+comma workspace prev
 bindsym $mod+period workspace next
 
 # change between tiling / floating windows
-bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Shift+m focus mode_toggle
 
 bindsym $mod+minus focus parent
 bindsym $mod+equal focus child
@@ -144,7 +141,6 @@ bindsym $mod+u layout tabbed
 bindsym $mod+i layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+space floating toggle
 bindsym $mod+f floating toggle
 
 #
@@ -160,7 +156,7 @@ bindsym $mod+7 workspace $ws_7
 bindsym $mod+8 workspace $ws_8
 bindsym $mod+9 workspace $ws_9
 bindsym $mod+0 workspace $ws_0
-bindsym $mod+grave scratchpad show
+bindsym $mod+space scratchpad show
 
 #
 # WORKSPACE move
@@ -175,7 +171,7 @@ bindsym $mod+Shift+7 move container to workspace $ws_7
 bindsym $mod+Shift+8 move container to workspace $ws_8
 bindsym $mod+Shift+9 move container to workspace $ws_9
 bindsym $mod+Shift+0 move container to workspace $ws_0
-bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+Shift+space move scratchpad
 
 #
 # RESIZE window
@@ -236,9 +232,53 @@ bindsym $mod+XF86AudioRaiseVolume    exec --no-startup-id playerctl next
 #
 # Window preplacement
 #
-
+exec --no-startup-id $terminal -c __scratchpad
+for_window [class="__scratchpad"] move scratchpad, move position 150 150, resize set 1700 800;
 exec --no-startup-id i3-msg "workspace $WS_1; exec $terminal"
 exec --no-startup-id i3-msg "workspace $WS_0; exec slack; exec firefox"
 
 # Use feh for background, but only if availible
 exec --no-startup-id "command -v feh &>/dev/null && [ -f ~/.fehbg ] && ~/.fehbg"
+
+#
+# Floating windows
+# here thar be dragons
+#
+for_window [title="File Transfer*"] floating enable
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+#for_window [class="Spotify"] floating enable
+for_window [class="Transmission"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="Simplescreenrecorder"] floating enable
+for_window [class="Xsensors"] floating enable
+for_window [class="Nitrogen"] floating enable
+#for_window [class="Mainwindow.py"] floating enable
+for_window [class="etcher"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Audacious"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="Org.gnome.Weather.Application"] floating enable
+for_window [class="(?i)virtualbox"] floating enable
+for_window [class="milkytracker"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="minergate"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="Gzdoom"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="MPlayer"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [title="dosbox"] floating enable
+for_window [title="Type Knight"] floating enable
+for_window [class="Gnome-multi-writer"] floating enable
+for_window [class="multibootusb"] floating enable
+for_window [class="Org.gnome.Weather"] floating enable
+for_window [class="Gnome-calendar"] floating enable
+for_window [class="gnome-calculator"] floating enable
+for_window [class="feh"] floating enable
+#for_window [class="Connman-gtk"] floating enable
+#for_window [class="qutebrowser"] floating enable
