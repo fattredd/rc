@@ -14,6 +14,7 @@ IfExist, %I_Icon%
 ;#Include Scripts\monitorSwap.ahk
 #Include Scripts\capslock.ahk
 #Include Scripts\volume.ahk
+#Include Scripts\mic_ctrl.ahk
 #Include Scripts\lock_bypass.ahk
 
 ; # -- Win

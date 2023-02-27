@@ -13,14 +13,14 @@
 F13::Send {Enter}Oof{Enter}
 F14::Send F1
 F15::Send F2
-F16::Send F5
+;F16:: ; mic_ctrl.ahk
 
 ;Row 2
 
 F17::Send {Enter}Oof{Enter}
 F18::Send {Enter}Oof{Enter}
 F19::Send {CtrlDown}u{CtrlUp}
-F20::Send {CtrlDown}y{CtrlUp}
+;F20:: ; mic_ctrl.ahk
 
 ;Row 3
 
