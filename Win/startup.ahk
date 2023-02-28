@@ -16,6 +16,7 @@ IfExist, %I_Icon%
 #Include Scripts\volume.ahk
 #Include Scripts\mic_ctrl.ahk
 #Include Scripts\lock_bypass.ahk
+#Include Scripts\calc.ahk
 
 ; # -- Win
 ; ^ -- Ctrl
@@ -71,22 +72,6 @@ WinGet, winstate, MinMax, A
     WinMaximize, A
   else
     WinRestore, A
-  }
-  return
-
-#c::
-  {
-  SetTitleMatchMode, 2
-  Process, Exist, calc.exe
-  if !ErrorLevel = 0
-  {
-    WinGet, winstate, MinMax, Calculator
-    if winstate != 1
-      WinMaximize, Calculator
-    else
-      WinRestore, Calculator
-  } else
-    RUN C:\Windows\System32\calc.exe
   }
   return
 
