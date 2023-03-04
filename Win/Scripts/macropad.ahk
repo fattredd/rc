@@ -44,15 +44,15 @@ F23::Send k
 
 ;!F17::Return ; reload in startup.ahk
 ;!F18::Return ; alt reload
-!F19::Return
+!F19::Send x
 !F20::Return
 
 ;Row 3
 
 ;!F21::Return doubleclick loop osrs.ahk
-;!F22::Return
-;!F23::Return
-;!F24::Return
+!F22::Send j
+!F23::Send l
+!F24::Send k
 
 
 ;=================================================================
