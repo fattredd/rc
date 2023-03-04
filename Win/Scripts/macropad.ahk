@@ -11,23 +11,23 @@
 ;Row 1
 
 F13::Send {Enter}Oof{Enter}
-F14::Send F1
-F15::Send F2
-;F16:: ; mic_ctrl.ahk
+F14::Send a
+F15::Send z
+;F16:: ; macro hardcoded mute
 
 ;Row 2
 
-F17::Send {Enter}Oof{Enter}
-F18::Send {Enter}Oof{Enter}
-F19::Send {CtrlDown}u{CtrlUp}
-;F20:: ; mic_ctrl.ahk
+;F17::Send ; panic doubleclick loop osrs.ahk
+F18::Send [
+F19::Send ]
+;F20:: ; mic_ctrl.ahk mic on
 
 ;Row 3
 
 ;F21::  ; doubleclick osrs.ahk
-;F22::Send {Enter}Ouch{Enter}
-;F23::Send {CtrlDown}z{CtrlUp}
-F24::Send {CtrlDown}y{CtrlUp}
+F22::Send j
+F23::Send k
+;F24:: ; mic_ctrl.ahk mic off
 
 
 ;=================================================================
@@ -49,7 +49,7 @@ F24::Send {CtrlDown}y{CtrlUp}
 
 ;Row 3
 
-;!F21::Return
+;!F21::Return doubleclick loop osrs.ahk
 ;!F22::Return
 ;!F23::Return
 ;!F24::Return

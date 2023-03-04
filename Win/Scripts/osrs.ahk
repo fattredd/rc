@@ -2,40 +2,6 @@
 
 SendMode, Event
 
-MouseClick:
-  Click, Left, Down
-  Random, MClick, 40, 90
-  Sleep, %MClick%
-  Click, Left, Up
-  return
-
-DoubleClick:
-  gosub Mouseclick
-  Random, MSecClick, 70, 300
-  Sleep, %MSecClick%
-  gosub Mouseclick
-  return
-
-
-F21::
-  gosub DoubleClick
-  return
-
-F22::
-  Toggle := True
-  Loop {
-    If (!Toggle)
-      Break
-    gosub DoubleClick
-    Random, AMSecClick, 2200, 2700
-    Sleep, %AMSecClick%
-  }
-  return
-
-F23::
-  Toggle := False
-  return
-
 ; Map these only in Runelite
 doubleTime := -250
 #IfWinActive ahk_class SunAwtFrame ; Runelite
@@ -79,4 +45,39 @@ XB2multipress:
     Send 5
   }
   XB2multi := 0
+  return
+
+
+MouseClick:
+  Click, Left, Down
+  Random, MClick, 40, 90
+  Sleep, %MClick%
+  Click, Left, Up
+  return
+
+DoubleClick:
+  gosub Mouseclick
+  Random, MSecClick, 70, 300
+  Sleep, %MSecClick%
+  gosub Mouseclick
+  return
+
+
+F21::
+  gosub DoubleClick
+  return
+
+!F21::
+  Toggle := True
+  Loop {
+    If (!Toggle)
+      Break
+    gosub DoubleClick
+    Random, AMSecClick, 2200, 2700
+    Sleep, %AMSecClick%
+  }
+  return
+
+F17::
+  Toggle := False
   return
