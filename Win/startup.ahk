@@ -17,6 +17,7 @@ IfExist, %I_Icon%
 #Include Scripts\mic_ctrl.ahk
 #Include Scripts\lock_bypass.ahk
 #Include Scripts\calc.ahk
+#Include Scripts\framewin.ahk
 
 ; # -- Win
 ; ^ -- Ctrl
