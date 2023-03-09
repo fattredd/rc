@@ -10,7 +10,7 @@
 ;;=================================================================
 ;Row 1
 
-F13::Send {Enter}Oof{Enter}
+F13::Send x
 F14::Send a
 F15::Send z
 ;F16:: ; macro hardcoded mute
