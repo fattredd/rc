@@ -12,6 +12,7 @@ IfExist, %I_Icon%
 #Include Scripts\macropad.ahk
 #Include Scripts\rs3.ahk
 ;#Include Scripts\monitorSwap.ahk
+#Include Scripts\scrot.ahk
 #Include Scripts\capslock.ahk
 #Include Scripts\volume.ahk
 #Include Scripts\mic_ctrl.ahk
