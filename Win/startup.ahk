@@ -1,7 +1,10 @@
 ; Startup
 
-#SingleInstance Force
-SetWorkingDir %A_ScriptDir%
+#NoEnv
+#SingleInstance, Force
+SendMode, Input
+SetBatchLines, -1
+SetWorkingDir, %A_ScriptDir%
 
 I_Icon = Scripts\assets\twister.ico
 IfExist, %I_Icon%
@@ -19,6 +22,7 @@ IfExist, %I_Icon%
 #Include Scripts\lock_bypass.ahk
 #Include Scripts\calc.ahk
 #Include Scripts\framewin.ahk
+#Include Scripts\symbols.ahk
 
 ; # -- Win
 ; ^ -- Ctrl
