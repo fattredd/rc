@@ -23,6 +23,7 @@ IfExist, %I_Icon%
 #Include Scripts\calc.ahk
 #Include Scripts\framewin.ahk
 #Include Scripts\symbols.ahk
+#Include Scripts\workspaces_changes.ahk
 
 ; # -- Win
 ; ^ -- Ctrl
