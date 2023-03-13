@@ -67,7 +67,8 @@ AppsKey::RCtrl
 
 ; Win+t is terminal
 #t::
-  RUN %localappdata%\Microsoft\WindowsApps\wt.exe
+  RUN C:\Users\ash\AppData\Local\Microsoft\WindowsApps\wt.exe
+  ;RUN %localappdata%\Microsoft\WindowsApps\wt.exe
   return
 
 ; Win+m is maximize
