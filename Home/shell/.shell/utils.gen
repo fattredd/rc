@@ -9,6 +9,11 @@ alias rcl='find . -type d -empty -delete'
 alias rcp='rsync -av -P'
 alias rmv='rsync -av -P --remove-source-files'
 
+function stee() {
+  tee $@ 2>/dev/null
+}
+alias qtee='stee'
+
 function cl() {
   # cd and ls in one
   local dir="$1"

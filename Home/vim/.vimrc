@@ -42,7 +42,9 @@ set title
 if has('patch-8.2.1663')
   set fixendofline
 endif
-
+if has('mouse')
+  set mouse=a
+endif
 if has('patch-8.1.2134')
   set t_TI=
   set t_TE=
@@ -65,6 +67,7 @@ let g:mapleader = ' '
 
 nnoremap <leader>s w<CR>
 nnoremap <leader>W :w !sudo tee % > /dev/null<CR>
+cmap w!! w !sudo tee > /dev/null %
 nnoremap <leader>q :q<CR>
 nnoremap <BS> i<BS><ESC>`^
 
@@ -109,6 +112,7 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-obsession'
   Plug 'valloric/youcompleteme'
+  Plug 'mg979/vim-visual-multi'
   if has('patch-7.4.2008')
     Plug 'romainl/vim-cool'
   endif
@@ -134,6 +138,17 @@ let g:NERDTReeGitStatusUseNerdFonts = 1
 nmap <leader>g :GitGutterLineHighlightsToggle<CR>
 command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 
+" vim-visual-multi
+noremap <C-LeftMouse> <Plug>(VM-Mouse-Cursor)
+noremap <C-RightMouse> <Plug>(VM-Mouse-Word)
+noremap <M-C-RightMouse> <Plug>(VM-Mouse-Column)
+nnoremap <C-j> <Plug>(VM-Add-Cursor-Down)
+nnoremap <C-k> <Plug>(VM-Add-Cursor-Up)
+
+" Convenient functions
+cnoreabbr keybinds redir! > vim_keys.txt<CR>:silent verbose map<CR>:redir END
+
+" Aliases
 cnoreabbr git Git
 cnoreabbr sess Obsess
 cnoreabbr share Share
