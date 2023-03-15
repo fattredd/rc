@@ -2,7 +2,7 @@
 # Tools
 #
 alias cd..='cd ..'
-
+alias stowh='stow -t ~'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias wine32='env WINEARCH=win32 WINEPREFIX="$HOME/.wine32" wine'
 alias resteam='find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete'
