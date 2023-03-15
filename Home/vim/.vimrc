@@ -101,6 +101,7 @@ call plug#begin()
   Plug 'editorconfig/editorconfig-vim'
   Plug 'preservim/nerdtree'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'jistr/vim-nerdtree-tabs'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'vim-airline/vim-airline'
   Plug 'airblade/vim-gitgutter'
