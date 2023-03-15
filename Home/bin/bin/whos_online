@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Plex
+plex_ip=10.0.0.19:32400
+plex_token="${PLEX_TOKEN}"
+arg=status/sessions
+url="http://${plex_ip}/${arg}?X-Plex_Token=${plex_token}"
+if [ -n "$plex_token" ]; then
+  echo "`curl -q ${url} 2>/dev/null | xq -r '.MediaContainer."@size"'` plex" &
+else
+  echo "? plex"
+fi
+
+# Minecraft
+ssh 10.0.0.18 mscs query | grep -oP "map\s+\w+\s+numplayers\s+\w+" | awk '{ print $4 " " $2 }' | sort | uniq &
+
+# ssh
+remotes=(10.0.0.19 10.0.0.18 10.0.0.5)
+function num_connections() {
+    ssh $1 who | wc -l || echo "?"
+}
+for i in ${remotes[@]}; do
+    echo "`num_connections $i` $i" &
+done
+
+wait `jobs -p`
