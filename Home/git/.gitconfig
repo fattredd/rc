@@ -1,6 +1,6 @@
 [user]
   name = JButler
-  email = jbutler@luf.co
+  email = fattredd@gmail.com 
 [commit]
 #  template = ~/.config/git/commit_template
 [core]
@@ -25,7 +25,7 @@
   lg = log --graph --oneline --all
   lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-  lg3 = !"git lg1"
+  lg3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%  %ae%C(reset)' --all
   fuckit = !"git checkout . && git clean -fdx"
   redo = !"git reset --hard @~1 && git pull"
   fire = !"git-fire"
@@ -40,20 +40,20 @@
 [pull]
   ff = only
 [rebase]
-  autostash = true	
+  autostash = true
 [push]
-	default = current
+  default = current
 [filter "version"]
-	clean = ~/.config/git/versionClean
+  clean = ~/.config/git/versionClean
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [lfs "https://git.rigidgear.com/jack/rc.git/info/lfs"]
-	locksverify = true
+  locksverify = true
 [safe]
-	directory = /opt
+  directory = /opt

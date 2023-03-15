@@ -108,6 +108,7 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-obsession'
+  Plug 'valloric/youcompleteme'
   if has('patch-7.4.2008')
     Plug 'romainl/vim-cool'
   endif
