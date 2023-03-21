@@ -10,9 +10,7 @@
   },
   "analytics": {
     "hostId": "ae85ec4d55c6375d580b66c165c51c85ec46a4997cd42ec55de9449c7bfeeff0",
-    "scheduledUserPrompt": {
-      "type": "new_user_prompt"
-    },
+    "pendingUserPrompt": {},
     "versionNumber": "2018.4"
   },
   "analytics_supported_settings": {
@@ -170,10 +168,13 @@
           }
         ],
         "databaseId": "1bc2a80f-4c7b-4d83-bde6-d649b2cd414b",
+        "isDisabled": true,
         "isInstalled": true,
+        "lastRunTime": "20230319T042838.147900",
         "name": "Borderlands 2",
         "posterTitlePosition": "0",
         "posterUrl": "http://127.0.0.1:9180/core/applications/borderlands_2_poster.jpg",
+        "processId": 27504,
         "version": 1
       },
       {
@@ -394,7 +395,7 @@
           }
         ],
         "databaseId": "420fd454-0c36-499d-bde4-146823b16147",
-        "lastRunTime": "20230315T200920.759167",
+        "lastRunTime": "20230321T185112.972270",
         "name": "APPLICATION_NAME_DESKTOP",
         "version": 4
       },
@@ -489,6 +490,7 @@
           }
         ],
         "databaseId": "8a9064ed-188d-4e61-a7b3-94a0b1db4a23",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "Elden Ring",
         "posterTitlePosition": "0",
@@ -960,6 +962,7 @@
           }
         ],
         "databaseId": "567e8aba-647d-435d-9de7-08624298db8d",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "Factorio",
         "posterTitlePosition": "50",
@@ -1068,6 +1071,7 @@
           }
         ],
         "databaseId": "df91e50a-860b-45ea-ba7b-5e3c2519903e",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "Fallout: New Vegas",
         "posterTitlePosition": "15",
@@ -1142,6 +1146,7 @@
           }
         ],
         "databaseId": "b804cee1-5270-4e6d-ac24-63ed112f3724",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "It Takes Two",
         "posterTitlePosition": "6",
@@ -1596,6 +1601,7 @@
           }
         ],
         "databaseId": "bca43cc1-50db-4bb7-aa4b-b32db3d30ca6",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "League of Legends",
         "posterTitlePosition": "70",
@@ -1700,6 +1706,7 @@
           }
         ],
         "databaseId": "5d863138-ceae-4df9-9b2f-250ce2b75e58",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "Valheim",
         "posterTitlePosition": "0",
@@ -1789,6 +1796,7 @@
           }
         ],
         "databaseId": "679a955b-398a-4412-a0e1-83c4cc07c827",
+        "isDisabled": true,
         "isInstalled": true,
         "name": "We Were Here",
         "posterTitlePosition": "0",
@@ -1799,10 +1807,10 @@
         "applicationId": "82dbf132-465e-4545-b552-45ff7aac8f4c",
         "applicationPath": "C:\\Users\\ash\\AppData\\Local\\RuneLite\\RuneLite.exe",
         "isCustom": true,
-        "lastRunTime": "20230315T191227.686906",
+        "lastRunTime": "20230320T000441.059008",
         "name": "RuneLite",
         "posterPath": "C:\\Users\\ash\\AppData\\Local\\LGHUB\\icon_cache\\cd76a33f0ff6cf234c7ccc834ea89e307d09d944949a771d140ae3cd18f43236.bmp",
-        "processId": 24548
+        "processId": 29832
       },
       {
         "applicationId": "1dd59c9e-e878-4084-a6e0-0db4e71c9a99",
@@ -1810,24 +1818,273 @@
         "isCustom": true,
         "name": "Torchlight2",
         "posterPath": "C:\\Users\\ash\\AppData\\Local\\LGHUB\\icon_cache\\8c22828477adebfc06f1aec0084fd1a6f3520bd011ce6f70f83411b43d52f68a.bmp"
+      },
+      {
+        "applicationFolder": "D:\\SteamLibrary\\steamapps\\common\\Borderlands 3\\",
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "applicationPath": "D:\\SteamLibrary\\steamapps\\common\\Borderlands 3\\",
+        "categoryColors": [
+          {
+            "hex": "#fbee13",
+            "tag": "Movement"
+          },
+          {
+            "hex": "#f13525",
+            "tag": "Combat"
+          },
+          {
+            "hex": "#8d40ff",
+            "tag": "Weapons"
+          },
+          {
+            "hex": "#59a4e8",
+            "tag": "Social"
+          },
+          {
+            "hex": "#bafcfc",
+            "tag": "Miscellaneous"
+          },
+          {
+            "hex": "#00a9e0",
+            "tag": "Common"
+          }
+        ],
+        "commands": [
+          {
+            "cardId": "c2ee736b-c456-452c-bba5-45ba958c4d31",
+            "category": "Movement",
+            "name": "Forward / Accelerate"
+          },
+          {
+            "cardId": "49b1ee94-b04d-475a-b631-776ea1df2673",
+            "category": "Movement",
+            "name": "Backward / Reverse"
+          },
+          {
+            "cardId": "096c02c9-4540-4cd1-a447-6f99666b7281",
+            "category": "Movement",
+            "name": "Strafe / Steer Left"
+          },
+          {
+            "cardId": "bc026d99-d51f-41fa-a70e-40115a7c300b",
+            "category": "Movement",
+            "name": "Strafe / Steer Right"
+          },
+          {
+            "cardId": "60b2e643-5c96-4cad-8224-6c4495f84979",
+            "category": "Movement",
+            "name": "Jump"
+          },
+          {
+            "cardId": "ab7e67ab-3586-463c-9351-93d5844fec43",
+            "category": "Movement",
+            "name": "Sprint / Boost"
+          },
+          {
+            "cardId": "887a3653-0ef8-4955-989b-dc5614e56592",
+            "category": "Movement",
+            "name": "Crouch / Slide / Ground Slam"
+          },
+          {
+            "cardId": "5bb1eced-05f9-4f16-b5c4-23b1410cb847",
+            "category": "Combat",
+            "name": "Melee"
+          },
+          {
+            "cardId": "5093acc0-6d08-4eb5-a65f-85f605d49144",
+            "category": "Combat",
+            "name": "Reload"
+          },
+          {
+            "cardId": "7063c544-4113-4af6-a7d0-511c1184e400",
+            "category": "Combat",
+            "name": "Action Skill"
+          },
+          {
+            "cardId": "5e58e5c3-4cbb-473b-a021-cdb5015b15f5",
+            "category": "Combat",
+            "name": "Throw Grenade"
+          },
+          {
+            "cardId": "d42e0877-b862-4560-9c51-7c32b9c8bd8b",
+            "category": "Combat",
+            "name": "Weapon 1"
+          },
+          {
+            "cardId": "83b9d648-b4a7-46d1-bf1c-046d1a860b11",
+            "category": "Combat",
+            "name": "Weapon 2"
+          },
+          {
+            "cardId": "ab4a8be3-28e3-47ec-8c82-11ee0df213f7",
+            "category": "Combat",
+            "name": "Weapon 3"
+          },
+          {
+            "cardId": "18dabc1d-cddb-45aa-aa8a-2a4c1fa1d143",
+            "category": "Combat",
+            "name": "Weapon 4"
+          },
+          {
+            "cardId": "121efee7-124f-4d30-bd32-102618521217",
+            "category": "Combat",
+            "name": "Secondary Use"
+          },
+          {
+            "cardId": "f72bd5e4-2711-4ee1-b57d-103bd7bf881e",
+            "category": "Combat",
+            "name": "Weapon Mode"
+          },
+          {
+            "cardId": "5c896949-c616-4c9c-98b7-49f862dd2f9e",
+            "category": "Social",
+            "name": "Photo Mode"
+          },
+          {
+            "cardId": "e192ec4e-a988-4ead-81c8-4d9827468aab",
+            "category": "Social",
+            "name": "Emote 1"
+          },
+          {
+            "cardId": "c3596196-f5a0-4c91-9402-ab63ee077375",
+            "category": "Social",
+            "name": "Emote 2"
+          },
+          {
+            "cardId": "3f8befef-a949-4b2f-bf6e-d1d0ffe492c3",
+            "category": "Social",
+            "name": "Emote 3"
+          },
+          {
+            "cardId": "8cb294b6-adb9-40e7-838c-137590ef61e7",
+            "category": "Social",
+            "name": "Emote 4"
+          },
+          {
+            "cardId": "afab9fcb-e21e-44c2-aa5c-7303bb7e4e5d",
+            "category": "Miscellaneous",
+            "name": "Previous Tracked Mission"
+          },
+          {
+            "cardId": "89f96536-b302-42c3-8d3d-e4161d93c43c",
+            "category": "Miscellaneous",
+            "name": "Next Tracked Mision"
+          },
+          {
+            "cardId": "0d6b82a0-7760-4963-bb77-cd48559b2da9",
+            "category": "Miscellaneous",
+            "name": "Mark Target"
+          },
+          {
+            "cardId": "88dba8cd-9e49-4851-80fb-971b1eaae366",
+            "category": "Common",
+            "name": "Character Menu"
+          },
+          {
+            "cardId": "73507e9d-e3ab-4909-8be3-f179b8dc4999",
+            "category": "Common",
+            "name": "Map"
+          },
+          {
+            "cardId": "65e7df48-8fb1-4d3a-8a3f-9fac803cca31",
+            "category": "Common",
+            "name": "Logs"
+          },
+          {
+            "cardId": "a82c57e9-fd54-44cb-9c0a-21cbb3735cc0",
+            "category": "Common",
+            "name": "Inventory"
+          },
+          {
+            "cardId": "fd878805-9283-45fc-a6e5-69f63a9060e6",
+            "category": "Common",
+            "name": "Skills"
+          },
+          {
+            "cardId": "790b203b-e49c-442e-87fd-7e40dd8823cb",
+            "category": "Common",
+            "name": "Guardian Rank"
+          },
+          {
+            "cardId": "1fe17edb-c966-4c4c-951a-959b50427815",
+            "category": "Common",
+            "name": "Roster"
+          },
+          {
+            "cardId": "386077dc-824a-48ad-a962-6e064cd30e62",
+            "category": "Common",
+            "name": "Matchmaking"
+          },
+          {
+            "cardId": "6c98daee-ea3d-4c6e-a9cb-62502ea41d0c",
+            "category": "Common",
+            "name": "SHiFT"
+          },
+          {
+            "cardId": "cc243163-bb9b-45f3-8bbc-daee7a21a86c",
+            "category": "Common",
+            "name": "Mail"
+          },
+          {
+            "cardId": "195ef800-2d85-412e-a50f-7d60fc4f15f2",
+            "category": "Common",
+            "name": "LAN Browser"
+          },
+          {
+            "cardId": "c46cca51-5f6b-4b0e-97da-3a14ec4e804e",
+            "category": "Common",
+            "name": "Quick Menu"
+          },
+          {
+            "cardId": "29121cf0-b639-45e3-841f-638c0780481e",
+            "category": "Common",
+            "name": "Text Chat"
+          },
+          {
+            "cardId": "36000c12-b71d-4075-81ae-5585dc994539",
+            "category": "Common",
+            "name": "Voice Chat"
+          }
+        ],
+        "databaseId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "isDisabled": true,
+        "isInstalled": true,
+        "name": "Borderlands 3",
+        "posterTitlePosition": "0",
+        "posterUrl": "http://127.0.0.1:9180/core/applications/borderlands_3_poster.jpg"
       }
     ]
   },
   "autostart": true,
   "battery/g502x-lightspeed/percentage": {
-    "percentage": 96,
-    "time": "2023-03-15T23:35:27Z"
+    "percentage": 79,
+    "time": "2023-03-21T18:51:17Z"
   },
   "battery/g502x-lightspeed/warning": {
     "deviceId": "dev00000000",
-    "level": "FULL",
-    "percentage": 91,
-    "time": "1678907887"
+    "level": "GREAT",
+    "percentage": 81,
+    "time": "1679363469"
   },
   "blue_voice_advanced_controls_enabled": false,
   "brand": "Logitech",
   "cards": {
     "cards": [
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "f72bd5e4-2711-4ee1-b57d-103bd7bf881e",
+        "macro": {
+          "actionName": "C",
+          "keystroke": {
+            "code": 6
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Weapon Mode",
+        "readOnly": true
+      },
       {
         "applicationId": "420fd454-0c36-499d-bde4-146823b16147",
         "attribute": "MACRO_PLAYBACK",
@@ -1874,6 +2131,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "49b1ee94-b04d-475a-b631-776ea1df2673",
+        "macro": {
+          "actionName": "S",
+          "keystroke": {
+            "code": 22
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Backward / Reverse",
+        "readOnly": true
+      },
+      {
         "attribute": "EQUALIZER",
         "equalizer": {
           "advanced": [
@@ -1901,30 +2173,21 @@
         "readOnly": true
       },
       {
-        "attribute": "EQUALIZER",
-        "equalizer": {
-          "advanced": [
-            0,
-            -0.96,
-            -0.96,
-            1.92,
-            3.6,
-            4.32,
-            3.6,
-            3.6,
-            1.68,
-            0.96
-          ],
+        "attribute": "CENTURION_EQUALIZER",
+        "centurionEqualizer": {
           "deviceType": "HEADSET",
-          "name": "EQUALIZER_COMMUNICATIONS",
-          "simple": [
+          "gains": [
+            0,
+            0,
+            0,
             0,
             0
           ],
-          "type": "ADVANCED"
+          "name": "EQUALIZER_FLAT",
+          "type": "CENTURION"
         },
-        "id": "937a09ad-86d3-495c-847a-de859fc59712",
-        "name": "EQUALIZER_COMMUNICATIONS",
+        "id": "123e0346-e78a-43e0-b81c-55d24f267f5c",
+        "name": "EQUALIZER_FLAT",
         "readOnly": true
       },
       {
@@ -1955,21 +2218,30 @@
         "readOnly": true
       },
       {
-        "applicationId": "bca43cc1-50db-4bb7-aa4b-b32db3d30ca6",
-        "attribute": "MACRO_PLAYBACK",
-        "category": "Practice Tool",
-        "id": "cad8a447-2af6-4d0e-ac4c-3ee2e0b65d88",
-        "macro": {
-          "actionName": "Shift + K",
-          "keystroke": {
-            "code": 14,
-            "modifiers": [
-              225
-            ]
-          },
-          "type": "KEYSTROKE"
+        "attribute": "EQUALIZER",
+        "equalizer": {
+          "advanced": [
+            0,
+            -0.96,
+            -0.96,
+            1.92,
+            3.6,
+            4.32,
+            3.6,
+            3.6,
+            1.68,
+            0.96
+          ],
+          "deviceType": "HEADSET",
+          "name": "EQUALIZER_COMMUNICATIONS",
+          "simple": [
+            0,
+            0
+          ],
+          "type": "ADVANCED"
         },
-        "name": "Spawn Mountain Drake",
+        "id": "937a09ad-86d3-495c-847a-de859fc59712",
+        "name": "EQUALIZER_COMMUNICATIONS",
         "readOnly": true
       },
       {
@@ -1988,21 +2260,21 @@
         "readOnly": true
       },
       {
-        "attribute": "CENTURION_EQUALIZER",
-        "centurionEqualizer": {
-          "deviceType": "HEADSET",
-          "gains": [
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "name": "EQUALIZER_FLAT",
-          "type": "CENTURION"
+        "applicationId": "bca43cc1-50db-4bb7-aa4b-b32db3d30ca6",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Practice Tool",
+        "id": "cad8a447-2af6-4d0e-ac4c-3ee2e0b65d88",
+        "macro": {
+          "actionName": "Shift + K",
+          "keystroke": {
+            "code": 14,
+            "modifiers": [
+              225
+            ]
+          },
+          "type": "KEYSTROKE"
         },
-        "id": "123e0346-e78a-43e0-b81c-55d24f267f5c",
-        "name": "EQUALIZER_FLAT",
+        "name": "Spawn Mountain Drake",
         "readOnly": true
       },
       {
@@ -2060,6 +2332,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Strafe Right",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "790b203b-e49c-442e-87fd-7e40dd8823cb",
+        "macro": {
+          "actionName": "J",
+          "keystroke": {
+            "code": 13
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Guardian Rank",
         "readOnly": true
       },
       {
@@ -2121,6 +2408,21 @@
         },
         "id": "76b7a515-2c3c-4dab-bf65-48fff5318008",
         "name": "EQUALIZER_FPS",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "1fe17edb-c966-4c4c-951a-959b50427815",
+        "macro": {
+          "actionName": "F1",
+          "keystroke": {
+            "code": 58
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Roster",
         "readOnly": true
       },
       {
@@ -2201,6 +2503,9 @@
         "macro": {
           "action": {
             "actionId": "ow_perform_command",
+            "erroneousParameters": {
+              "app_selection": "APPLET_OW_APP_SELECTION_INVALID"
+            },
             "integrationId": "3776b8da1238dc5",
             "parameters": {
               "app_selection": "hffhbjnafafjnehejohpkfhjdenpifhihebpkhni",
@@ -2389,6 +2694,9 @@
         "macro": {
           "action": {
             "actionId": "ow_perform_command",
+            "erroneousParameters": {
+              "app_selection": "APPLET_OW_APP_SELECTION_INVALID"
+            },
             "integrationId": "3776b8da1238dc5",
             "parameters": {
               "app_selection": "lnhebboianabbebhnpoodokcdcnmikacoeijpjfe",
@@ -2489,6 +2797,9 @@
         "macro": {
           "action": {
             "actionId": "ow_perform_command",
+            "erroneousParameters": {
+              "app_selection": "APPLET_OW_APP_SELECTION_INVALID"
+            },
             "integrationId": "3776b8da1238dc5",
             "parameters": {
               "app_selection": "lnhebboianabbebhnpoodokcdcnmikacoeijpjfe",
@@ -2622,6 +2933,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "5093acc0-6d08-4eb5-a65f-85f605d49144",
+        "macro": {
+          "actionName": "R",
+          "keystroke": {
+            "code": 21
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Reload",
+        "readOnly": true
+      },
+      {
         "applicationId": "5d863138-ceae-4df9-9b2f-250ce2b75e58",
         "attribute": "MACRO_PLAYBACK",
         "category": "Controls",
@@ -2718,6 +3044,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "c2ee736b-c456-452c-bba5-45ba958c4d31",
+        "macro": {
+          "actionName": "W",
+          "keystroke": {
+            "code": 26
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Forward / Accelerate",
+        "readOnly": true
+      },
+      {
         "applicationId": "5d863138-ceae-4df9-9b2f-250ce2b75e58",
         "attribute": "MACRO_PLAYBACK",
         "category": "Controls",
@@ -2784,6 +3125,21 @@
         },
         "id": "b2c8ab8c-8366-4905-9f1c-b4ed12d31326",
         "name": "EQUALIZER_MOBA",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "195ef800-2d85-412e-a50f-7d60fc4f15f2",
+        "macro": {
+          "actionName": "F5",
+          "keystroke": {
+            "code": 62
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "LAN Browser",
         "readOnly": true
       },
       {
@@ -3219,6 +3575,9 @@
         "macro": {
           "action": {
             "actionId": "ow_perform_command",
+            "erroneousParameters": {
+              "app_selection": "APPLET_OW_APP_SELECTION_INVALID"
+            },
             "integrationId": "3776b8da1238dc5",
             "parameters": {
               "app_selection": "hffhbjnafafjnehejohpkfhjdenpifhihebpkhni",
@@ -3265,6 +3624,9 @@
         "macro": {
           "action": {
             "actionId": "ow_perform_command",
+            "erroneousParameters": {
+              "app_selection": "APPLET_OW_APP_SELECTION_INVALID"
+            },
             "integrationId": "3776b8da1238dc5",
             "parameters": {
               "app_selection": "oepmnephgakhodlemnladfmcnhfhbfdnbgolmcok",
@@ -3428,6 +3790,21 @@
           "type": "ACTION"
         },
         "name": "APPLET_OBS_MIC_MUTE_TOGGLE"
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Social",
+        "id": "8cb294b6-adb9-40e7-838c-137590ef61e7",
+        "macro": {
+          "actionName": "Right",
+          "keystroke": {
+            "code": 79
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Emote 4",
+        "readOnly": true
       },
       {
         "applicationId": "1bc2a80f-4c7b-4d83-bde6-d649b2cd414b",
@@ -3664,6 +4041,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Show Skills",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "36000c12-b71d-4075-81ae-5585dc994539",
+        "macro": {
+          "actionName": "T",
+          "keystroke": {
+            "code": 23
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Voice Chat",
         "readOnly": true
       },
       {
@@ -3970,6 +4362,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "73507e9d-e3ab-4909-8be3-f179b8dc4999",
+        "macro": {
+          "actionName": "M",
+          "keystroke": {
+            "code": 16
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Map",
+        "readOnly": true
+      },
+      {
         "applicationId": "bca43cc1-50db-4bb7-aa4b-b32db3d30ca6",
         "attribute": "MACRO_PLAYBACK",
         "category": "Communication",
@@ -4254,6 +4661,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Cycle Through Apps",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "83b9d648-b4a7-46d1-bf1c-046d1a860b11",
+        "macro": {
+          "actionName": "2",
+          "keystroke": {
+            "code": 31
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Weapon 2",
         "readOnly": true
       },
       {
@@ -4554,6 +4976,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Social",
+        "id": "5c896949-c616-4c9c-98b7-49f862dd2f9e",
+        "macro": {
+          "actionName": "P",
+          "keystroke": {
+            "code": 19
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Photo Mode",
+        "readOnly": true
+      },
+      {
         "applicationId": "420fd454-0c36-499d-bde4-146823b16147",
         "attribute": "MACRO_PLAYBACK",
         "category": "Windows",
@@ -4745,6 +5182,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Movement Control",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "cc243163-bb9b-45f3-8bbc-daee7a21a86c",
+        "macro": {
+          "actionName": "F4",
+          "keystroke": {
+            "code": 61
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Mail",
         "readOnly": true
       },
       {
@@ -5024,6 +5476,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Activate tooltip",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Social",
+        "id": "3f8befef-a949-4b2f-bf6e-d1d0ffe492c3",
+        "macro": {
+          "actionName": "Left",
+          "keystroke": {
+            "code": 80
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Emote 3",
         "readOnly": true
       },
       {
@@ -5396,6 +5863,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Toggle GUI style view",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "6c98daee-ea3d-4c6e-a9cb-62502ea41d0c",
+        "macro": {
+          "actionName": "F3",
+          "keystroke": {
+            "code": 60
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "SHiFT",
         "readOnly": true
       },
       {
@@ -6106,6 +6588,23 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "887a3653-0ef8-4955-989b-dc5614e56592",
+        "macro": {
+          "actionName": "Ctrl",
+          "keystroke": {
+            "modifiers": [
+              224
+            ]
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Crouch / Slide / Ground Slam",
+        "readOnly": true
+      },
+      {
         "applicationId": "bca43cc1-50db-4bb7-aa4b-b32db3d30ca6",
         "attribute": "MACRO_PLAYBACK",
         "category": "Practice Tool",
@@ -6199,6 +6698,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Select quickbar 1",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "096c02c9-4540-4cd1-a447-6f99666b7281",
+        "macro": {
+          "actionName": "A",
+          "keystroke": {
+            "code": 4
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Strafe / Steer Left",
         "readOnly": true
       },
       {
@@ -6508,6 +7022,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Quick Save",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Miscellaneous",
+        "id": "afab9fcb-e21e-44c2-aa5c-7303bb7e4e5d",
+        "macro": {
+          "actionName": "[",
+          "keystroke": {
+            "code": 47
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Previous Tracked Mission",
         "readOnly": true
       },
       {
@@ -7364,6 +7893,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "a82c57e9-fd54-44cb-9c0a-21cbb3735cc0",
+        "macro": {
+          "actionName": "I",
+          "keystroke": {
+            "code": 12
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Inventory",
+        "readOnly": true
+      },
+      {
         "applicationId": "bca43cc1-50db-4bb7-aa4b-b32db3d30ca6",
         "attribute": "MACRO_PLAYBACK",
         "category": "Communication",
@@ -7456,6 +8000,21 @@
           "type": "KEYSTROKE"
         },
         "name": "Show Advanced Player Stats",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "fd878805-9283-45fc-a6e5-69f63a9060e6",
+        "macro": {
+          "actionName": "K",
+          "keystroke": {
+            "code": 14
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Skills",
         "readOnly": true
       },
       {
@@ -7703,6 +8262,21 @@
         "readOnly": true
       },
       {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "60b2e643-5c96-4cad-8224-6c4495f84979",
+        "macro": {
+          "actionName": "Space",
+          "keystroke": {
+            "code": 44
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Jump",
+        "readOnly": true
+      },
+      {
         "applicationId": "5d863138-ceae-4df9-9b2f-250ce2b75e58",
         "attribute": "MACRO_PLAYBACK",
         "category": "Controls",
@@ -7898,13 +8472,351 @@
               2400,
               3200
             ],
-            "shiftDpi": 800
+            "shiftDpi": 2400
           },
           "reportRate": {
             "value": 1000
           }
         },
         "profileId": "420fd454-0c36-499d-bde4-146823b16147"
+      },
+      {
+        "applicationId": "82dbf132-465e-4545-b552-45ff7aac8f4c",
+        "attribute": "MACRO_PLAYBACK",
+        "id": "b39bcf23-cdb9-4d6a-aba5-be2c7ca903e2",
+        "macro": {
+          "onboardable": true,
+          "sequence": {
+            "defaultDelay": 50,
+            "heldSequence": {},
+            "pressSequence": {},
+            "releaseSequence": {},
+            "showUpDown": true,
+            "simpleSequence": {
+              "components": [
+                {
+                  "keyboard": {
+                    "displayName": "Shift",
+                    "hidUsage": 225,
+                    "isDown": true
+                  }
+                },
+                {
+                  "delay": {
+                    "durationMs": 10
+                  }
+                },
+                {
+                  "mouse": {
+                    "button": {
+                      "hidUsage": 1,
+                      "isDown": true
+                    }
+                  }
+                },
+                {
+                  "delay": {
+                    "durationMs": 43
+                  }
+                },
+                {
+                  "mouse": {
+                    "button": {
+                      "hidUsage": 1
+                    }
+                  }
+                },
+                {
+                  "delay": {
+                    "durationMs": 7
+                  }
+                },
+                {
+                  "keyboard": {
+                    "displayName": "Shift",
+                    "hidUsage": 225
+                  }
+                }
+              ]
+            },
+            "toggleSequence": {},
+            "useSimpleActions": true
+          },
+          "type": "SEQUENCE"
+        },
+        "name": "shift Click"
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "5bb1eced-05f9-4f16-b5c4-23b1410cb847",
+        "macro": {
+          "actionName": "V",
+          "keystroke": {
+            "code": 25
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Melee",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "bc026d99-d51f-41fa-a70e-40115a7c300b",
+        "macro": {
+          "actionName": "D",
+          "keystroke": {
+            "code": 7
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Strafe / Steer Right",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "121efee7-124f-4d30-bd32-102618521217",
+        "macro": {
+          "actionName": "E",
+          "keystroke": {
+            "code": 8
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Secondary Use",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Movement",
+        "id": "ab7e67ab-3586-463c-9351-93d5844fec43",
+        "macro": {
+          "actionName": "Shift",
+          "keystroke": {
+            "modifiers": [
+              225
+            ]
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Sprint / Boost",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Miscellaneous",
+        "id": "0d6b82a0-7760-4963-bb77-cd48559b2da9",
+        "macro": {
+          "actionName": "X",
+          "keystroke": {
+            "code": 27
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Mark Target",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "7063c544-4113-4af6-a7d0-511c1184e400",
+        "macro": {
+          "actionName": "F",
+          "keystroke": {
+            "code": 9
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Action Skill",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "65e7df48-8fb1-4d3a-8a3f-9fac803cca31",
+        "macro": {
+          "actionName": "L",
+          "keystroke": {
+            "code": 15
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Logs",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "5e58e5c3-4cbb-473b-a021-cdb5015b15f5",
+        "macro": {
+          "actionName": "G",
+          "keystroke": {
+            "code": 10
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Throw Grenade",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "d42e0877-b862-4560-9c51-7c32b9c8bd8b",
+        "macro": {
+          "actionName": "1",
+          "keystroke": {
+            "code": 30
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Weapon 1",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "ab4a8be3-28e3-47ec-8c82-11ee0df213f7",
+        "macro": {
+          "actionName": "3",
+          "keystroke": {
+            "code": 32
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Weapon 3",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Combat",
+        "id": "18dabc1d-cddb-45aa-aa8a-2a4c1fa1d143",
+        "macro": {
+          "actionName": "4",
+          "keystroke": {
+            "code": 33
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Weapon 4",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "29121cf0-b639-45e3-841f-638c0780481e",
+        "macro": {
+          "actionName": "Y",
+          "keystroke": {
+            "code": 28
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Text Chat",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Social",
+        "id": "e192ec4e-a988-4ead-81c8-4d9827468aab",
+        "macro": {
+          "actionName": "Up",
+          "keystroke": {
+            "code": 82
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Emote 1",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Social",
+        "id": "c3596196-f5a0-4c91-9402-ab63ee077375",
+        "macro": {
+          "actionName": "Down",
+          "keystroke": {
+            "code": 81
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Emote 2",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "88dba8cd-9e49-4851-80fb-971b1eaae366",
+        "macro": {
+          "actionName": "Tab",
+          "keystroke": {
+            "code": 43
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Character Menu",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Miscellaneous",
+        "id": "89f96536-b302-42c3-8d3d-e4161d93c43c",
+        "macro": {
+          "actionName": "]",
+          "keystroke": {
+            "code": 48
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Next Tracked Mision",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "386077dc-824a-48ad-a962-6e064cd30e62",
+        "macro": {
+          "actionName": "F2",
+          "keystroke": {
+            "code": 59
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Matchmaking",
+        "readOnly": true
+      },
+      {
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "attribute": "MACRO_PLAYBACK",
+        "category": "Common",
+        "id": "c46cca51-5f6b-4b0e-97da-3a14ec4e804e",
+        "macro": {
+          "actionName": "Z",
+          "keystroke": {
+            "code": 29
+          },
+          "type": "KEYSTROKE"
+        },
+        "name": "Quick Menu",
+        "readOnly": true
       }
     ]
   },
@@ -7919,7 +8831,7 @@
         "modelId": "g502x_lightspeed",
         "reportedToAnalytics": true,
         "serialNumber": "1184661527",
-        "timestamp": "1678922501772",
+        "timestamp": "1679424678308",
         "type": "MOUSE"
       }
     ]
@@ -8214,7 +9126,7 @@
             "slotId": "g502x-lightspeed_scroll2_m1"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-030700000000",
             "slotId": "g502x-lightspeed_g3_m1_shifted"
           },
           {
@@ -8234,15 +9146,15 @@
             "slotId": "g502x-lightspeed_g9_m1"
           },
           {
-            "cardId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+            "cardId": "0f82f693-5b78-4cf5-867e-090500000000",
             "slotId": "g502x-lightspeed_g10_m1"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
             "slotId": "g502x-lightspeed_g9_m1_shifted"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-090500000000",
             "slotId": "g502x-lightspeed_g10_m1_shifted"
           },
           {
@@ -8258,7 +9170,7 @@
             "slotId": "g502x-lightspeed_mouse_settings"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-030100000000",
             "slotId": "g502x-lightspeed_g11_m1_shifted"
           },
           {
@@ -8270,7 +9182,7 @@
             "slotId": "g502x-lightspeed_g6_m1_shifted"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-030300000000",
             "slotId": "g502x-lightspeed_scroll1_m1_shifted"
           },
           {
@@ -8286,11 +9198,11 @@
             "slotId": "g502x-lightspeed_g3_m1"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-090600000000",
             "slotId": "g502x-lightspeed_g2_m1_shifted"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-030400000000",
             "slotId": "g502x-lightspeed_scroll2_m1_shifted"
           },
           {
@@ -8299,7 +9211,8 @@
           }
         ],
         "id": "420fd454-0c36-499d-bde4-146823b16147",
-        "name": "PROFILE_NAME_DEFAULT"
+        "name": "PROFILE_NAME_DEFAULT",
+        "scriptId": "8a887a774863f26"
       },
       {
         "activeForApplication": true,
@@ -8651,6 +9564,122 @@
       },
       {
         "activeForApplication": true,
+        "applicationId": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "assignments": [
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g3_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g8_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040a00000000",
+            "slotId": "g502x-lightspeed_scroll2_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040c00000000",
+            "slotId": "g502x-lightspeed_g8_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g9_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g7_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040900000000",
+            "slotId": "g502x-lightspeed_scroll1_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g10_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g4_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_scroll2_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-020300000000",
+            "slotId": "g502x-lightspeed_g3_m1"
+          },
+          {
+            "cardId": "4af1b755-a771-46a7-937c-1165232d48a7",
+            "slotId": "g502x-lightspeed_mouse_settings"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g5_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040200000000",
+            "slotId": "g502x-lightspeed_g11_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-020100000000",
+            "slotId": "g502x-lightspeed_g1_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-020200000000",
+            "slotId": "g502x-lightspeed_g2_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g2_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g1_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040100000000",
+            "slotId": "g502x-lightspeed_g10_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040300000000",
+            "slotId": "g502x-lightspeed_g5_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g11_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090100000000",
+            "slotId": "g502x-lightspeed_g9_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_scroll1_m1_shifted"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-020500000000",
+            "slotId": "g502x-lightspeed_g6_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-040b00000000",
+            "slotId": "g502x-lightspeed_g7_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-020400000000",
+            "slotId": "g502x-lightspeed_g4_m1"
+          },
+          {
+            "cardId": "0f82f693-5b78-4cf5-867e-090700000000",
+            "slotId": "g502x-lightspeed_g6_m1_shifted"
+          }
+        ],
+        "id": "68152248-ccc4-4bab-93c3-140ea036d8be",
+        "name": "PROFILE_NAME_DEFAULT"
+      },
+      {
+        "activeForApplication": true,
         "applicationId": "82dbf132-465e-4545-b552-45ff7aac8f4c",
         "assignments": [
           {
@@ -8698,7 +9727,7 @@
             "slotId": "g502x-lightspeed_g9_m1"
           },
           {
-            "cardId": "0f82f693-5b78-4cf5-867e-012200000000",
+            "cardId": "0f82f693-5b78-4cf5-867e-01e100000000",
             "slotId": "g502x-lightspeed_g10_m1"
           },
           {
