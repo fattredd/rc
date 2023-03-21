@@ -4,6 +4,5 @@
 
 alias ls='ls --color=auto'
 alias df='df -h'
-alias pip='sudo pip'
 alias stow='stow -v -t ~'
 alias sudo='sudo ' # enable alias expansion for sudo
