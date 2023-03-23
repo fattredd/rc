@@ -1,5 +1,11 @@
 #Persistent
 #SingleInstance force
+SetBatchLines, -1
+SetWorkingDir, %A_ScriptDir%
+
+#Include %A_LineFile%\..\enc.ahk
+#Include %A_LineFile%\..\osrs.ahk
+#Include %A_LineFile%\..\mic_ctrl.ahk
 
 ;=================================================================
 ;                      Macro Pad Shortcuts                       ;
@@ -100,5 +106,5 @@ F23::Send k
 
 ^F21::Return
 ^F22::Return
-^F23::Send ***REMOVED*** ; rs2
-^F24::Send ***REMOVED*** ; gim
+^F23::sendPass("rs2") ; enc.ahk - Window cred manager "AHK_rs2"
+^F24::sendPass("gim") ; enc.ahk
