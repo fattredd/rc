@@ -12,8 +12,8 @@
 
 F13::Send x
 F14::Send a
-F15::Send z
-;F16:: ; macro hardcoded mute
+F15::Send {ShiftDown}={ShiftUp}
+;F16:: ; hardcoded mute (directly on HW)
 
 ;Row 2
 

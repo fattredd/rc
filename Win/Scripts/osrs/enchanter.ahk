@@ -6,7 +6,7 @@
 SetBatchLines, -1
 SendMode, Event
 SetWorkingDir, %A_ScriptDir%
-#Include osrslib.ahk
+#Include %A_LineFile%\..\osrslib.ahk
 
 ; Begin script
 !F21::
