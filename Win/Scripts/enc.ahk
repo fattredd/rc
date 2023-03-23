@@ -28,7 +28,7 @@ ButtonAddPass:
   if CredWrite(cred_key, newUser, newPass)
     ToolTip, Saved creds for %newUser% [%cred_key%]
   else
-    ToolTip, Failed to save creds for %cred_key%
+    ToolTip, Failed to save creds for %newKey%
   SetTimer, EncRmToolTip, -3000
   return
 
@@ -46,7 +46,7 @@ ButtonRemovePass:
   if CredDelete(cred_key)
     ToolTip, Removed creds for %cred_key%
   else
-    ToolTip, Failed to remove creds for %cred_key%
+    ToolTip, Failed to remove creds for %oldKey%
   SetTimer, EncRmToolTip, -3000
   return
 
@@ -64,26 +64,10 @@ sendPass(key) {
     ToolTip % "Pasting " cred_key " pass for " creds.username
     send % creds.password
   } else {
-    ToolTip No password stored for %cred_key%
+    ToolTip No stored pass for %key%. Ctrl+Alt+c to create
   }
   SetTimer, EncRmToolTip, -3000
 }
-
-; if !CredWrite("AHK_CredForScript1", "SomeUsername", "SomePassword")
-;   MsgBox failed to write cred
-
-; if (cred := CredRead("AHK_CredForScript1"))
-;   MsgBox % cred.name "," cred.username "," cred.password
-; else
-;   MsgBox Cred not found
-
-; if !CredDelete("AHK_CredForScript1")
-;   MsgBox Failed to delete cred
-
-; if (cred := CredRead("AHK_CredForScript1"))
-;   MsgBox % cred.name "," cred.username "," cred.password
-; else
-;   MsgBox Cred not found
 
 CredWrite(name, username, password) {
   VarSetCapacity(cred, 24 + A_PtrSize * 7, 0)
