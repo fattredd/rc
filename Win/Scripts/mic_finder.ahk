@@ -72,6 +72,10 @@ SplashTextOff
 Gui, Show
 return
 
+GuiEscape:
+  GUI Cancel
+  Return
+
 GuiClose:
 ExitApp
 

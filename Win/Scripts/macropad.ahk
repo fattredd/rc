@@ -99,8 +99,8 @@ F23::Send k
 
 ^F17::Return
 ^F18::Return
-^F19::Return
-^F20::Return
+;^F19:: ; mic_ctrl.ahk sound dialog
+;^F20:: ; mic_ctrl.ahk find mic input
 
 ;Row 3
 
