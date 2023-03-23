@@ -1,6 +1,8 @@
-; Startup and 
+; Startup and
 #SingleInstance Force
 #NoEnv
+
+#Include %A_LineFile%\..\common.ahk
 
 EnvGet, pin, pin
 if (pin == "") {
@@ -111,7 +113,3 @@ Run, "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE",, Min
 WinWait, GlobalProtect
 WinClose, GlobalProtect
 Return
-
-RemoveToolTip:
-  ToolTip
-  return

@@ -1,5 +1,6 @@
 ; http://www.daveamenta.com/2011-05/programmatically-or-command-line-change-the-default-sound-playback-device-in-windows-7/
-#Include Scripts/VA.ahk
+#Include %A_LineFile%\..\VA.ahk
+#Include %A_LineFile%\..\common.ahk
 Devices := {}
 currDevice := VA_GetDeviceName(VA_GetDevice("playback"))
 subStr := SubStr(currDevice, 1, InStr(currDevice,"(")-2)
@@ -70,7 +71,3 @@ GetDeviceID(Devices, Name)
         If (InStr(DeviceName, Name))
             Return DeviceID
 }
-
-RemoveToolTip:
-    ToolTip,,,, [color=darkred]20[/color]
-    Return

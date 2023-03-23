@@ -4,6 +4,8 @@ SendMode, Input
 SetBatchLines, -1
 SetWorkingDir, %A_ScriptDir%
 
+#Include %A_LineFile%\..\common.ahk
+
 !^c::gosub NewpassGui ; Add a new password
 !^d::gosub RmpassGui ; Remove a password
 
@@ -29,7 +31,7 @@ ButtonAddPass:
     ToolTip, Saved creds for %newUser% [%cred_key%]
   else
     ToolTip, Failed to save creds for %newKey%
-  SetTimer, EncRmToolTip, -3000
+  SetTimer, RemoveToolTip, -3000
   return
 
 RmPassGui:
@@ -47,16 +49,12 @@ ButtonRemovePass:
     ToolTip, Removed creds for %cred_key%
   else
     ToolTip, Failed to remove creds for %oldKey%
-  SetTimer, EncRmToolTip, -3000
+  SetTimer, RemoveToolTip, -3000
   return
 
 GuiEscape:
   GUI Cancel
   Return
-
-EncRmToolTip:
-  ToolTip
-  return
 
 sendPass(key) {
   cred_key := "AHK_" . key
@@ -66,7 +64,7 @@ sendPass(key) {
   } else {
     ToolTip No stored pass for %key%. Ctrl+Alt+c to create
   }
-  SetTimer, EncRmToolTip, -3000
+  SetTimer, RemoveToolTip, -3000
 }
 
 CredWrite(name, username, password) {

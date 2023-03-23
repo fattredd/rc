@@ -1,3 +1,8 @@
+#NoEnv
+#SingleInstance, Force
+SetBatchLines, -1
+
+#Include %A_LineFile%\..\common.ahk
 
 panic := False
 MouseClick() {
@@ -58,9 +63,7 @@ pick_spot(bound, row, col) {
   MouseMove, move_x, move_y,
   MouseMove, X, Y, %MouseSpeed%
 }
-RemoveToolTip:
-  ToolTip
-  return
+
 !F13::
   panic := True
   SetupWindow()

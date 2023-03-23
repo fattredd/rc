@@ -108,6 +108,3 @@ NumpadDiv::^#F1
 	Send ^+{Left}{Backspace}
 #IfWinActive
 
-RemoveToolTip:
-  ToolTip
-  return

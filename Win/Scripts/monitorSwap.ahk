@@ -3,6 +3,8 @@
 ;  using UltraMon's saved profiles
 ;
 
+#Include %A_LineFile%\..\common.ahk
+
 Global ProfilePath := A_AppData . "\Realtime Soft\UltraMon\3.4.1\Profiles"
 Global fileExt := ".umprofile"
 Global Profiles := []
@@ -47,10 +49,6 @@ ShiftProfile(n) {
   SetTimer, RemoveToolTip, -900
   Run % ProfilePaths[Selected]
 }
-
-RemoveToolTip:
-  ToolTip,,,, [color="darkred"]20[/color]
-  Return
 
 OnError("LogError")
 %cause% := error
