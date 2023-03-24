@@ -4,3 +4,8 @@ code-*.deb filter=lfs diff=lfs merge=lfs -text
 parsec-*.deb filter=lfs diff=lfs merge=lfs -text
 Home/bin/bin/bw filter=lfs diff=lfs merge=lfs -text
 *.ptb filter=lfs diff=lfs merge=lfs -binary
+
+Home/shell/* filter=ignorechanges
+Home/ssh/* filter=ignorechanges
+Home/vim/* filter=ignorechanges
+Home/git/.gitconfig filter=ignorechanges

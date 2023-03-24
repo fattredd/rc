@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# Git will ignore changes to the file if you include somewhere in the first 5 lines
+# "#IgnoreChanges"
+
+if head -n5 $@ | grep -i -q '#IgnoreChanges'; then
+  git show HEAD:$@
+else
+  cat $@
+fi
