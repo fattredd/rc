@@ -1,6 +1,6 @@
 [user]
   name = JButler
-  email = fattredd@gmail.com 
+  email = fattredd@gmail.com
 [commit]
 #  template = ~/.config/git/commit_template
 [core]
@@ -17,6 +17,7 @@
   unadd = reset --
   pulldev = !"git stash && git checkout develop && git pull && git stash pop"
   fetchdev = fetch origin develop:develop
+  rebasedev = !"git fetch develop:develop && git rebase develop"
   recom = commit --amend --no-edit
   repush = !"git commit --amend --no-edit && git push -f"
   fpush = push -f
@@ -28,12 +29,15 @@
   lg3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%  %ae%C(reset)' --all
   fuckit = !"git checkout . && git clean -fdx"
   redo = !"git reset --hard @~1 && git pull"
+  purgeclean = !"git reflog expire --expire=now --all && git gc --prune=now --aggressive"
+  bfg = !"git-bfg-repo"
   fire = !"git-fire"
 [filter "password"]
+# Smudge is on checkout
   smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
+# Clean is on stage
   clean = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
 [filter "workemail"]
-  smudge = sed -e 's/@fattredd@gmail.com@/@jack.butler@bwpapersystems.com@/'
   clean = sed -e 's/@jack.butler@bwpapersystems.com@/@fattredd@gmail.com@/'
 [filter "hideline"]
   clean = ~/.config/git/ignoreLine

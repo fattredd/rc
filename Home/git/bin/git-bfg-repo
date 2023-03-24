@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# Grab git bfg if we don't already have it. Then execute it.
+# You'll need java installed on you system.
+# This script is intended to be used as a git alias
+
+# https://rtyley.github.io/bfg-repo-cleaner/
+
+# To use, add this script you your path (I put mine in ~/bin)
+# then add the followig to your .gitconfig in the [alias] section:
+#
+# [alias]
+# bfg = !"git-bfg-repo"
+#
+# Once that's done, you can call it with:
+#
+# git bfg [args]
+
+# Check if we have everything we need
+function isCmd() {
+  command -v $@ &> /dev/null
+}
+function passCmd() {
+  $@ &> /dev/null
+}
+
+[ "$1" == "dryrun" ] && shift 1 && dry="echo" # Allow us to just show the commands, not run them
+
+# First figure out the pkg manager, deps, and sudo-ability
+if ! isCmd python3 ||  ! isCmd java || ! isCmd jq; then
+  { isCmd sudo && sudo="$dry sudo"; } || sudo="$dry"
+  {
+    { isCmd apt && pkg="apt install -y"; } ||
+    { isCmd dnf && pkg="dnf install -y"; } ||
+    { isCmd yum && pkg="yum install -y"; } ||
+    { isCmd apk && pkg="apk add"; };
+  }
+
+  [ -z "${pkg}" ] && echo "No package manager detected" && exit 1
+
+  # Install missing
+  isCmd python3 || $sudo $pkg python3
+  isCmd jq || $sudo $pkg jq
+  isCmd java || $sudo $pkg openjdk-11-jre-headless
+fi
+
+passCmd python3 -m ensurepip -h || $sudo $pkg python3-pip
+passCmd python3 -m venv -h || $sudo $pkg python3-venv
+passCmd python3 -m pipx -h || $dry python3 -m pip install pipx
+[ -n "`echo $PATH | grep '\.local/bin'`" ] || $dry python3 -m pipx ensurepath
+isCmd yq || $dry python3 -m pipx install yq
+
+# Now see if we need to grab bfg
+cur_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+if ! [ -f ${cur_dir}/bfg.jar ]; then
+  bfg_repo_url="https://repo1.maven.org/maven2/com/madgag/bfg"
+  latest_ver=`curl -s "${bfg_repo_url}/maven-metadata.xml" | xq -r '.metadata.versioning.release'`
+  bfg_latest_url=${bfg_repo_url}/${latest_ver}/bfg-${latest_ver}.jar
+
+  # Grab and validate
+  $dry curl -sSL ${bfg_latest_url} -o ${cur_dir}/bfg.jar
+  [ -z "$dry" ] && echo "`curl -sSL ${bfg_latest_url}.md5`  ${cur_dir}/bfg.jar" | md5sum -c --quiet
+fi
+
+$dry java -jar ${cur_dir}/bfg.jar $@
