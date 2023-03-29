@@ -28,6 +28,11 @@ DoubleClick() {
   Mouseclick()
 }
 
+TickTime(tick) {
+  ; 0.6 Sec/tick
+  return 0.6*tick
+}
+
 SetupWindow() {
   ;x: 16	y: 13	w: 1761	h: 1054
   WinMove, ahk_exe RuneLite.exe,, 16, 13, 1761, 1054

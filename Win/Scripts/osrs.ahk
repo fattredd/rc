@@ -1,6 +1,7 @@
 ; OSRS
 
 SendMode, Event
+#Include %A_LineFile%\..\common.ahk
 
 ; Map these only in Runelite
 doubleTime := -250
@@ -50,34 +51,55 @@ XB2multipress:
 
 MouseClick:
   Click, Left, Down
-  Random, MClick, 40, 90
+  Random, MClick, 51, 105
   Sleep, %MClick%
   Click, Left, Up
   return
 
 DoubleClick:
   gosub Mouseclick
-  Random, MSecClick, 70, 300
+  Random, MSecClick, 120, 350
   Sleep, %MSecClick%
   gosub Mouseclick
   return
 
 
 F21::
+  If (DClick_toggle) { ; Panic to stop DClick
+    DClick_toggle := False
+    Return
+  }
   gosub DoubleClick
   return
 
 !F21::
-  Toggle := True
-  Loop {
-    If (!Toggle)
-      Break
-    gosub DoubleClick
-    Random, AMSecClick, 2200, 2700
-    Sleep, %AMSecClick%
+  DClick_toggle := !DClick_toggle
+  If (DClick_toggle) {
+    gosub, initMouseMoved
+    SetTimer, DoubleClickLoop, -200
   }
   return
 
+DoubleClickLoop:
+  gosub, updateMouseMoved
+  if (getMouseMoved(curX, curY, startX, startY, 5))
+    DClick_toggle := False
+
+  If (DClick_toggle) {
+    Random, SkipProb, 0, 100 ; Skip 1 in x alchs
+    If (SkipProb != 0)
+      gosub DoubleClick
+    DClick_Count++
+    ToolTip, DoubleClick Looping (%DClick_Count%)
+    Random, AMSecClick, -4200, -3100 ; 5-7 ticks (3000-4200s)
+    SetTimer, DoubleClickLoop, %AMSecClick%
+    Return
+  }
+  ToolTip, DoubleClick Stopped (%DClick_Count%)
+  SetTimer, RemoveToolTip, -3000
+  DClick_Count := 0
+  return
+
 F17::
-  Toggle := False
+  DClick_toggle := False
   return
