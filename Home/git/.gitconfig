@@ -13,6 +13,10 @@
   co = checkout
   cot = checkout --track
   cob = checkout -b
+  colast = checkout @{-1}
+  comine = checkout --ours
+  cothem = checkout --theirs
+  copatch = checkout --patch
   lbr = branch -a
   unadd = reset --
   pulldev = !"git stash && git checkout develop && git pull && git stash pop"
@@ -63,3 +67,7 @@
   locksverify = true
 [safe]
   directory = /opt
+
+[include]
+  path = ~/.config/git/gitconfig-local
+
