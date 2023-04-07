@@ -2,17 +2,10 @@
 #SingleInstance, Force
 SetBatchLines, -1
 
-#Include %A_LineFile%\..\common.ahk
+#Include %A_LineFile%\..\..\common.ahk
 
 panic := False
-MouseClick() {
-  if panic
-    return
-  Click, Left, Down
-  Random, MClick, 40, 90
-  Sleep, %MClick%
-  Click, Left, Up
-}
+
 ButtonPush(bttn) {
   if panic
     return
@@ -21,22 +14,50 @@ ButtonPush(bttn) {
   Sleep, %BPress%
 	Send {%bttn% up}
 }
-DoubleClick() {
-  Mouseclick()
-  Random, MSecClick, 70, 300
+
+MouseClick:
+  Click, Left, Down
+  Random, MClick, 51, 105
+  Sleep, %MClick%
+  Click, Left, Up
+  return
+
+DoubleClick:
+  gosub Mouseclick
+  Random, MSecClick, 120, 350
   Sleep, %MSecClick%
-  Mouseclick()
-}
+  gosub Mouseclick
+  return
+
+DoubleClickLoop:
+  gosub, updateMouseMoved
+  if (getMouseMoved(curX, curY, startX, startY, 5))
+    DClick_toggle := False
+
+  If (DClick_toggle) {
+    Random, SkipProb, 0, 100 ; Skip 1 in x alchs
+    If (SkipProb != 0)
+      gosub DoubleClick
+    DClick_Count++
+    ToolTip, DoubleClick Looping (%DClick_Count%)
+    Random, AMSecClick, -4200, -3100 ; 5-7 ticks (3000-4200s)
+    SetTimer, DoubleClickLoop, %AMSecClick%
+    Return
+  }
+  ToolTip, DoubleClick Stopped (%DClick_Count%)
+  SetTimer, RemoveToolTip, -3000
+  DClick_Count := 0
+  return
 
 TickTime(tick) {
   ; 0.6 Sec/tick
   return 0.6*tick
 }
 
-SetupWindow() {
+SetupWindow:
   ;x: 16	y: 13	w: 1761	h: 1054
   WinMove, ahk_exe RuneLite.exe,, 16, 13, 1761, 1054
-}
+  Return
 
 ; Inv boundries
 inv := {x1: 1220, x2: 1428, y1: 673, y2: 995, cols: 4, rows: 7, gapx: 7, gapy: 5}
@@ -68,12 +89,3 @@ pick_spot(bound, row, col) {
   MouseMove, move_x, move_y,
   MouseMove, X, Y, %MouseSpeed%
 }
-
-!F13::
-  panic := True
-  SetupWindow()
-  return
-!F18::
-  panic := True
-  reload
-  Return

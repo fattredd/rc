@@ -22,13 +22,13 @@ SetWorkingDir, %A_ScriptDir%
       pick_spot(spell, 7, 2) ; dragonstone enchant
       Random, SecClick, 100, 200
       Sleep, %SecClick%
-      MouseClick()
+      gosub MouseClick
       pick_spot(inv, cur_row, cur_col)
       Random, MSecClick, 200, 400
       Sleep, %MSecClick%
       if panic
         return
-      MouseClick()
+      gosub MouseClick
       Random, AMSecClick, 400, 500
       Sleep, %AMSecClick%
       max_items := max_items - 1

@@ -1,6 +1,8 @@
 ; OSRS
 
 SendMode, Event
+SetWorkingDir, %A_ScriptDir%
+#Include %A_LineFile%\..\osrs\osrslib.ahk
 #Include %A_LineFile%\..\common.ahk
 
 ; Map these only in Runelite
@@ -48,23 +50,7 @@ XB2multipress:
   XB2multi := 0
   return
 
-
-MouseClick:
-  Click, Left, Down
-  Random, MClick, 51, 105
-  Sleep, %MClick%
-  Click, Left, Up
-  return
-
-DoubleClick:
-  gosub Mouseclick
-  Random, MSecClick, 120, 350
-  Sleep, %MSecClick%
-  gosub Mouseclick
-  return
-
-
-F21::
+F21:: ; Doubleclick once, or panic doubleclick loop
   If (DClick_toggle) { ; Panic to stop DClick
     DClick_toggle := False
     Return
@@ -72,34 +58,22 @@ F21::
   gosub DoubleClick
   return
 
-!F21::
+!F13::
+  panic := True
+  gosub SetupWindow
+  return
+
+!F17:: ; panic doubleclick
+  DClick_toggle := False
+  panic := True
+  ToolTip, panic set
+  SetTimer, RemoveToolTip, -3000
+  return
+
+!F21:: ; toggle doubleclick loop
   DClick_toggle := !DClick_toggle
   If (DClick_toggle) {
     gosub, initMouseMoved
     SetTimer, DoubleClickLoop, -200
   }
-  return
-
-DoubleClickLoop:
-  gosub, updateMouseMoved
-  if (getMouseMoved(curX, curY, startX, startY, 5))
-    DClick_toggle := False
-
-  If (DClick_toggle) {
-    Random, SkipProb, 0, 100 ; Skip 1 in x alchs
-    If (SkipProb != 0)
-      gosub DoubleClick
-    DClick_Count++
-    ToolTip, DoubleClick Looping (%DClick_Count%)
-    Random, AMSecClick, -4200, -3100 ; 5-7 ticks (3000-4200s)
-    SetTimer, DoubleClickLoop, %AMSecClick%
-    Return
-  }
-  ToolTip, DoubleClick Stopped (%DClick_Count%)
-  SetTimer, RemoveToolTip, -3000
-  DClick_Count := 0
-  return
-
-F17::
-  DClick_toggle := False
   return
