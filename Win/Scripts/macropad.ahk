@@ -5,64 +5,64 @@ SetWorkingDir, %A_ScriptDir%
 
 #Include %A_LineFile%\..\enc.ahk
 #Include %A_LineFile%\..\osrs.ahk
-#Include %A_LineFile%\..\mic_ctrl.ahk
+#Include %A_LineFile%\..\audio_ctrl.ahk
 
 ;=================================================================
 ;                      Macro Pad Shortcuts                       ;
 ;=================================================================
 
 ;=================================================================
-;                       Layer 0 RED
+;                       Layer 0 RED (C) - media
 ;;=================================================================
 ;Row 1
 
-F13::Send x
-F14::Send a
-F15::Send {ShiftDown}={ShiftUp}
+;F13:: ; audio_ctrl.ahk sound dialog
+;F14:: ; audio_ctrl.ahk find mic input
+;F15:: ; audio_ctrl.ahk
 ;F16:: ; hardcoded mute (directly on HW)
 
 ;Row 2
 
-;F17::Send ; panic doubleclick loop osrs.ahk
-F18::Send [
-F19::Send ]
-;F20:: ; mic_ctrl.ahk mic on
+F17::Return
+F18::Send {Media_Prev}
+F19::Send {Media_Next}
+;F20:: ; audio_ctrl.ahk mic on
 
 ;Row 3
 
 ;F21::  ; doubleclick osrs.ahk
 F22::Send j
-F23::Send k
-;F24:: ; mic_ctrl.ahk mic off
+F23::Send {Media_Play_Pause}
+;F24:: ; audio_ctrl.ahk mic off
 
 
 ;=================================================================
-;                       Layer 1  YELLOW
+;                       Layer 1  YELLOW (L) - Alt - reddit/osrs
 ;;=================================================================
 ;Row 1
 
-;!F13::Return
+;!F13::Return ; panic and setupWindow osrslib.ahk
 !F14::Return
 !F15::Return
 !F16::Return
 
 ;Row 2
 
-;!F17::Return ; reload in startup.ahk
-;!F18::Return ; alt reload
-!F19::Send x
+;!F17::Send ; stop doubleclick loop osrs.ahk
+!F18::Send [
+!F19::Send ]
 !F20::Return
 
 ;Row 3
 
-;!F21::Return doubleclick loop osrs.ahk
+;!F21::Return ; doubleclick toggle osrs.ahk
 !F22::Send j
-!F23::Send l
-!F24::Send k
+!F23::Send k
+!F24::Return
 
 
 ;=================================================================
-;                       Layer 2 GREEN
+;                       Layer 2 GREEN (D) - Shift -
 ;;=================================================================
 ;Row 1
 
@@ -86,21 +86,21 @@ F23::Send k
 +F24::Return
 
 ;=================================================================
-;                       Layer 3 BLUE
+;                       Layer 3 BLUE (U) - Ctrl -
 ;;=================================================================
 ;Row 1
 
 ^F13::Return
 ^F14::Return
 ^F15::Return
-^F16::Reload
+^F16::Return
 
 ;Row 2
 
-^F17::Return
+;^F17::Return ; reload startup.ahk
 ^F18::Return
-;^F19:: ; mic_ctrl.ahk sound dialog
-;^F20:: ; mic_ctrl.ahk find mic input
+^F19::Return
+^F20::Return
 
 ;Row 3
 

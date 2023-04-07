@@ -10,7 +10,7 @@ I_Icon = Scripts\assets\twister.ico
 IfExist, %I_Icon%
   Menu, Tray, Icon, %I_Icon%
 
-;#Include Scripts\swapAudio.ahk
+#Include Scripts\audio_ctrl.ahk
 #Include Scripts\osrs.ahk
 #Include Scripts\macropad.ahk
 #Include Scripts\rs3.ahk
@@ -18,7 +18,6 @@ IfExist, %I_Icon%
 ;#Include Scripts\scrot.ahk
 #Include Scripts\capslock.ahk
 #Include Scripts\volume.ahk
-#Include Scripts\mic_ctrl.ahk
 #Include Scripts\lock_bypass.ahk
 #Include Scripts\calc.ahk
 #Include Scripts\framewin.ahk
@@ -38,6 +37,7 @@ IfExist, %I_Icon%
 ;Nothing
 Launch_Mail::
 Launch_App1::
+Browser_Home::
   return
 
 ; Autoclick
@@ -90,8 +90,8 @@ NumpadDiv::^#F1
   Send, {Alt Down}{F4}{Alt Up}
   return
 
-; Alt+F17 is reload
-!F17::
+; Ctrl+F17 is reload
+^F17::
   reload
   Return
 
