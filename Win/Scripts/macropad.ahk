@@ -16,8 +16,8 @@ SetWorkingDir, %A_ScriptDir%
 ;;=================================================================
 ;Row 1
 
-;F13:: ; audio_ctrl.ahk sound dialog
-;F14:: ; audio_ctrl.ahk find mic input
+F13::Return
+;F14:: ; audio_ctrl.ahk recording dialog
 ;F15:: ; audio_ctrl.ahk
 ;F16:: ; hardcoded mute (directly on HW)
 
@@ -42,23 +42,23 @@ F23::Send {Media_Play_Pause}
 ;Row 1
 
 ;!F13::Return ; panic and setupWindow osrslib.ahk
-!F14::Return
-!F15::Return
-!F16::Return
+!F14::Send -
+!F15::Send {Shift down}={Shift up}
+;!F16:: ; hardcoded mute (directly on HW)
 
 ;Row 2
 
 ;!F17::Send ; stop doubleclick loop osrs.ahk
 !F18::Send [
 !F19::Send ]
-!F20::Return
+!F20::Send {Shift down}c{Shift up}
 
 ;Row 3
 
 ;!F21::Return ; doubleclick toggle osrs.ahk
 !F22::Send j
 !F23::Send k
-!F24::Return
+!F24::Send l
 
 
 ;=================================================================
@@ -69,7 +69,7 @@ F23::Send {Media_Play_Pause}
 +F13::Return
 +F14::Return
 +F15::Return
-+F16::Return
+;+F16:: ; hardcoded mute (directly on HW)
 
 ;Row 2
 
@@ -86,14 +86,14 @@ F23::Send {Media_Play_Pause}
 +F24::Return
 
 ;=================================================================
-;                       Layer 3 BLUE (U) - Ctrl -
+;                       Layer 3 BLUE (U) - Ctrl - passwd manager
 ;;=================================================================
 ;Row 1
 
-^F13::Return
-^F14::Return
+^F13::gosub NewpassGui ; enc.ahk - Add a new password
+^F14::gosub RmpassGui ;  enc.ahk - Remove a password
 ^F15::Return
-^F16::Return
+;^F16:: ; hardcoded mute (directly on HW)
 
 ;Row 2
 
@@ -101,7 +101,6 @@ F23::Send {Media_Play_Pause}
 ^F18::Return
 ^F19::Return
 ^F20::Return
-
 ;Row 3
 
 ^F21::Return
