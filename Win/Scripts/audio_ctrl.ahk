@@ -2,7 +2,7 @@
 #Include %A_LineFile%\..\VA.ahk
 #Include %A_LineFile%\..\common.ahk
 
-^#F1::
+^#F1:: ; Ctrl + Win + F1
 F15::
   ; Output devices to rotate through:
   deviceList := ["Optical", "Focusrite"]
@@ -25,13 +25,18 @@ F15::
 
 
 ;F13::Run %A_LineFile%\..\mic_finder.ahk
+
+^#F2:: ; Ctrl + Win + F2
 F14::Run % "Rundll32.exe shell32.dll,Control_RunDLL mmsys.cpl,,1" ; Open recording panel
 
+^#F11:: ; Ctrl + Win + F11
 F20::
   VA_SetMasterVolume(100, "", "Analogue")
   ToolTip, Mic ON
   SetTimer, RemoveToolTip, -500
   return
+
+^#F12:: ; Ctrl + Win + F12
 F24::
   VA_SetMasterVolume(0, "", "Analogue")
   ToolTip, Mic OFF
