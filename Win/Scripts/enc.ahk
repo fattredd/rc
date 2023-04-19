@@ -59,8 +59,8 @@ GuiEscape:
 sendPass(key) {
   cred_key := "AHK_" . key
   if (creds := CredRead(cred_key)) {
-    ToolTip % "Pasting " cred_key " pass for " creds.username
-    send % creds.password
+    ToolTip % "Pasting " cred_key " pass for " creds.user
+    send % creds.pass
   } else {
     ToolTip No stored pass for %key%. Ctrl+Alt+c to create
   }
@@ -91,18 +91,21 @@ CredDelete(name) {
 }
 
 CredRead(name) {
+  ; https://learn.microsoft.com/en-us/windows/win32/api/wincred/ns-wincred-credentialw
   DllCall("Advapi32.dll\CredReadW"
   , "Str", name   ; [in]  LPCWSTR      TargetName
-  , "UInt", 1     ; [in]  DWORD        Type = CRED_TYPE_GENERIC (https://learn.microsoft.com/en-us/windows/win32/api/wincred/ns-wincred-credentiala)
+  , "UInt", 1     ; [in]  DWORD        Type = CRED_TYPE_GENERIC
   , "UInt", 0     ; [in]  DWORD        Flags
   , "Ptr*", pCred ; [out] PCREDENTIALW *Credential
   , "UInt") ; BOOL
   if !pCred
       return
-  name := StrGet(NumGet(pCred + 8 + A_PtrSize * 0, "UPtr"), 256, "UTF-16")
-  username := StrGet(NumGet(pCred + 24 + A_PtrSize * 6, "UPtr"), 256, "UTF-16")
-  len := NumGet(pCred + 16 + A_PtrSize * 2, "UInt")
-  password := StrGet(NumGet(pCred + 16 + A_PtrSize * 3, "UPtr"), len/2, "UTF-16")
+
+  cred_name     := StrGet(NumGet(pCred +  8 + A_PtrSize * 0, "UPtr"), 256, "UTF-16")
+  lenp          :=        NumGet(pCred + 16 + A_PtrSize * 2, "UInt")
+  cred_password := StrGet(NumGet(pCred + 16 + A_PtrSize * 3, "UPtr"), lenp/2, "UTF-16")
+  cred_username := StrGet(NumGet(pCred + 24 + A_PtrSize * 6, "UPtr"), 256, "UTF-16")
+
   DllCall("Advapi32.dll\CredFree", "Ptr", pCred)
-  return {"name": name, "username": username, "password": password}
+  return {name: cred_name, user: cred_username, pass: cred_password}
 }
