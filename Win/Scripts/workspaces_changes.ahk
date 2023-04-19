@@ -1,13 +1,12 @@
-#NoEnv
-#SingleInstance, Force
-SendMode, Input
-SetBatchLines, -1
-SetWorkingDir, %A_ScriptDir%
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+SendMode("Input")
+SetWorkingDir(A_ScriptDir)
 
-;#IfWinActive ahk_exe workspaces.exe ; Amazon Workspaces
-  #!Space::
-    WinActivate, ahk_class Shell_SecondaryTrayWnd
-    ToolTip, "Activated main taskbar"
-    SetTimer, RemoveToolTip, -3000
-    Return
-;#IfWinActive
+#HotIf WinActive("ahk_exe workspaces.exe") ; Amazon Workspaces
+  #!Space::{
+    WinActivate("ahk_class Shell_SecondaryTrayWnd")
+    ToolTip("Activated main taskbar")
+    SetTimer(RemoveToolTip,-3000)
+  }
+#HotIf

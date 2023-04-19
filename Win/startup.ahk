@@ -1,28 +1,26 @@
 ; Startup
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+SendMode("Input")
+SetWorkingDir(A_ScriptDir)
 
-#NoEnv
-#SingleInstance, Force
-SendMode, Input
-SetBatchLines, -1
-SetWorkingDir, %A_ScriptDir%
+I_Icon := "Scripts\assets\twister.ico"
+if FileExist(I_Icon)
+  TraySetIcon(I_Icon)
 
-I_Icon = Scripts\assets\twister.ico
-IfExist, %I_Icon%
-  Menu, Tray, Icon, %I_Icon%
-
-#Include Scripts\audio_ctrl.ahk
-#Include Scripts\osrs.ahk
-#Include Scripts\macropad.ahk
-#Include Scripts\rs3.ahk
-;#Include Scripts\monitorSwap.ahk
-;#Include Scripts\scrot.ahk
-#Include Scripts\capslock.ahk
-#Include Scripts\volume.ahk
-#Include Scripts\lock_bypass.ahk
-#Include Scripts\calc.ahk
-#Include Scripts\framewin.ahk
-#Include Scripts\symbols.ahk
-#Include Scripts\workspaces_changes.ahk
+#Include "Scripts\audio_ctrl.ahk"
+#Include "Scripts\osrs.ahk"
+#Include "Scripts\macropad.ahk"
+#Include "Scripts\rs3.ahk" ; TODO test
+;#Include "Scripts\monitorSwap.ahk"
+;#Include "Scripts\scrot.ahk"
+#Include "Scripts\capslock.ahk" ; TODO test
+#Include "Scripts\volume.ahk"
+#Include "Scripts\lock_bypass.ahk"
+#Include "Scripts\calc.ahk" ; TODO test
+#Include "Scripts\framewin.ahk"
+#Include "Scripts\symbols.ahk"
+#Include "Scripts\workspaces_changes.ahk" ; TODO test
 
 ; # -- Win
 ; ^ -- Ctrl
@@ -30,81 +28,68 @@ IfExist, %I_Icon%
 ; + -- Shift
 ; <> -- Left/Right Mod
 
-#^+R:: ; Win Ctrl Shft R
-  reload
-  return
+#^+R::reload ; Win Ctrl Shft R
+^F17::reload ; Ctrl+F17
 
 ;Nothing
 Launch_Mail::
 Launch_App1::
-Browser_Home::
-  return
+Browser_Home::Return
 
 ; Autoclick
-#^z::
-  Toggle := True
-  Loop
-  {
-    If (!Toggle)
+#^z:: {
+  Loop {
+    ToolTip("Autoclicking. Esc to stop")
+    If GetKeyState("Esc", "P") {
+      ToolTip()
       Break
+    }
     Click
-    Sleep 100 ; Make this number higher for slower clicks, lower for faster.
+    Sleep 100
   }
-  #^x::
-  Toggle := False
-  return
+}
 
-#^c::
-  HoldMouse := !Z
+#^c:: {
+  static HoldMouse := False
+  HoldMouse := !HoldMouse
   If (HoldMouse) {
-    Send {LButton down}
+    ToolTip("Holding down mouse. Ctrl+Win+c to stop")
+    Send "{LButton down}"
   } else {
-    Send {LButton up}
+    ToolTip()
+    Send "{LButton up}"
   }
-  return
+}
 
 ; Why does this key exist
 AppsKey::RCtrl
 
 ; Win+t is terminal
-#t::
-  RUN C:\Users\ash\AppData\Local\Microsoft\WindowsApps\wt.exe
-  ;RUN %localappdata%\Microsoft\WindowsApps\wt.exe
-  return
+#t::{
+  Run "C:\Users\ash\AppData\Local\Microsoft\WindowsApps\wt.exe"
+  ;Run "%localappdata%\Microsoft\WindowsApps\wt.exe"
+}
 
 ; Win+m is maximize
-#m::
-{
-WinGet, winstate, MinMax, A
+#m::{
+  winstate := WinGetMinMax("A")
   if winstate != 1
-    WinMaximize, A
+    WinMaximize("A")
   else
-    WinRestore, A
-  }
-  return
+    WinRestore("A")
+}
 
 NumpadDiv::^#F1
 
 ; Win+q is exit
-#q::
-  Send, {Alt Down}{F4}{Alt Up}
-  return
+#q::Send "{Alt Down}{F4}{Alt Up}"
 
-; Ctrl+F17 is reload
-^F17::
-  reload
-  Return
-
-;*wheelup::
-;*wheeldown::
-;	Click
-;return
+; *wheelup::
+; *wheeldown::Click
 
 ; Feed Ctrl+Backspace correctly to file explorer and notepad
-#IfWinActive ahk_class CabinetWClass ; File Explorer
-	^Backspace::
-#IfWinActive ahk_class Notepad
-	^Backspace::
-	Send ^+{Left}{Backspace}
-#IfWinActive
-
+#HotIf WinActive("ahk_class CabinetWClass") ; File Explorer
+	^Backspace::Return
+#HotIf WinActive("ahk_class Notepad")
+	^Backspace::Send "^+{Left}{Backspace}"
+#HotIf

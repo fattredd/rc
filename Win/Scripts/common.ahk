@@ -1,37 +1,37 @@
-#NoEnv
-#SingleInstance, Force
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+SetWorkingDir(A_ScriptDir)
 
 ; USAGE:
 ; ToolTip, Somemsg
 ; SetTimer, RemoveToolTip, -3000
-RemoveToolTip:
-  ToolTip
-  return
+RemoveToolTip() {
+  ToolTip()
+  Return
+}
 
-initMouseMoved:
-  MouseGetPos, startX, startY
-
-updateMouseMoved:
-  MouseGetPos, curX, curY
+updateMouseMoved(&curX, &curY) {
+  MouseGetPos(&curX, &curY)
+}
 
 getMouseMoved(currentX, currentY, startX, startY, tolerance := 5) {
   if (Abs(currentX - startX) > tolerance)
-    return True
+    Return True
   if (Abs(currentY - startY) > tolerance)
-    return True
-  return False
+    Return True
+  Return False
 }
 
-hasValue(haystack, needle, approx=False) {
+hasValue(haystack, needle, approx:=False) {
   if(!isObject(haystack))
-      return -1
-  if(haystack.Length()==0)
-      return -1
+      Return -1
+  if(haystack.Length==0)
+      Return -1
   for k,v in haystack
       if(v==needle)
-          return k
+          Return k
       if(approx)
         if (InStr(v, needle))
-          return k
-  return -1
+          Return k
+  Return -1
 }

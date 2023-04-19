@@ -7,7 +7,7 @@
 EnvGet, pin, pin
 if (pin == "") {
   MsgBox, "You need to set a 'pin' ENV variable"
-  return
+  Return
 }
 
 ; Find and click the icon
@@ -18,7 +18,7 @@ if ErrorLevel {
   if ErrorLevel {
     ToolTip, Icon not found. Are you already connected?
     SetTimer, RemoveToolTip, -3000
-    return
+    Return
   }
 }
 
@@ -31,7 +31,7 @@ ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, assets\connect
 if ErrorLevel {
   ToolTip, Couldn't find 'Connect'
   SetTimer, RemoveToolTip, -3000
-  return
+  Return
 }
 MouseClick, Left, FoundX, FoundY
 
@@ -41,7 +41,7 @@ WinWait GlobalProtect Login,, 15
 if ErrorLevel {
   ToolTip, Login window didn't show up in time
   SetTimer, RemoveToolTip, -3000
-  return
+  Return
 }
 Sleep, 500
 gosub RemoveToolTip
@@ -51,7 +51,7 @@ ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, assets\cac.png
 if ErrorLevel {
   ToolTip, Couldn't find 'Sign in with CaC'
   SetTimer, RemoveToolTip, -3000
-  return
+  Return
 }
 MouseClick, Left, FoundX, FoundY
 
@@ -69,7 +69,7 @@ ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, assets\more.pn
 if ErrorLevel {
   ToolTip, Couldn't find 'More choices' button
   SetTimer, RemoveToolTip, -3000
-  return
+  Return
 }
 MouseClick, Left, FoundX, FoundY
 
@@ -79,7 +79,7 @@ ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, assets\cacCert
 if ErrorLevel {
   ToolTip, Couldn't find 'Parsons CaC'
   SetTimer, RemoveToolTip, -3000
-  return
+  Return
 }
 MouseClick, Left, FoundX, FoundY
 
@@ -88,7 +88,7 @@ ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, assets\ok.png
 if ErrorLevel {
   ToolTip, Couldn't find final 'OK'
   SetTimer, RemoveToolTip, -3000
-  return
+  Return
 }
 MouseClick, Left, FoundX, FoundY
 

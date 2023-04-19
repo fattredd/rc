@@ -1,8 +1,7 @@
-#NoEnv
-#SingleInstance, Force
-SendMode, Input
-SetBatchLines, -1
-SetWorkingDir, %A_ScriptDir%
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+SendMode("Input")
+SetWorkingDir(A_ScriptDir)
 
 ; :[opt]:input::output
 ;

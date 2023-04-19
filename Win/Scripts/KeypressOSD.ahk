@@ -18,7 +18,7 @@ ReadSettings()
 CreateTrayMenu()
 CreateGUI()
 CreateHotkey()
-return
+Return
 
 #if !SettingsGuiIsOpen
 	OnKeyPressed:
@@ -27,14 +27,14 @@ return
 			ShowHotkey(key)
 			SetTimer, HideGUI, % -1 * DisplaySec * 1000
 		}
-	return
+	Return
 
 	OnKeyUp:
-	return
+	Return
 
 	_OnKeyUp:
 		tickcount_start := A_TickCount
-	return
+	Return
 
 ; ===================================================================================
 CreateGUI() {
@@ -155,7 +155,7 @@ ShowHotkey(HotkeyStr) {
 			gui_y := (ActWin_Y+ActWin_H) - GuiHeight - Bottom_OffsetY
 		}
 	}
-	
+
 
 	guiPos = x%gui_x% y%gui_y%
 	if (guiPos != oLast.guiPos || changed) {
@@ -233,12 +233,12 @@ GetKeyStr() {
 
 		repeatCount := 1
 	}
-	return result ? result : prefix . key
+	Return result ? result : prefix . key
 }
 
 SpecialSC(sc) {
 	static k := {sc046: "ScrollLock", sc145: "NumLock", sc146: "Pause", sc123: "Genius LuxeMate Scroll"}
-	return k[sc]
+	Return k[sc]
 }
 
 ; by Lexikos -- https://autohotkey.com/board/topic/110808-getkeyname-for-other-languages/#entry682236
@@ -251,7 +251,7 @@ GetKeyChar(Key, WinTitle:=0) {
 	VarSetCapacity(char, 4, 0)
 	n := DllCall("ToUnicodeEx", "uint", vk, "uint", sc
 		, "ptr", &state, "ptr", &char, "int", 2, "uint", 0, "ptr", hkl)
-	return StrGet(&char, n, "utf-16")
+	Return StrGet(&char, n, "utf-16")
 }
 
 IsDoubleClick(MSec = 300) {
@@ -360,7 +360,7 @@ ShowAboutGUI() {
 
 	OpenUrl:
 		Run, https://github.com/tmplinshi/KeypressOSD
-	return
+	Return
 }
 
 _ExitApp() {
@@ -415,10 +415,10 @@ ShowSettingsGUI() {
 			Gui, s:Add, Radio, x+10 vTop_Win Checked%Top_Win%, Active Window
 			Gui, s:Add, Radio, x+20 vTop_Screen Checked%Top_Screen%, Screen
 			Gui, s:Add, Text, xs y+20, OffsetX
-			Gui, s:Add, Edit, x+10 w80 vTop_OffsetX Number gUpdateOSD, 
+			Gui, s:Add, Edit, x+10 w80 vTop_OffsetX Number gUpdateOSD,
 			Gui, s:Add, UpDown, Range0-%A_ScreenWidth% 0x80 gUpdateOSD, %Top_OffsetX%
 			Gui, s:Add, Text, x+50, OffsetY
-			Gui, s:Add, Edit, x+10 w80 vTop_OffsetY Number gUpdateOSD, 
+			Gui, s:Add, Edit, x+10 w80 vTop_OffsetY Number gUpdateOSD,
 			Gui, s:Add, UpDown, Range0-%A_ScreenHeight% 0x80 gUpdateOSD, %Top_OffsetY%
 		Gui, s:Tab, 3
 			Gui, s:Add, Text, y+20, X
@@ -459,13 +459,13 @@ ShowSettingsGUI() {
 
 	ShowHotkey("KeypressOSD")
 	SetTimer, HideGUI, Off
-	return
+	Return
 
 	UpdateOSD:
 		Gui, Submit, NoHide
 		Gosub, _CheckValues
 		ShowHotkey("KeypressOSD")
-	return
+	Return
 
 	_CheckValues:
 		Loop, Parse, % "Bottom_OffsetX,Bottom_OffsetY,Top_OffsetX,Top_OffsetY,FixedX,FixedY", `,
@@ -474,7 +474,7 @@ ShowSettingsGUI() {
 				%A_LoopField% := 0
 			}
 		}
-	return
+	Return
 
 	_AutoGuiW:
 		; GuiControlGet, AutoGuiW, s:
@@ -483,7 +483,7 @@ ShowSettingsGUI() {
 		GuiControl, % "s:Enable" !AutoGuiW, GuiWUD
 		ShowHotkey("KeypressOSD")
 		GuiControl, 1:+Redraw, HotkeyText
-	return
+	Return
 
 	UpdateGuiPosition:
 		oLast := {}
@@ -494,7 +494,7 @@ ShowSettingsGUI() {
 			OSD_EnableDrag()
 		else
 			OSD_DisableDrag()
-	return
+	Return
 
 	UpdateGuiWidth:
 		GuiControlGet, newW,, GuiWidth
@@ -502,7 +502,7 @@ ShowSettingsGUI() {
 			GuiWidth := newW
 			ShowHotkey("KeypressOSD")
 		}
-	return
+	Return
 
 	UpdateGuiHeight:
 		GuiControlGet, newH,, GuiHeight
@@ -510,7 +510,7 @@ ShowSettingsGUI() {
 			GuiHeight := newH
 			ShowHotkey("KeypressOSD")
 		}
-	return
+	Return
 
 	UpdateTransVal:
 		GuiControlGet, TransN
@@ -518,13 +518,13 @@ ShowSettingsGUI() {
 
 		Gui, 1:+LastFound
 		WinSet, Transparent, %TransN%
-	return
+	Return
 
 	UpdateFontSize:
 		GuiControlGet, FontSize
 		Gui, 1:Font, s%FontSize%
 		GuiControl, 1:Font, HotkeyText
-	return
+	Return
 
 	sGuiClose:
 	sGuiEscape:
@@ -548,7 +548,7 @@ ShowSettingsGUI() {
 		Gui, 1:Hide
 		OSD_DisableDrag()
 		SettingsGuiIsOpen := ""
-	return
+	Return
 
 	ChangeBkColor:
 		newColor := BkColor
@@ -558,7 +558,7 @@ ShowSettingsGUI() {
 			SetTimer, HideGUI, Off
 			BkColor := newColor
 		}
-	return
+	Return
 
 	ChangeFontColor:
 		newColor := FontColor
@@ -569,7 +569,7 @@ ShowSettingsGUI() {
 			SetTimer, HideGUI, Off
 			FontColor := newColor
 		}
-	return
+	Return
 
 	ChangeFont:
 		fStyle := FontStyle " s" FontSize
@@ -591,7 +591,7 @@ ShowSettingsGUI() {
 			ShowHotkey("KeypressOSD")
 			SetTimer, HideGUI, Off
 		}
-	return
+	Return
 }
 
 
@@ -692,7 +692,7 @@ Select_Font(hGui, ByRef Style, ByRef Name, ByRef Color) { ; using comdlg32.dll
 
 
     ;-----------------------------------
-    ; results to return
+    ; results to Return
     ;-----------------------------------
 
     ; style
@@ -759,7 +759,7 @@ Select_Color(hGui, ByRef Color) { ; using comdlg32.dll
 
 
     ;-----------------------------------
-    ; result to return
+    ; result to Return
     ;-----------------------------------
 
     ; chosen color

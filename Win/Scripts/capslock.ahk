@@ -1,42 +1,38 @@
-#NoEnv
-#SingleInstance, Force
+#Requires AutoHotkey v2.0
+#SingleInstance Force
+SetWorkingDir(A_ScriptDir)
 
-SetBatchLines, -1
-SetWorkingDir, %A_ScriptDir%
+; CapsLock::{
+; 	CAlone := True
+; }
+; CapsLock Up::{
+;   If (CAlone) {
+;     Send, {LWin down}
+;     Send, {Tab}
+;     Send, {LWin up}
+;   }
+; }
 
-CapsLock::Ctrl
-;	CAlone := True
-;	Return
-;CapsLock Up::
-;  If (CAlone) {
-;    ;Send, {LWin down}
-;    ;Send, {Tab}
-;    ;Send, {LWin up}
-;  }
-;  Return
-
-Left::
+Left::{
 	CAlone := False
 	cl := GetKeyState("CapsLock", "P")
 	If (cl) {
-		Send, {LWin down}{Ctrl down}
-		Send, {Left}
-		Send, {LWin up}{Ctrl up}
-		Return
+		Send("{LWin down}{Ctrl down}")
+		Send("{Left}")
+		Send("{LWin up}{Ctrl up}")
 	} Else {
-		Send, {Left}
-		Return
+		Send("{Left}")
 	}
+}
 
-Right::
+Right::{
 	CAlone := False
 	cl := GetKeyState("CapsLock", "P")
 	If (cl) {
-		Send, {LWin down}{Ctrl down}
-		Send, {Right}
-		Send, {LWin up}{Ctrl up}
-		Return
+		Send("{LWin down}{Ctrl down}")
+		Send("{Right}")
+		Send("{LWin up}{Ctrl up}")
 	} else {
-		Send, {Right}
-		Return
+		Send("{Right}")
 	}
+}

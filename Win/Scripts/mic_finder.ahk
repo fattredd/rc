@@ -70,12 +70,12 @@ Loop % LV_GetCount("Col")  ; Auto-size each column to fit its contents.
 
 SplashTextOff
 Gui, Show
-return
+Return
 
 GuiEscape:
   GUI Cancel
   Return
 
 GuiClose:
-ExitApp
+  ExitApp
 

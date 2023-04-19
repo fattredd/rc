@@ -1,19 +1,10 @@
-#NoEnv
-SendMode, Event
-SetBatchLines, -1
+#Requires AutoHotkey v2.0
+SendMode("Event")
 
 ; Map these only in RS3
-#IfWinActive ahk_class JagWindow ; RS3
-	WheelLeft::
-    Send b
-    Return
-  WheelRight::
-    Send {,}
-    Return
-  XButton1::
-    Send i
-    Return
-  XButton2::
-    Send p
-    Return
-#IfWinActive
+#HotIf WinActive("ahk_class JagWindow") ; RS3
+	WheelLeft::Send("b")
+  WheelRight::Send(",")
+  XButton1::Send("i")
+  XButton2::Send("p")
+#HotIf
