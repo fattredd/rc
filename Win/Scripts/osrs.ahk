@@ -2,7 +2,7 @@
 #Requires AutoHotkey v2.0
 SendMode("Event")
 SetWorkingDir(A_ScriptDir)
-#Include "%A_LineFile%\..\osrs\osrslib.ahk"
+#Include "%A_LineFile%\..\lib\osrslib.ahk"
 #Include "%A_LineFile%\..\common.ahk"
 
 ; Map these only in Runelite

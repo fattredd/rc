@@ -5,6 +5,7 @@ SetWorkingDir(A_ScriptDir)
 #Include "%A_LineFile%\..\enc.ahk"
 #Include "%A_LineFile%\..\osrs.ahk"
 #Include "%A_LineFile%\..\audio_ctrl.ahk"
+#Include "%A_LineFile%\..\user_status.ahk"
 
 ;=================================================================
 ;                      Macro Pad Shortcuts                       ;
@@ -61,7 +62,7 @@ F23::Send("{Media_Play_Pause}")
 
 
 ;=================================================================
-;                       Layer 2 GREEN (D) - Shift -
+;                       Layer 2 GREEN (D) - Shift - Accounts?
 ;;=================================================================
 ;Row 1
 
@@ -75,14 +76,14 @@ F23::Send("{Media_Play_Pause}")
 +F17::Return
 +F18::Return
 +F19::Return
-+F20::Return
++F20::set_user_online(True) ; user_status.ahk
 
 ;Row 3
 
 +F21::Return
 +F22::Return
 +F23::Return
-+F24::Return
++F24::set_user_online(False) ; user_status.ahk
 
 ;=================================================================
 ;                       Layer 3 BLUE (U) - Ctrl - passwd manager
