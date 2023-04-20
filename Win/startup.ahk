@@ -17,7 +17,7 @@ if FileExist(I_Icon)
 #Include "Scripts\capslock.ahk" ; TODO test
 #Include "Scripts\volume.ahk"
 #Include "Scripts\lock_bypass.ahk"
-#Include "Scripts\calc.ahk" ; TODO test
+#Include "Scripts\calc.ahk"
 #Include "Scripts\framewin.ahk"
 #Include "Scripts\symbols.ahk"
 #Include "Scripts\workspaces_changes.ahk" ; TODO test

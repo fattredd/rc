@@ -5,9 +5,10 @@ SetWorkingDir(A_ScriptDir)
 
 #Include "%A_LineFile%\..\common.ahk"
 
-!^c::NewpassGui() ; Add a new password
-!^d::RmpassGui() ; Remove a password
-;#x::sendPass("gim")
+; Manage passwords with the Windows Credential Manager
+
+!^c::NewpassGui() ; Add a new password (Ctrl + Alt + c)
+!^d::RmpassGui() ; Remove a password (Ctrl + Alt + d)
 
 ; To retrieve a password:
 ; !^p::sendPass("123")
@@ -96,6 +97,7 @@ CredWrite(name, username, password) {
 }
 
 CredDelete(name) {
+  ; Note that creds created by NewPassGui have `AHK_` prepended
   Return DllCall("Advapi32.dll\CredDeleteW",
       "WStr", name, ; [in] LPCWSTR TargetName
       "UInt", 1,    ; [in] DWORD   Type,
@@ -105,6 +107,7 @@ CredDelete(name) {
 }
 
 CredRead(name) {
+  ; Note that creds created by NewPassGui have `AHK_` prepended
   pCred := 0
   DllCall("Advapi32.dll\CredReadW",
       "Str", name,    ; [in]  LPCWSTR      TargetName
