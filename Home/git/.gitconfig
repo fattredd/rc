@@ -17,8 +17,10 @@
   comine = checkout --ours
   cothem = checkout --theirs
   copatch = checkout --patch
+  nbr = !""
   lbr = branch -a
   unadd = reset --
+  cd = !"cd `git rev-parse --show-toplevel`"
   pulldev = !"git stash && git checkout develop && git pull && git stash pop"
   fetchdev = fetch origin develop:develop
   rebasedev = !"git fetch develop:develop && git rebase develop"
