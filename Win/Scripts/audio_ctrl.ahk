@@ -1,6 +1,5 @@
 #Requires AutoHotkey v2.0
 
-; http://www.daveamenta.com/2011-05/programmatically-or-command-line-change-the-default-sound-playback-device-in-windows-7/
 #Include "%A_LineFile%\..\common.ahk"
 
 ; Audio switching requires nircmd:

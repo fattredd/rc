@@ -1,6 +1,7 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
+; Based on work from hippibruder on superuser.com
 ; https://superuser.com/questions/726988/how-to-remap-a-program-to-lock-windows-winl
 
 ; WARNING: Programs that use User32\LockWorkStation (i.e. programmatically locking the operating system) may not work correctly!

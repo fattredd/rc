@@ -7,9 +7,13 @@ SetWorkingDir(A_ScriptDir)
 #Include "%A_LineFile%\..\audio_ctrl.ahk"
 #Include "%A_LineFile%\..\user_status.ahk"
 
+
 ;=================================================================
 ;                      Macro Pad Shortcuts                       ;
 ;=================================================================
+
+; Based on work from https://github.com/nblyumberg
+; https://github.com/qmk/qmk_firmware/tree/master/keyboards/1upkeyboards/super16/keymaps/ahk_companion
 
 ;=================================================================
 ;                       Layer 0 RED (C) - media

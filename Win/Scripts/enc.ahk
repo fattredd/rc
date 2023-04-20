@@ -7,6 +7,9 @@ SetWorkingDir(A_ScriptDir)
 
 ; Manage passwords with the Windows Credential Manager
 
+; Based on work from geek:
+; https://www.autohotkey.com/boards/viewtopic.php?f=83&t=116285
+
 !^c::NewpassGui() ; Add a new password (Ctrl + Alt + c)
 !^d::RmpassGui() ; Remove a password (Ctrl + Alt + d)
 
