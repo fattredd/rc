@@ -6,8 +6,7 @@
 ; Audio switching requires nircmd:
 ; `winget install nircmd`
 
-^#F1:: ; Ctrl + Win + F1
-F15:: {
+rotate_audio() {
   ; Output devices to rotate through:
   deviceList := ["Optical", "Focusrite"]
 
@@ -23,16 +22,14 @@ F15:: {
     nextDevice_Index := Mod(currDevice_Index + 1, deviceList.Length) + 1 ; Because it's 0 indexed
 
   nextDevice_Name := deviceList[nextDevice_Index]
+
   ToolTip("Set output: " nextDevice_Name)
-  Run("nircmd setdefaultsounddevice " nextDevice_Name " 1")
   SetTimer(RemoveToolTip,-1000)
-  Return
+  SoundBeep 80, 200 ; Low tone on old output
+  Run("nircmd setdefaultsounddevice " nextDevice_Name " 1")
+  Sleep(100) ; Wait for device to swap
+  SoundBeep 200, 200 ; High tone on old output
 }
-
-;F13::Run %A_LineFile%\..\mic_finder.ahk
-
-^#F2:: ; Ctrl + Win + F2
-F14::Run("Rundll32.exe shell32.dll,Control_RunDLL mmsys.cpl,,1") ; Open recording panel
 
 setMuteMic(mic_status := unset) {
   device_name := "Analogue"
@@ -43,11 +40,20 @@ setMuteMic(mic_status := unset) {
     new_state := mic_status
   }
   SoundSetMute(new_state, "", device_name)
+
+  ; Echo
   status_str := new_state ? "OFF" : "ON"
   ToolTip("Mic " status_str)
   SetTimer(RemoveToolTip,-500)
-  Return
+  beep_status := new_state ? 300 : 500
+  SoundBeep beep_status, 200
 }
+
+^#F1:: ; Ctrl + Win + F1
+F15::rotate_audio()
+
+^#F2:: ; Ctrl + Win + F2
+F14::Run("Rundll32.exe shell32.dll,Control_RunDLL mmsys.cpl,,1") ; Open recording panel
 
 ^#F11:: ; Ctrl + Win + F11
 F20::setMuteMic(False) ; Off

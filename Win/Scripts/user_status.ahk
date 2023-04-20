@@ -33,4 +33,6 @@ set_user_online(status) {
   show_status := status ? "online" : "offline"
   ToolTip("Set status to " show_status)
   SetTimer(RemoveToolTip,-1000)
+  beep_status := status ? 400 : 200
+  SoundBeep beep_status, 200
 }
