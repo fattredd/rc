@@ -83,11 +83,11 @@ CredWrite(name, username, password) {
   cred := Buffer(24 + A_PtrSize * 7, 0)
   cbPassword := StrLen(password) * 2
   NumPut("UInt", 1               , cred,  4+A_PtrSize*0) ; Type = CRED_TYPE_GENERIC
-  NumPut("Ptr",  StrPtr(name)    , cred,  8+A_PtrSize*0)  ; TargetName = name
+  NumPut("Ptr",  StrPtr(name)    , cred,  8+A_PtrSize*0) ; TargetName = name
   NumPut("UInt", cbPassword      , cred, 16+A_PtrSize*2) ; CredentialBlobSize
   NumPut("Ptr",  StrPtr(password), cred, 16+A_PtrSize*3) ; CredentialBlob
   NumPut("UInt", 3               , cred, 16+A_PtrSize*4) ; Persist = CRED_PERSIST_ENTERPRISE (roam across domain)
-  NumPut("Ptr",  StrPtr(username), cred, 24+A_PtrSize*6)  ; UserName
+  NumPut("Ptr",  StrPtr(username), cred, 24+A_PtrSize*6) ; UserName
   Return DllCall("Advapi32.dll\CredWriteW",
       "Ptr", cred, ; [in] PCREDENTIALW Credential
       "UInt", 0,   ; [in] DWORD        Flags
@@ -107,9 +107,9 @@ CredDelete(name) {
 CredRead(name) {
   pCred := 0
   DllCall("Advapi32.dll\CredReadW",
-      "Str", name,   ; [in]  LPCWSTR      TargetName
-      "UInt", 1,     ; [in]  DWORD        Type = CRED_TYPE_GENERIC
-      "UInt", 0,     ; [in]  DWORD        Flags
+      "Str", name,    ; [in]  LPCWSTR      TargetName
+      "UInt", 1,      ; [in]  DWORD        Type = CRED_TYPE_GENERIC
+      "UInt", 0,      ; [in]  DWORD        Flags
       "Ptr*", &pCred, ; [out] PCREDENTIALW *Credential
       "UInt" ; BOOL
   )

@@ -62,7 +62,7 @@ F23::Send("{Media_Play_Pause}")
 
 
 ;=================================================================
-;                       Layer 2 GREEN (D) - Shift - Accounts?
+;                       Layer 2 GREEN (D) - Shift -
 ;;=================================================================
 ;Row 1
 
@@ -76,14 +76,14 @@ F23::Send("{Media_Play_Pause}")
 +F17::Return
 +F18::Return
 +F19::Return
-+F20::set_user_online(True) ; user_status.ahk
++F20::Return
 
 ;Row 3
 
 +F21::Return
 +F22::Return
 +F23::Return
-+F24::set_user_online(False) ; user_status.ahk
++F24::Return
 
 ;=================================================================
 ;                       Layer 3 BLUE (U) - Ctrl - passwd manager
@@ -99,12 +99,12 @@ F23::Send("{Media_Play_Pause}")
 
 ;^F17::Return ; reload startup.ahk
 ^F18::Return
-^F19::Return
-^F20::Return
+^F19::sendPass("gim") ; enc.ahk
+^F20::set_user_online(True) ; user_status.ahk
 
 ;Row 3
 
 ^F21::Return
 ^F22::Return
 ^F23::sendPass("rs2") ; enc.ahk - Window cred manager "AHK_rs2"
-^F24::sendPass("gim") ; enc.ahk
+^F24::set_user_online(False) ; user_status.ahk
