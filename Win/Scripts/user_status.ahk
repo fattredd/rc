@@ -35,9 +35,8 @@ set_user_online(status) {
   ; Echo
   show_status := status ? "online" : "offline"
   ToolTip("Set status to " show_status)
-  SetTimer(RemoveToolTip,-1000)
-  beep_status := status ? 400 : 200
-  SoundBeep beep_status, 200
+  SetTimer(RemoveToolTip, -1000)
+  beepBoop(status, "B4", "A4")
 }
 
 grab_discord_console() {

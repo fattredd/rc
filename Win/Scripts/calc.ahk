@@ -6,7 +6,7 @@ SetWorkingDir(A_ScriptDir)
 ; Calculator
 #BackSpace::
 #c::{
-  SetTitleMatchMode(2)
+  SetTitleMatchMode(1)
   HWID := WinExist("Calculator")
   if !HWID = 0 {
     winstate := WinGetMinMax("Calculator")

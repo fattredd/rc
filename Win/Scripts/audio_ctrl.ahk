@@ -24,14 +24,13 @@ rotate_audio() {
 
   ToolTip("Set output: " nextDevice_Name)
   SetTimer(RemoveToolTip,-1000)
-  SoundBeep 80, 200 ; Low tone on old output
+  beepBoop(True, "E2") ; Low tone on old output
   Run("nircmd setdefaultsounddevice " nextDevice_Name " 1")
   Sleep(100) ; Wait for device to swap
-  SoundBeep 200, 200 ; High tone on old output
+  beepBoop(True, "E3") ; High tone on new output
 }
 
-setMuteMic(mic_status := unset) {
-  device_name := "Analogue"
+setMuteState(device_name := "Analogue", mic_status := unset) {
   ; True: unmuted
   ; False: muted
   new_state := !SoundGetMute("", device_name)
@@ -42,10 +41,9 @@ setMuteMic(mic_status := unset) {
 
   ; Echo
   status_str := new_state ? "OFF" : "ON"
-  ToolTip("Mic " status_str)
+  ToolTip(device_name " " status_str)
   SetTimer(RemoveToolTip,-500)
-  beep_status := new_state ? 300 : 500
-  SoundBeep beep_status, 200
+  beepBoop(new_state, "C", "D")
 }
 
 ^#F1:: ; Ctrl + Win + F1
@@ -55,10 +53,10 @@ F15::rotate_audio()
 F14::Run("Rundll32.exe shell32.dll,Control_RunDLL mmsys.cpl,,1") ; Open recording panel
 
 ^#F11:: ; Ctrl + Win + F11
-F20::setMuteMic(False) ; Off
+F20::setMuteState("Analogue", False) ; Off
 
 ^#F12:: ; Ctrl + Win + F12
-F24::setMuteMic(True) ; On
+F24::setMuteState("Analogue", True) ; On
 
 ; Win + 0 ; Toggle mic
-#0::setMuteMic()
+#0::setMuteState("Analogue")
