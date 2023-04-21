@@ -2,7 +2,7 @@
 #SingleInstance force
 SetWorkingDir(A_ScriptDir)
 
-#Include "%A_LineFile%\..\common.ahk"
+#Include "%A_LineFile%\..\lib\common.ahk"
 #Include "%A_LineFile%\..\lib\github.ahk"
 
 ; Allow us to set the user to be offline

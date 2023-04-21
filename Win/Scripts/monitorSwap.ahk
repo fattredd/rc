@@ -5,7 +5,7 @@
 ;
 ; Untested since V2 update
 
-#Include "%A_LineFile%\..\common.ahk"
+#Include "%A_LineFile%\..\lib\common.ahk"
 
 Global ProfilePath := A_AppData . "\Realtime Soft\UltraMon\3.4.1\Profiles"
 Global fileExt := ".umprofile"

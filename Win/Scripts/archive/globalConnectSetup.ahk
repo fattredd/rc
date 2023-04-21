@@ -2,7 +2,7 @@
 #SingleInstance Force
 #NoEnv
 
-#Include %A_LineFile%\..\common.ahk
+#Include %A_LineFile%\..\lib\common.ahk
 
 EnvGet, pin, pin
 if (pin == "") {

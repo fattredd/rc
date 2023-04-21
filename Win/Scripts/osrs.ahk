@@ -3,7 +3,7 @@
 SendMode("Event")
 SetWorkingDir(A_ScriptDir)
 #Include "%A_LineFile%\..\lib\osrslib.ahk"
-#Include "%A_LineFile%\..\common.ahk"
+#Include "%A_LineFile%\..\lib\common.ahk"
 
 ; Map these only in Runelite
 global doubleTime := -250

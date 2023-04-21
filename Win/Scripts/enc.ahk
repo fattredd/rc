@@ -3,7 +3,7 @@
 SendMode("Input")
 SetWorkingDir(A_ScriptDir)
 
-#Include "%A_LineFile%\..\common.ahk"
+#Include "%A_LineFile%\..\lib\common.ahk"
 
 ; Manage passwords with the Windows Credential Manager
 

@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 
-#Include "%A_LineFile%\..\common.ahk"
+#Include "%A_LineFile%\..\lib\common.ahk"
 
 ; Audio switching requires nircmd:
 ; `winget install nircmd`

@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-#Include "%A_LineFile%\..\..\common.ahk"
+#Include "%A_LineFile%\..\..\lib\common.ahk"
 
 global panic := False
 
