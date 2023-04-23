@@ -25,6 +25,7 @@ rotate_audio() {
   ToolTip("Set output: " nextDevice_Name)
   SetTimer(RemoveToolTip,-1000)
   beepBoop(True, "E2") ; Low tone on old output
+  ;VA_SetDefaultEndpoint(nextDevice_Name, 0)
   Run("nircmd setdefaultsounddevice " nextDevice_Name " 1")
   Sleep(100) ; Wait for device to swap
   beepBoop(True, "E3") ; High tone on new output
@@ -43,7 +44,7 @@ setMuteState(device_name := "Analogue", mic_status := unset) {
   status_str := new_state ? "OFF" : "ON"
   ToolTip(device_name " " status_str)
   SetTimer(RemoveToolTip,-500)
-  beepBoop(new_state, "C", "D")
+  beepBoop(new_state, "C3", "C4")
 }
 
 ^#F1:: ; Ctrl + Win + F1

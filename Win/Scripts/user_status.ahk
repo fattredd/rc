@@ -4,6 +4,7 @@ SetWorkingDir(A_ScriptDir)
 
 #Include "%A_LineFile%\..\lib\common.ahk"
 #Include "%A_LineFile%\..\lib\github.ahk"
+#Include "%A_LineFile%\..\enc.ahk"
 
 ; Allow us to set the user to be offline
 ; https://old.reddit.com/r/AutoHotkey/comments/tafs9i/how_to_make_a_script_that_will_set_your_steam_and/
@@ -17,7 +18,7 @@ SetWorkingDir(A_ScriptDir)
 ;   Web Client > Network > Refresh > filter by `/api` > select `library` > Headers > Authorization
 ;   then store it as pass in the Credential Manager. See ./enc.ahk (CredWrite)
 
-bin_path := "C:\bin\bin\"
+global bin_path := "C:\bin\bin\"
 
 set_user_online(status) {
   ; Discord (takes a few seconds)
@@ -25,8 +26,10 @@ set_user_online(status) {
   if ! FileExist(discord_console_path)
     grab_discord_console()
   discord_key := CredRead("AHK_discord")
-  discord_status := status ? "online" : "invisible"
-  Run discord_console_path . ' -noupdate -t "user ' . discord_key.pass . '" -x "status ' . discord_status . '" -x "exit"',, "Hide"
+  if IsObject(discord_key) {
+    discord_status := status ? "online" : "invisible"
+    Run discord_console_path . ' -noupdate -t "user ' . discord_key.password . '" -x "status ' . discord_status . '" -x "exit"',, "Hide"
+  }
 
   ; Steam
   steam_status := status ? "online" : "invisible"
@@ -36,7 +39,7 @@ set_user_online(status) {
   show_status := status ? "online" : "offline"
   ToolTip("Set status to " show_status)
   SetTimer(RemoveToolTip, -1000)
-  beepBoop(status, "B4", "A4")
+  beepBoop(status, "B3", "B2")
 }
 
 grab_discord_console() {

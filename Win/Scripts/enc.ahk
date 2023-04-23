@@ -12,6 +12,7 @@ SetWorkingDir(A_ScriptDir)
 
 !^c::NewpassGui() ; Add a new password (Ctrl + Alt + c)
 !^d::RmpassGui() ; Remove a password (Ctrl + Alt + d)
+!^r::ReadpassGui() ; Fetch a password (Ctrl + Alt + r)
 
 ; To retrieve a password:
 ; !^p::sendPass("123")
@@ -72,11 +73,37 @@ RmPassGui() {
   myGui.Show()
 }
 
+ReadPassGui() {
+  myGui := Gui("-MinimizeBox -MaximizeBox +MinSize120x180 +MaxSize120x180", "Fetch pass")
+  myGui.Add("Text", , "Key:")
+  ogcEditoldKey := myGui.Add("Edit", "w100 voldKey")
+  ogcButtonFetchPass := myGui.Add("Button", "Default x30 w60", "&Fetch Pass")
+  ogcButtonFetchPass.OnEvent("Click", ButtonFetchPass.Bind("Normal"))
+  myGui.OnEvent("Escape", GuiEscape)
+
+  ButtonFetchPass(A_GuiEvent, GuiCtrlObj, Info, *) {
+    oSaved := myGui.Submit()
+    oldKey := oSaved.oldKey
+    cred_key := "AHK_" . oldKey
+    if cred := CredRead(cred_key) {
+      ToolTip("Fetch creds for " cred_key)
+      A_Clipboard := cred.password
+    } else
+      ToolTip("Failed to fetch creds for " oldKey)
+    SetTimer(RemoveToolTip, -3000)
+  }
+  GuiEscape(*) {
+    myGui.Destory()
+  }
+
+  myGui.Show()
+}
+
 sendPass(key) {
   cred_key := "AHK_" . key
   if (creds := CredRead(cred_key)) {
-    ToolTip("Pasting " cred_key " pass for " creds.user)
-    Send(creds.pass)
+    ToolTip("Pasting " cred_key " pass for " creds.username)
+    Send(creds.password)
   } else {
     ToolTip("No stored pass for " key ". Ctrl+Alt+c to create")
   }
@@ -122,10 +149,10 @@ CredRead(name) {
   if !pCred
       Return
 
-  cred_name := StrGet(NumGet(pCred,  8 + A_PtrSize * 0, "UPtr"), 256, "UTF-16")
-  cred_lenp :=        NumGet(pCred, 16 + A_PtrSize * 2, "UInt")
-  cred_pass := StrGet(NumGet(pCred, 16 + A_PtrSize * 3, "UPtr"), cred_lenp/2, "UTF-16")
-  cred_user := StrGet(NumGet(pCred, 24 + A_PtrSize * 6, "UPtr"), 256, "UTF-16")
+  name :=     StrGet(NumGet(pCred,  8 + A_PtrSize * 0, "UPtr"), 256, "UTF-16")
+  len :=             NumGet(pCred, 16 + A_PtrSize * 2, "UInt")
+  password := StrGet(NumGet(pCred, 16 + A_PtrSize * 3, "UPtr"), len/2, "UTF-16")
+  username := StrGet(NumGet(pCred, 24 + A_PtrSize * 6, "UPtr"), 256, "UTF-16")
   DllCall("Advapi32.dll\CredFree", "Ptr", pCred)
-  Return {name: cred_name, user: cred_user, pass: cred_pass}
+	return {name: name, username: username, password: password}
 }
