@@ -154,5 +154,6 @@ CredRead(name) {
   password := StrGet(NumGet(pCred, 16 + A_PtrSize * 3, "UPtr"), len/2, "UTF-16")
   username := StrGet(NumGet(pCred, 24 + A_PtrSize * 6, "UPtr"), 256, "UTF-16")
   DllCall("Advapi32.dll\CredFree", "Ptr", pCred)
-	return {name: name, username: username, password: password}
+	Return {name: name, username: username, password: password}
+  ; some comment
 }

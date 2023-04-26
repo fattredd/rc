@@ -43,7 +43,7 @@ confineCursorToPolygon(points*) {
       }
     }
 
-    return dllCall(
+    Return dllCall(
       "CallNextHookEx",
       "UInt", 0,
       "UInt", nCode,
@@ -65,7 +65,7 @@ confineCursorToPolygon(points*) {
       pointPosition := point.compareToLine(startPoint, endPoint)
 
       if pointPosition == 0 {
-        return false
+        Return false
       } else if pointPosition > 0 {
         if startPoint.y <= point.y {
           if endPoint.y > point.y {
@@ -89,7 +89,7 @@ confineCursorToPolygon(points*) {
       }
     }
 
-    return isSet(targetPoint) && windingNumber == 0 ? targetPoint : false
+    Return isSet(targetPoint) && windingNumber == 0 ? targetPoint : false
   }
 
   findNearestPointOnLine(point, startPoint, endPoint) {
@@ -99,11 +99,11 @@ confineCursorToPolygon(points*) {
     projection := point.subtract(startPoint).dot(lineUnitVector)
 
     if projection < 0 {
-      return startPoint
+      Return startPoint
     } else if projection > lineLength {
-      return endPoint
+      Return endPoint
     } else {
-      return startPoint.add(lineUnitVector.scale(projection))
+      Return startPoint.add(lineUnitVector.scale(projection))
     }
   }
 }
@@ -115,19 +115,19 @@ class Point {
   }
 
   dot(other) {
-    return this.x * other.x + this.y * other.y
+    Return this.x * other.x + this.y * other.y
   }
 
   add(other) {
-    return Point(this.x + other.x, this.y + other.y)
+    Return Point(this.x + other.x, this.y + other.y)
   }
 
   subtract(other) {
-    return Point(this.x - other.x, this.y - other.y)
+    Return Point(this.x - other.x, this.y - other.y)
   }
 
   scale(amount) {
-    return Point(this.x * amount, this.y * amount)
+    Return Point(this.x * amount, this.y * amount)
   }
 
   normalized {
@@ -135,10 +135,10 @@ class Point {
       length := this.distanceToOrigin
 
       if length == 0 {
-        return Point(0, 0)
+        Return Point(0, 0)
       }
 
-      return Point(this.x / length, this.y / length)
+      Return Point(this.x / length, this.y / length)
     }
   }
 
@@ -146,12 +146,12 @@ class Point {
     x := this.x - other.x
     y := this.y - other.y
 
-    return sqrt(x**2 + y**2)
+    Return sqrt(x**2 + y**2)
   }
 
   distanceToOrigin => sqrt(this.x**2 + this.y**2)
 
   compareToLine(startPoint, endPoint) {
-    return (endPoint.x - startPoint.x) * (this.y - startPoint.y) - (this.x - startPoint.x) * (endPoint.y - startPoint.y)
+    Return (endPoint.x - startPoint.x) * (this.y - startPoint.y) - (this.x - startPoint.x) * (endPoint.y - startPoint.y)
   }
 }

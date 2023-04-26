@@ -53,13 +53,13 @@ class LLMouse {
 	getTimerResolution()
 	{
 		DllCall("ntdll.dll\NtQueryTimerResolution", "UPtr*", MinimumResolution, "UPtr*", MaximumResolution, "UPtr*", CurrentResolution)
-		return Ceil(CurrentResolution/10000) ; Resolutions are reported as 100-nanoseconds
+		Return Ceil(CurrentResolution/10000) ; Resolutions are reported as 100-nanoseconds
 	}
 
 	getQPF()
 	{
 		DllCall( "QueryPerformanceFrequency", Int64P,F)
-		return F
+		Return F
 	}
 
 }

@@ -58,9 +58,9 @@ note_to_freq(music_note) {
     "B4", 493.883
   )
   if ! note_lookup.Has(note "4")
-    return 0
+    Return 0
   base_freq := note_lookup[note "4"] * (2**-4)
-  return base_freq * (2**octave)
+  Return base_freq * (2**octave)
 }
 
 beepBoop(status, freqTrue, freqFalse := 0, freqLen := 200) {
@@ -81,7 +81,7 @@ beepBoopSeq(freqs, status := 1, freqLen := 100) {
   if status = -1
     freqs := RevArray(freqs)
   if status = 0
-    return
+    Return
 
   for beep_tone in freqs {
     if Type(beep_tone) = "String"

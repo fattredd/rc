@@ -14,7 +14,7 @@ VA_SetDefaultEndpoint(device_desc, role) {
         eCommunications = 2  ; Default Communications Device
   */
   if ! device := VA_GetDevice(device_desc) {
-    return 0
+    Return 0
   }
   id := 0
   if VA_IMMDevice_GetId(device, &id) = 0     {
@@ -24,7 +24,7 @@ VA_SetDefaultEndpoint(device_desc, role) {
     ObjRelease(cfg)
   }
   ObjRelease(device)
-  return hr = 0
+  Return hr = 0
 }
 
 ; device_desc = device_id
@@ -34,7 +34,7 @@ VA_GetDevice(device_desc := "playback") {
   static CLSID_MMDeviceEnumerator := "{BCDE0395-E52F-467C-8E3D-C4579291692E}"
   static IID_IMMDeviceEnumerator  := "{A95664D2-9614-4F35-A746-DE8DB63617E6}"
   if !(deviceEnumerator := ComObject(CLSID_MMDeviceEnumerator, IID_IMMDeviceEnumerator)) {
-    return 0
+    Return 0
   }
 
   device := 0
@@ -93,7 +93,7 @@ VA_GetDevice_Return:
   if devices
     ObjRelease(devices)
 
-  return device ; may be 0
+  Return device ; may be 0
 }
 
 VA_GetDeviceName(device) {
@@ -114,36 +114,36 @@ VA_GetDeviceName(device) {
   ; struct tag_inner_PROPVARIANT == PropIdlBase.Idl
   str_ptr := NumGet(prop, 8, "Ptr")
   VA_WStrOut(&deviceName := str_ptr)
-  return deviceName
+  Return deviceName
 }
 
 VA_IMMDevice_GetId(this, &Id) {
   hr := ComCall(5, this, "uint*", Id)
   VA_WStrOut(&Id)
-  return hr
+  Return hr
 }
 VA_IMMDevice_OpenPropertyStore(this, Access, &Properties) {
-  return ComCall(4, this, "uint", Access, "ptr*", &Properties:=0)
+  Return ComCall(4, this, "uint", Access, "ptr*", &Properties:=0)
 }
 VA_xIPolicyConfigVista_SetDefaultEndpoint(this, DeviceId, Role) {
-  return ComCall(12, this, "wstr", DeviceId, "int", Role)
+  Return ComCall(12, this, "wstr", DeviceId, "int", Role)
 }
 VA_IMMDeviceEnumerator_GetDevice(this, id, &Device) {
   ; https://learn.microsoft.com/en-us/windows/win32/api/mmdeviceapi/nf-mmdeviceapi-immdeviceenumerator-getdevice
-  return ComCall(5, this, "wstr", id, "ptr*", &Device)
+  Return ComCall(5, this, "wstr", id, "ptr*", &Device)
 }
 VA_IMMDeviceEnumerator_GetDefaultAudioEndpoint(this, DataFlow, Role, &Endpoint) {
-  return ComCall(4, this, "int", DataFlow, "int", Role, "ptr*", &Endpoint)
+  Return ComCall(4, this, "int", DataFlow, "int", Role, "ptr*", &Endpoint)
 }
 VA_IMMDeviceEnumerator_EnumAudioEndpoints(this, DataFlow, StateMask, &Devices) {
-  return ComCall(3, this, "int", DataFlow, "uint", StateMask, "ptr*", &Devices)
+  Return ComCall(3, this, "int", DataFlow, "uint", StateMask, "ptr*", &Devices)
 }
 ; IMMDeviceCollection
 VA_IMMDeviceCollection_GetCount(this, &Count) {
-  return ComCall(3, this, "uint*", &Count)
+  Return ComCall(3, this, "uint*", &Count)
 }
 VA_IMMDeviceCollection_Item(this, Index, &Device) {
-  return ComCall(4, this, "uint", Index, "ptr*", &Device)
+  Return ComCall(4, this, "uint", Index, "ptr*", &Device)
 }
 
 VA_WStrOut(&str) {

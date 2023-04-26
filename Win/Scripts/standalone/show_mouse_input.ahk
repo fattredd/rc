@@ -10,7 +10,7 @@ Gui, Show,, Mouse Watcher
 MacroOn := 1
 md := new MouseDelta("MouseEvent")
 
-return
+Return
 
 GuiClose:
 	md.Delete()
@@ -20,7 +20,7 @@ GuiClose:
 F12::
 	MacroOn := !MacroOn
 	md.SetState(MacroOn)
-	return
+	Return
 
 ; Gets called when mouse moves
 ; x and y are DELTA moves (Amount moved since last message), NOT coordinates.

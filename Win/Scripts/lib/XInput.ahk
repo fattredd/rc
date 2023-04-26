@@ -15,7 +15,7 @@
 XInput_Init(dll:="") {
   global
   if _XInput_hm ?? 0
-    return
+    Return
 
   ;======== CONSTANTS DEFINED IN XINPUT.H ========
 
@@ -100,11 +100,11 @@ XInput_GetState(UserIndex) {
 
   if err := DllCall(_XInput_GetState ,"uint",UserIndex ,"ptr",xiState) {
     if err = 1167 ; ERROR_DEVICE_NOT_CONNECTED
-      return 0
+      Return 0
     throw OSError(err, -1)
   }
 
-  return {
+  Return {
     dwPacketNumber: NumGet(xiState,  0, "UInt"),
     wButtons:     NumGet(xiState,  4, "UShort"),
     bLeftTrigger:   NumGet(xiState,  6, "UChar"),
@@ -167,11 +167,11 @@ XInput_GetCapabilities(UserIndex, Flags) {
 
   if err := DllCall(_XInput_GetCapabilities ,"uint",UserIndex ,"uint",Flags ,"ptr",xiCaps) {
     if err = 1167 ; ERROR_DEVICE_NOT_CONNECTED
-      return 0
+      Return 0
     throw OSError(err, -1)
   }
 
-  return {
+  Return {
     Type:             NumGet(xiCaps,  0, "UChar"),
     SubType:          NumGet(xiCaps,  1, "UChar"),
     Flags:            NumGet(xiCaps,  2, "UShort"),

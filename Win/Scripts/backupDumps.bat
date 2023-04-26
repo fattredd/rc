@@ -12,3 +12,4 @@ for /f "tokens=*" %%i in ('hostname') do (
 md %dest%\%host%\
 echo Copying Minidump files from %source% to %dest%\%host%\
 copy %source% %dest%\%host%\
+copy C:\Windows\MEMORY.DMP %dest%\%host%\

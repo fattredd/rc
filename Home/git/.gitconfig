@@ -49,6 +49,9 @@
   clean = ~/.config/git/ignoreLine
 [filter "ignorechanges"]
   clean = ~/.config/git/ignorechanges %f
+[filter "ahk"]
+  clean = ~/.config/git/ahk_cleanup %f
+  smudge = ~/.config/git/ahk_cleanup %f
 [pull]
   ff = only
 [rebase]

@@ -29,7 +29,7 @@ Class MouseDelta {
 		DllCall("RegisterRawInputDevices", "Ptr", &RAWINPUTDEVICE, "UInt", 1, "UInt", DevSize )
 		OnMessage(0x00FF, this.MouseMovedFn)
 		this.State := 1
-		return this	; allow chaining
+		Return this	; allow chaining
 	}
 
 	Stop() {
@@ -40,7 +40,7 @@ Class MouseDelta {
 		NumPut(RIDEV_REMOVE, RAWINPUTDEVICE, 4, "Uint")
 		DllCall("RegisterRawInputDevices", "Ptr", &RAWINPUTDEVICE, "UInt", 1, "UInt", DevSize )
 		this.State := 0
-		return this	; allow chaining
+		Return this	; allow chaining
 	}
 
 	SetState(state) {
@@ -48,7 +48,7 @@ Class MouseDelta {
 			this.Start()
 		else if (!state && this.State)
 			this.Stop()
-		return this	; allow chaining
+		Return this	; allow chaining
 	}
 
 	Delete() {

@@ -169,7 +169,7 @@
 
        } ; while ( ... )
 
-       return this.rev ? this.Walk(root, "") : root[""]
+       Return this.rev ? this.Walk(root, "") : root[""]
      }
 
      ParseError(expect, ByRef text, pos, len:=1)
@@ -209,7 +209,7 @@
          }
        }
 
-       return this.rev.Call(holder, key, value)
+       Return this.rev.Call(holder, key, value)
      }
    }
 
@@ -244,7 +244,7 @@
          this.indent := "`n"
        }
 
-       return this.Str({"": value}, "")
+       Return this.Str({"": value}, "")
      }
 
      Str(holder, key)
@@ -255,9 +255,9 @@
          value := this.rep.Call(holder, key, ObjHasKey(holder, key) ? value : JSON.Undefined)
 
        if (&value == &JSON.True) {
-         return "true"
+         Return "true"
        } else if (&value == &JSON.False) {
-         return "false"
+         Return "false"
        } else if IsObject(value) {
        ; Check object type, skip serialization for other object types such as
        ; ComObject, Func, BoundFunc, FileObject, RegExMatchObject, Property, etc.
@@ -309,11 +309,11 @@
            if (this.gap)
              this.indent := stepback
 
-           return is_array ? "[" . str . "]" : "{" . str . "}"
+           Return is_array ? "[" . str . "]" : "{" . str . "}"
          }
 
        } else ; is_number ? value : "value"
-         return ObjGetCapacity([value], 1)=="" ? value : this.Quote(value)
+         Return ObjGetCapacity([value], 1)=="" ? value : this.Quote(value)
      }
 
      Quote(string)
@@ -335,7 +335,7 @@
            string := StrReplace(string, m.Value, Format("\u{1:04x}", Ord(m.Value)))
        }
 
-       return quot . string . quot
+       Return quot . string . quot
      }
    }
 
@@ -348,17 +348,17 @@
     *     For use with reviver and replacer functions since AutoHotkey does not
     *     have an 'undefined' type. Returning blank("") or 0 won't work since these
     *     can't be distnguished from actual JSON values. This leaves us with objects.
-    *     Replacer() - the caller may return a non-serializable AHK objects such as
+    *     Replacer() - the caller may Return a non-serializable AHK objects such as
     *     ComObject, Func, BoundFunc, FileObject, RegExMatchObject, and Property to
     *     mimic the behavior of returning 'undefined' in JavaScript but for the sake
-    *     of code readability and convenience, it's better to do 'return JSON.Undefined'.
+    *     of code readability and convenience, it's better to do 'Return JSON.Undefined'.
     *     Internally, the property returns a ComObject with the variant type of VT_EMPTY.
     */
    Undefined[]
    {
      get {
        static empty := {}, vt_empty := ComObject(0, &empty, 1)
-       return vt_empty
+       Return vt_empty
      }
    }
 
@@ -400,9 +400,9 @@
      ; so as to avoid directly storing the properties(used across sub-methods)
      ; into the "function object" itself.
        if IsObject(method)
-         return (new this).Call(method, arg, args*)
+         Return (new this).Call(method, arg, args*)
        else if (method == "")
-         return (new this).Call(arg, args*)
+         Return (new this).Call(arg, args*)
      }
    }
  }

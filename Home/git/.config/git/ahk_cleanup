@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Git will replace all (non-commented) instances of `return` with `Return`
+
+perl -pe 's/(?<!;.{0,250})\breturn\b/Return/g' \
+    "$@" 2> /dev/null

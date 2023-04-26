@@ -9,3 +9,4 @@ Home/shell/* filter=ignorechanges
 Home/ssh/* filter=ignorechanges
 Home/vim/* filter=ignorechanges
 Home/git/.gitconfig filter=ignorechanges
+Win/**/*.ahk filter=ahk

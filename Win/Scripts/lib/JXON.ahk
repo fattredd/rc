@@ -142,7 +142,7 @@ Jxon_Load(&src, args*) {
 		}
 	}
 
-	return tree[1]
+	Return tree[1]
 }
 
 Jxon_Dump(obj, indent:="", lvl:=1) {
@@ -184,13 +184,13 @@ Jxon_Dump(obj, indent:="", lvl:=1) {
 				out := "`n" . indt . out . "`n" . SubStr(indt, StrLen(indent)+1)
 		}
 
-		return is_array ? "[" . out . "]" : "{" . out . "}"
+		Return is_array ? "[" . out . "]" : "{" . out . "}"
 
     } Else If (obj is Number)
-        return obj
+        Return obj
 
     Else ; String
-        return escape_str(obj)
+        Return escape_str(obj)
 
     escape_str(obj) {
         obj := StrReplace(obj,"\","\\")
@@ -202,7 +202,7 @@ Jxon_Dump(obj, indent:="", lvl:=1) {
         obj := StrReplace(obj,"/","\/")
         obj := StrReplace(obj,'"','\"')
 
-        return '"' obj '"'
+        Return '"' obj '"'
     }
 }
 
