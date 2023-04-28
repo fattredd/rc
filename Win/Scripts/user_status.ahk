@@ -28,7 +28,12 @@ set_user_online(status) {
   discord_key := CredRead("AHK_discord")
   if IsObject(discord_key) {
     discord_status := status ? "online" : "invisible"
-    Run discord_console_path . ' -noupdate -t "user ' . discord_key.password . '" -x "status ' . discord_status . '" -x "exit"',, "Hide"
+    while true { ; Because sometimes this fails
+      discord_status := RunWait(discord_console_path . ' -noupdate -t "user ' . discord_key.password . '" -x "status ' . discord_status . '" -x "exit"',, "Hide")
+      if discord_status == 0
+        break
+      Sleep(250)
+    }
   }
 
   ; Steam
