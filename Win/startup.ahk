@@ -19,6 +19,7 @@ if FileExist(I_Icon)
 #Include "Scripts\lock_bypass.ahk"
 #Include "Scripts\calc.ahk"
 #Include "Scripts\framewin.ahk"
+#Include "Scripts\translate.ahk"
 #Include "Scripts\symbols.ahk"
 #Include "Scripts\workspaces_changes.ahk" ; TODO test
 
