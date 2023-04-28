@@ -36,10 +36,9 @@ NewPassGui() {
     newPass := oSaved.newPass
     cred_key := "AHK_" . newKey
     if CredWrite(cred_key, newUser, newPass)
-      ToolTip("Saved creds for " newUser " [" cred_key "]")
+      tToolTip("Saved creds for " newUser " [" cred_key "]", 3000)
     else
-      ToolTip("Failed to save creds for " newKey)
-    SetTimer(RemoveToolTip,-3000)
+      tToolTip("Failed to save creds for " newKey, 3000)
   }
   GuiEscape(*) {
     myGui.Destroy()
@@ -61,10 +60,9 @@ RmPassGui() {
     oldKey := oSaved.oldKey
     cred_key := "AHK_" . oldKey
     if CredDelete(cred_key)
-      ToolTip("Removed creds for " cred_key)
+      tToolTip("Removed creds for " cred_key, 3000)
     else
-      ToolTip("Failed to remove creds for " oldKey)
-    SetTimer(RemoveToolTip, -3000)
+      tToolTip("Failed to remove creds for " oldKey, 3000)
   }
   GuiEscape(*) {
     myGui.Destory()
@@ -86,11 +84,10 @@ ReadPassGui() {
     oldKey := oSaved.oldKey
     cred_key := "AHK_" . oldKey
     if cred := CredRead(cred_key) {
-      ToolTip("Fetch creds for " cred_key)
+      tToolTip("Fetch creds for " cred_key, 3000)
       A_Clipboard := cred.password
     } else
-      ToolTip("Failed to fetch creds for " oldKey)
-    SetTimer(RemoveToolTip, -3000)
+      tToolTip("Failed to fetch creds for " oldKey, 3000)
   }
   GuiEscape(*) {
     myGui.Destory()
@@ -102,12 +99,11 @@ ReadPassGui() {
 sendPass(key) {
   cred_key := "AHK_" . key
   if (creds := CredRead(cred_key)) {
-    ToolTip("Pasting " cred_key " pass for " creds.username)
+    tToolTip("Pasting " cred_key " pass for " creds.username, 3000)
     Send(creds.password)
   } else {
-    ToolTip("No stored pass for " key ". Ctrl+Alt+c to create")
+    tToolTip("No stored pass for " key ". Ctrl+Alt+c to create", 3000)
   }
-  SetTimer(RemoveToolTip,-3000)
 }
 
 CredWrite(name, username, password) {

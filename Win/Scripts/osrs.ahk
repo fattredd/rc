@@ -8,6 +8,8 @@ SetWorkingDir(A_ScriptDir)
 ; Map these only in Runelite
 global doubleTime := -250
 global DClick_toggle := False
+global XB1multi := 0
+global XB2multi := 0
 
 #HotIf WinActive("ahk_class SunAwtFrame") ; Runelite
 	WheelLeft:: {
@@ -19,6 +21,7 @@ global DClick_toggle := False
     Return
   }
   XButton1:: {
+    global XB1multi
     if (XB1multi > 0) {
       XB1multi += 1
       Return
@@ -28,13 +31,14 @@ global DClick_toggle := False
     Return
   }
   XButton2:: {
-  if (XB2multi > 0) {
-    XB2multi += 1
+    global XB1multi
+    if (XB2multi > 0) {
+      XB2multi += 1
+      Return
+    }
+    XB2multi := 1
+    SetTimer(XB2multipress,doubleTime)
     Return
-  }
-  XB2multi := 1
-  SetTimer(XB2multipress,doubleTime)
-  Return
   }
 #HotIf
 
@@ -76,8 +80,7 @@ F21::{ ; Doubleclick once, or panic doubleclick loop
 !F17::{ ; panic doubleclick
   global DClick_toggle := False
   global panic := True
-  ToolTip("panic set")
-  SetTimer(RemoveToolTip,-3000)
+  tToolTip("panic set", 3000)
   Return
 }
 

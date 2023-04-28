@@ -55,8 +55,7 @@ DoubleClickLoop() {
     SetTimer(DoubleClickLoop, AMSecClick)
     Return
   }
-  ToolTip("DoubleClick Stopped (" DClick_Count ")")
-  SetTimer(RemoveToolTip, -3000)
+  tToolTip("DoubleClick Stopped (" DClick_Count ")", 3000)
   DClick_Count := 0
   prev_state := False
 }
@@ -70,11 +69,9 @@ SetupWindow() {
   ;x: 16	y: 13	w: 1761	h: 1054
   if (WinGetList("ahk_exe RuneLite.exe").Length > 0) {
     WinMove(16, 13, 1761, 1054, "ahk_exe RuneLite.exe")
-    ToolTip("Runelite window setup")
-    SetTimer(RemoveToolTip, -1000)
+    tToolTip("Runelite window setup", 1000)
   } else {
-    ToolTip("Runelite not found")
-    SetTimer(RemoveToolTip, -1000)
+    tToolTip("Runelite not found", 1000)
   }
 }
 
@@ -100,8 +97,7 @@ pick_spot(bound, row, col) {
   y2 := y1 + row_width
   move_y := Random(y1 + play, y2 - play)
 
-  ToolTip("moving to " . move_x . ", " . move_y . " [" . row . ", " . col . "]")
-  SetTimer(RemoveToolTip,-5000)
+  tToolTip("moving to " . move_x . ", " . move_y . " [" . row . ", " . col . "]", 5000)
 
   WinActivate("ahk_exe RuneLite.exe")
   MouseSpeed := Random(3, 5)

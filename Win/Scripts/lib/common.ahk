@@ -3,11 +3,14 @@
 SetWorkingDir(A_ScriptDir)
 
 ; USAGE:
-; ToolTip, Somemsg
-; SetTimer, RemoveToolTip, -3000
+; tToolTip(Somemsg, 3000)
 RemoveToolTip() {
   ToolTip()
   Return
+}
+tToolTip(msg, time:=500) {
+  ToolTip(msg)
+  SetTimer(RemoveToolTip, -1*time)
 }
 
 updateMouseMoved(&curX, &curY) {

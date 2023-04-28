@@ -3,10 +3,11 @@
 SendMode("Input")
 SetWorkingDir(A_ScriptDir)
 
+#Include "%A_LineFile%\..\lib\common.ahk"
+
 #HotIf WinActive("ahk_exe workspaces.exe") ; Amazon Workspaces
   #!Space::{
     WinActivate("ahk_class Shell_SecondaryTrayWnd")
-    ToolTip("Activated main taskbar")
-    SetTimer(RemoveToolTip,-3000)
+    tToolTip("Activated main taskbar", 3000)
   }
 #HotIf

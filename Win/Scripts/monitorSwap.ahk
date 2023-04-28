@@ -16,8 +16,7 @@ LoadProfiles()
 
 #^Home::{
   LoadProfiles()
-  ToolTip("Reloading monitor profiles. " . ProfilePaths.Length . " found.")
-  SetTimer(RemoveToolTip,-900)
+  tToolTip("Reloading monitor profiles. " . ProfilePaths.Length . " found.", 900)
 }
 
 #^Left::ShiftProfile(-1)
@@ -42,8 +41,7 @@ ShiftProfile(n) {
   maxNum := Profiles.Length
   nextNum := Selected - 1 + n + maxNum
   Selected := Mod(nextNum, maxNum) + 1
-  ToolTip("Loaded " . Selected . " - " . Profiles[Selected])
-  SetTimer(RemoveToolTip, -900)
+  tToolTip("Loaded " . Selected . " - " . Profiles[Selected], 900)
   Run(ProfilePaths[Selected])
 }
 

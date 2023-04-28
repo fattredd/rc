@@ -37,8 +37,7 @@ set_user_online(status) {
 
   ; Echo
   show_status := status ? "online" : "offline"
-  ToolTip("Set status to " show_status)
-  SetTimer(RemoveToolTip, -1000)
+  tToolTip("Set status to " show_status, 1000)
   beepBoop(status, "B3", "B2")
 }
 
