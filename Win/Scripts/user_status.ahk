@@ -18,27 +18,34 @@ SetWorkingDir(A_ScriptDir)
 ;   Web Client > Network > Refresh > filter by `/api` > select `library` > Headers > Authorization
 ;   then store it as pass in the Credential Manager. See ./enc.ahk (CredWrite)
 
-global bin_path := "C:\bin\bin\"
+global discord_bin_path := "C:\bin\bin\"
 
 set_user_online(status) {
+  if ! getConf("user_status")
+    Return
+
   ; Discord (takes a few seconds)
-  discord_console_path := bin_path . "DiscordConsole.exe"
-  if ! FileExist(discord_console_path)
-    grab_discord_console()
-  discord_key := CredRead("AHK_discord")
-  if IsObject(discord_key) {
-    discord_status := status ? "online" : "invisible"
-    while true { ; Because sometimes this fails
-      discord_status := RunWait(discord_console_path . ' -noupdate -t "user ' . discord_key.password . '" -x "status ' . discord_status . '" -x "exit"',, "Hide")
-      if discord_status == 0
-        break
-      Sleep(250)
+  if getConf("discord", "status") {
+    discord_console_path := discord_bin_path . "DiscordConsole.exe"
+    if ! FileExist(discord_console_path)
+      grab_discord_console()
+    discord_key := CredRead("AHK_discord")
+    if IsObject(discord_key) {
+      discord_status := status ? "online" : "invisible"
+      while true { ; Because sometimes this fails
+        discord_status := RunWait(discord_console_path . ' -noupdate -t "user ' . discord_key.password . '" -x "status ' . discord_status . '" -x "exit"',, "Hide")
+        if discord_status == 0
+          break
+        Sleep(250)
+      }
     }
   }
 
   ; Steam
-  steam_status := status ? "online" : "invisible"
-  Run "steam://friends/status/" . steam_status
+  if getConf("steam", "status") {
+    steam_status := status ? "online" : "invisible"
+    Run "steam://friends/status/" . steam_status
+  }
 
   ; Echo
   show_status := status ? "online" : "offline"
@@ -48,5 +55,5 @@ set_user_online(status) {
 
 grab_discord_console() {
   git := Gitter("discordconsole-team/DiscordConsole", "windows")
-  git.extract(bin_path, "64-bit\DiscordConsole.exe")
+  git.extract(discord_bin_path, "64-bit\DiscordConsole.exe")
 }

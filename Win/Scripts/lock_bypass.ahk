@@ -9,7 +9,8 @@
 
 ; The following 3 code lines are auto-executed upon script run, the Return line marks an end to the auto-executed code section.
 OnExit(OnExitSub) ; Register 'OnExitSub' to be executed when this script is terminating
-SetDisableLockWorkstationRegKeyValue(1) ; Disable LockWorkStation, so Windows doesn't intercept Win+L
+if getConf("lock_bypass")
+  SetDisableLockWorkstationRegKeyValue(1) ; Disable LockWorkStation, so Windows doesn't intercept Win+L
 
 #Esc::
 ^!l::{ ; Ctrl-Alt-L

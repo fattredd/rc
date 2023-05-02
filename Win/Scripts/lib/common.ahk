@@ -2,6 +2,8 @@
 #SingleInstance Force
 SetWorkingDir(A_ScriptDir)
 
+#Include "%A_LineFile%\..\..\iniconf.ahk"
+
 ; USAGE:
 ; tToolTip(Somemsg, 3000)
 RemoveToolTip() {
@@ -69,6 +71,9 @@ note_to_freq(music_note) {
 beepBoop(status, freqTrue, freqFalse := 0, freqLen := 200) {
   ; Play a beep to indicate status. Missing freqFalse will result in
   ;  a tone an octave down
+  if ! getConf("enabled", "sounds")
+    Return
+
   beep_tone := status ? freqTrue : freqFalse
   if Type(beep_tone) = "String"
     beep_tone := note_to_freq(beep_tone)
@@ -81,6 +86,9 @@ beep_OdeToJoy() {
 }
 
 beepBoopSeq(freqs, status := 1, freqLen := 100) {
+  if ! getConf("enabled", "sounds")
+    Return
+
   if status = -1
     freqs := RevArray(freqs)
   if status = 0

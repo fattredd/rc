@@ -8,19 +8,33 @@ I_Icon := "Scripts\assets\twister.ico"
 if FileExist(I_Icon)
   TraySetIcon(I_Icon)
 
-#Include "Scripts\audio_ctrl.ahk"
+#Include "Scripts\iniconf.ahk"
+
+; Configurable stuff
+#HotIf getConf("audio")
+  #Include "Scripts\audio_ctrl.ahk"
+#HotIf getConf("macropad")
+  #Include "Scripts\macropad.ahk"
+#HotIf getConf("monitorSwap")
+  #Include "Scripts\monitorSwap.ahk"
+#HotIf getConf("scrot")
+  #Include "Scripts\scrot.ahk"
+#HotIf getConf("capslock")
+  #Include "Scripts\capslock.ahk" ; TODO test
+#HotIf getConf("volume")
+  #Include "Scripts\volume.ahk"
+#HotIf getConf("lock_bypass")
+  #Include "Scripts\lock_bypass.ahk"
+#HotIf getConf("symbols")
+  #Include "Scripts\symbols.ahk"
+#HotIf
+
+; Always on stuff
 #Include "Scripts\osrs.ahk"
-#Include "Scripts\macropad.ahk"
 #Include "Scripts\rs3.ahk" ; TODO test
-;#Include "Scripts\monitorSwap.ahk"
-;#Include "Scripts\scrot.ahk"
-#Include "Scripts\capslock.ahk" ; TODO test
-#Include "Scripts\volume.ahk"
-#Include "Scripts\lock_bypass.ahk"
 #Include "Scripts\calc.ahk"
 #Include "Scripts\framewin.ahk"
 #Include "Scripts\translate.ahk"
-#Include "Scripts\symbols.ahk"
 #Include "Scripts\workspaces_changes.ahk" ; TODO test
 
 ; # -- Win

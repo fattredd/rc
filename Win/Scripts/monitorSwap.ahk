@@ -12,7 +12,9 @@ Global fileExt := ".umprofile"
 Global Profiles := []
 Global ProfilePaths := []
 Global Selected := 1
-LoadProfiles()
+
+if getConf("monitorSwap")
+  LoadProfiles()
 
 #^Home::{
   LoadProfiles()
@@ -31,8 +33,10 @@ LoadProfiles() {
   Loop Files, ProfileFilter {
     fName := SubStr(A_LoopFileName, 1, -StrLen(fileExt))
     fPath := A_LoopFilePath
-    Profiles[Profiles.Length+1] := fName
-    ProfilePaths[ProfilePaths.Length+1] := fPath
+    prof_index := Profiles.Length + 1
+    Profiles[prof_index] := fName
+    path_index := ProfilePaths.Length+1
+    ProfilePaths[path_index] := fPath
     n += 1
   }
 }
@@ -43,12 +47,4 @@ ShiftProfile(n) {
   Selected := Mod(nextNum, maxNum) + 1
   tToolTip("Loaded " . Selected . " - " . Profiles[Selected], 900)
   Run(ProfilePaths[Selected])
-}
-
-OnError(LogError)
-%cause% := error
-
-LogError(exception) {
-    MsgBox("Error on line " exception.Line ": " exception.Message "`n")
-    Return true
 }
