@@ -19,7 +19,8 @@ setupINI() {
       symbols: true,
       scrot: false,
       capslock: false,
-      monitorSwap: false
+      monitorSwap: false,
+      user_status: true
     },
     mic_ctrl: {
       enabled: true
