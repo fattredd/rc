@@ -38,7 +38,11 @@
   purgeclean = !"git reflog expire --expire=now --all && git gc --prune=now --aggressive"
   bfg = !"git-bfg-repo"
   fire = !"git-fire"
-	userstat =  !"git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"add: %s\\nrem: %s\\nall: %s\\n\", add, subs, loc }' #"
+	contrib = shortlog -sne
+  contribu = !"git shortlog -sne | awk '{ sub(/^\\s*\\S+\\s*/,\"\") } { sub(/\\s*\\S+$/,\"\") }1' | sort | uniq"
+  contribe = !"git shortlog -sne | awk '{ print $(NF) }' | sort | uniq"
+  userstat =  !"git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; net += $1 - $2; gross += $1 + $2} END { printf \"  add: %s\\n  rem: %s\\n  net: %s\\n  grs: %s\\n\", add, subs, net, gross }' #"
+  allstats = !"git contribu | (mapfile -t; i=0; while [ $i -lt ${#MAPFILE[@]} ]; do echo ${MAPFILE[$i]}; git userstat \"${MAPFILE[$i]}\"; ((i++)); done)"
 [filter "password"]
 # Smudge is on checkout
   smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
