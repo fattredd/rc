@@ -38,6 +38,7 @@
   purgeclean = !"git reflog expire --expire=now --all && git gc --prune=now --aggressive"
   bfg = !"git-bfg-repo"
   fire = !"git-fire"
+	userstat =  !"git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"add: %s\\nrem: %s\\nall: %s\\n\", add, subs, loc }' #"
 [filter "password"]
 # Smudge is on checkout
   smudge = sed -e 's/@superSecretPassword@/@superSecretPassword@/'
