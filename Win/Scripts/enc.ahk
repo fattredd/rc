@@ -100,7 +100,7 @@ sendPass(key) {
   cred_key := "AHK_" . key
   if (creds := CredRead(cred_key)) {
     tToolTip("Pasting " cred_key " pass for " creds.username, 3000)
-    Send(creds.password)
+    SendText(creds.password)
   } else {
     tToolTip("No stored pass for " key ". Ctrl+Alt+c to create", 3000)
   }

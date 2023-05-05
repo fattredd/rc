@@ -8,8 +8,6 @@ SetWorkingDir(A_ScriptDir)
 ; Map these only in Runelite
 global doubleTime := -250
 global DClick_toggle := False
-global XB1multi := 0
-global XB2multi := 0
 
 #HotIf WinActive("ahk_class SunAwtFrame") ; Runelite
 	WheelLeft:: {
@@ -21,46 +19,46 @@ global XB2multi := 0
     Return
   }
   XButton1:: {
-    global XB1multi
-    if (XB1multi > 0) {
-      XB1multi += 1
+    static XBmulti := 0
+    if (XBmulti > 0) {
+      XBmulti += 1
       Return
     }
-    XB1multi := 1
-    SetTimer(XB1multipress,doubleTime)
+    XBmulti := 1
+    SetTimer(XBmultipress,doubleTime)
+
+    XBmultipress() {
+      if (XBmulti = 1) {
+        Send(3)
+      } else if (XBmulti = 2) {
+        Send(6)
+      }
+      XBmulti := 0
+      Return
+    }
     Return
   }
   XButton2:: {
-    global XB1multi
-    if (XB2multi > 0) {
-      XB2multi += 1
+    static XBmulti := 0
+    if (XBmulti > 0) {
+      XBmulti += 1
       Return
     }
-    XB2multi := 1
-    SetTimer(XB2multipress,doubleTime)
+    XBmulti := 1
+    SetTimer(XBmultipress,doubleTime)
+
+    XBmultipress() {
+      if (XBmulti = 1) {
+        Send(1)
+      } else if (XBmulti = 2) {
+        Send(5)
+      }
+      XBmulti := 0
+      Return
+    }
     Return
   }
 #HotIf
-
-XB1multipress() {
-  if (XB1multi = 1) {
-    Send(3)
-  } else if (XB1multi = 2) {
-    Send(6)
-  }
-  XB1multi := 0
-  Return
-}
-
-XB2multipress() {
-  if (XB2multi = 1) {
-    Send(1)
-  } else if (XB2multi = 2) {
-    Send(5)
-  }
-  XB2multi := 0
-  Return
-}
 
 F21::{ ; Doubleclick once, or panic doubleclick loop
   If DClick_toggle { ; Panic to stop DClick
