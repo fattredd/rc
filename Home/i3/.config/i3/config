@@ -14,6 +14,7 @@ set $terminal i3-sensible-terminal
 set $browser firefox
 set $folder caja
 set $code code
+set $scrot_cmd xwd -root | convert xwd:- ~/Pictures/`date -u +%Y.%m.%d_%H.%M.%S.png`
 
 set $ws_1 "1:1"
 set $ws_2 "2:2"
@@ -53,9 +54,11 @@ default_orientation auto
 
 # Newer format
 # title_align center
-for_window [class="^.*"] border pixel 2
-gaps inner 3
+for_window [class="^.*"] border pixel 1
+gaps inner 2
 gaps outer 5
+smart_gaps off
+
 
 # Start i3bar to display a workspace bar
 bar {
@@ -242,7 +245,7 @@ bindsym $mod+XF86AudioRaiseVolume    exec --no-startup-id playerctl next
 #
 # Scrot
 #
-bindsym $mod+Print exec --no-startup-id xwd -root | convert xwd:- ~/Pictures/`date -u +%Y.%m.%d_%H.%M.%S.png`
+bindsym $mod+Print exec --no-startup-id $scrot_cmd
 
 #
 # Window preplacement
@@ -250,7 +253,7 @@ bindsym $mod+Print exec --no-startup-id xwd -root | convert xwd:- ~/Pictures/`da
 # exec --no-startup-id $terminal -c __scratchpad
 for_window [class="__scratchpad"] move scratchpad, move position 150 150, resize set 1700 800;
 exec --no-startup-id i3-msg "workspace $WS_1; exec $terminal"
-exec --no-startup-id i3-msg "workspace $WS_0; exec slack; exec firefox"
+exec --no-startup-id i3-msg "workspace $WS_0; exec firefox"
 
 # Use feh for background, but only if availible
 exec --no-startup-id "command -v feh &>/dev/null && [ -f ~/.fehbg ] && ~/.fehbg"
