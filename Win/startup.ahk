@@ -105,6 +105,8 @@ NumpadDiv::^#F1
 ; Feed Ctrl+Backspace correctly to file explorer and notepad
 #HotIf WinActive("ahk_class CabinetWClass") ; File Explorer
 	^Backspace::Return
-#HotIf WinActive("ahk_class Notepad")
+#HotIf WinActive("ahk_exe notepad.exe")
 	^Backspace::Send "^+{Left}{Backspace}"
+#HotIf WinActive("ahk_exe 7zFM.exe")
+  Esc::Send("{AltDown}{F4}{AltUp}")
 #HotIf
