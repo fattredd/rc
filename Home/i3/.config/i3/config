@@ -54,8 +54,8 @@ default_orientation auto
 # Newer format
 # title_align center
 for_window [class="^.*"] border pixel 2
-#gaps inner 3
-#gaps outer 5
+gaps inner 3
+gaps outer 5
 
 # Start i3bar to display a workspace bar
 bar {
@@ -192,7 +192,7 @@ floating_modifier $mod
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym j resize shrink width 10 px or 10 pt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
@@ -240,9 +240,14 @@ bindsym $mod+XF86AudioLowerVolume    exec --no-startup-id playerctl previous
 bindsym $mod+XF86AudioRaiseVolume    exec --no-startup-id playerctl next
 
 #
+# Scrot
+#
+bindsym $mod+Print exec --no-startup-id xwd -root | convert xwd:- ~/Pictures/`date -u +%Y.%m.%d_%H.%M.%S.png`
+
+#
 # Window preplacement
 #
-exec --no-startup-id $terminal -c __scratchpad
+# exec --no-startup-id $terminal -c __scratchpad
 for_window [class="__scratchpad"] move scratchpad, move position 150 150, resize set 1700 800;
 exec --no-startup-id i3-msg "workspace $WS_1; exec $terminal"
 exec --no-startup-id i3-msg "workspace $WS_0; exec slack; exec firefox"
@@ -256,6 +261,9 @@ exec --no-startup-id "command -v feh &>/dev/null && [ -f ~/.fehbg ] && ~/.fehbg"
 #
 for_window [title="File Transfer*"] floating enable
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+# For the following:
+# Used xwininfo to find: 0x2800006 "x-caja-desktop"
+for_window [id="0x2800006"] move scratchpad, move position 150 150;
 #for_window [class="Spotify"] floating enable
 for_window [class="Transmission"] floating enable
 for_window [class="Lxappearance"] floating enable

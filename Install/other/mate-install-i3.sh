@@ -2,6 +2,10 @@
 
 # Setup i3-wm to work inside Mate-DE
 
+# Keep as reference, but it's better to just build i3 v4.22 manually.
+# Just less of a headache
+exit 1
+
 pkgmgr="yum"
 
 sudo ${pkgmgr} -y install i3 xorg-x11-utils dconf-editor
@@ -9,11 +13,11 @@ sudo pip3 install i3-cycle
 
 # Not all of this is relevant, but
 # https://mattgreer.dev/blog/mate-and-i3/
-# 
+#
 # Basically says use dconf-editor to:
 #   `org > mate > desktop > session > required-components`
 #     `windowmanager` change `marco` to `i3`
-#     `panel` change `mate-panel` to `` 
+#     `panel` change `mate-panel` to ``
 #
 #   `org > mate > desktop > session`
 #     `required-components-list` remove `filemanager` and `panel`
